@@ -1,0 +1,23 @@
+.entrada
+{
+	height: 35px;
+	border-top: 0;
+	border-left:0;
+	border-right:0;
+	font-size:24;
+	border-bottom-color: #ADD8E6;
+}
+.obrigatorio
+{
+	color: red;
+	font-size:20px;
+}
+.formulario
+{
+	font-size:29;
+}
+.ocultos
+{
+	color: red;
+	visibility:hidden;
+}
