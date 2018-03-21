@@ -8,7 +8,7 @@ function create($aluno_curso){
     $sql = "";
     $con = open_connection();
     if($con != null){
-        $sql = "INSERT INTO aluno_curso VALUES (
+        $sql = "INSERT INTO aluno_curso VALUES(
         '".$aluno_curso->fk_aluno_cpf."', 
         '".$aluno_curso->fk_curso_id."', 
         '".$aluno_curso->fk_instituicao_id."',
@@ -19,9 +19,8 @@ function create($aluno_curso){
         }else{
 
         }
-
-        close_connection($con);
     }
+    close_connection($con);
 }
 function read(){
     $sql = "";
@@ -48,6 +47,12 @@ function delete($aluno_curso){
         fk_curso_id='".$aluno_curso->fk_curso_id."' and
         fk_instituicao_id='".$aluno_curso->fk_instituicao_id."'
         ";
+
+        if($con->query($sql) === TRUE){
+
+        }else{
+
+        }
     }
     close_connection($con);
 }
