@@ -1,6 +1,7 @@
 <?php 
 
 include("../conexao.php");
+include("../bean/curso.php");
 
 function create($curso){
     $sql = "";

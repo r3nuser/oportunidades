@@ -1,6 +1,7 @@
 <?php 
 
 include("../conexao.php");
+include("../bean/instituicao.php");
 
 function create($instituicao){
     $sql = "";
