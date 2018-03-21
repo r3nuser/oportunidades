@@ -1,12 +1,12 @@
 <?php
-
+//include("conexao.php");
 $host = "localhost";
 $user = "root";
 $password = "root";
 $db = "oportunidades";
 
 
-function open_database(){
+function open_connection(){
 	try {
 		$con = new mysqli($host,$user,$password,$db);
 		return $con;
@@ -16,9 +16,9 @@ function open_database(){
 	}
 }
 
-function close_database($conn) {
+function close_connection($conn) {
 	try{
-		mysqli_close($con);
+		mysqli->close($con);
 	}catch(Exception $e){
 		echo $e->getMessage();
 	}
