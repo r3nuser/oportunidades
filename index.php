@@ -72,7 +72,7 @@
 			</br>
 			
 			<!--Campo Rua-->
-			
+		
 			<label class="formulario">Rua:<font color="red">*</font></label><br>
 			<input class="entrada" type="text" onblur="return validarRua()" value="" name="rua" id="rua">
 			<p class="ocultos" id="ruaI">O campo <i>Rua</i> é obrigatório</p>
@@ -94,10 +94,42 @@
 			<p class="ocultos" id="cidadeI">O campo <i>Cidade</i> é obrigatório</p>
 			
 			<br>
-					
+			
+			<label class="formulario">Cursos:<font color="red">*</font></label> <br>
+			<p class="ocultos" id="cursoI">escolha um dos cursos abaixo</p>
+			<div>
+				<input onclick="ecolheCurso()" type="radio" name="escolha" value="Auxiliar de pequenos negócios"/>Auxiliar de pequenos negócios</br>
+				<input onclick="ecolheCurso()" type="radio" name="escolha" value="Auxiliar de Departamento pessoal"/>Auxiliar de Departamento pessoal</br>
+				<input onclick="ecolheCurso()" type="radio" name="escolha" value="Balconista de Farmácia"/>Balconista de Farmácia</br>
+				<input onclick="ecolheCurso()" type="radio" name="escolha" value="Berçarista"/>Berçarista</br>
+				<input onclick="ecolheCurso()" type="radio" name="escolha" value="Como Organizar seu Evento"/>Como Organizar seu Evento</br>
+				<input onclick="ecolheCurso()" type="radio" name="escolha" value="Cuidador Infantil"/>Cuidador Infantil</br>
+				<input onclick="ecolheCurso()" type="radio" name="escolha" value="Excel Avançado"/>Excel Avançado</br>
+				<input onclick="ecolheCurso()" type="radio" name="escolha" value="Gestão de Rotinas Administrativas"/>Gestão de Rotinas Administrativas</br>
+				<input onclick="ecolheCurso()" type="radio" name="escolha" value="Gestão Financeiras de Empresa pequena e Médias Empresas"/>Gestão Financeiras de Empresa pequena e Médias Empresas</br>
+				<input onclick="ecolheCurso()" type="radio" name="escolha" value="Informática Básica"/>Informática Básica        </br>
+				<input onclick="ecolheCurso()" type="radio" name="escolha" value="Informática para Concursos"/>Informática para Concursos</br>
+				<input onclick="ecolheCurso()" type="radio" name="escolha" value="Informática para Educadres"/>Informática para Educadres</br>
+				<input onclick="ecolheCurso()" type="radio" name="escolha" value="Informática Avançada"/>Informática Avançada      </br>
+				<input onclick="ecolheCurso()" type="radio" name="escolha" value="Inglês Básico"/>Inglês Básico</br>
+				<input onclick="ecolheCurso()" type="radio" name="escolha" value="Introdução à Nova Legislação Trabalhista"/>Introdução à Nova Legislação Trabalhista</br>		
+				<input onclick="ecolheCurso()" type="radio" name="escolha" value="Logística"/>Logística</br>
+				<input onclick="ecolheCurso()" type="radio" name="escolha" value="Operador de Caixa"/>Operador de Caixa</br>
+				<input onclick="ecolheCurso()" type="radio" name="escolha" value="Rede de Computadores"/>Rede de Computadores</br>
+				<input onclick="ecolheCurso()" type="radio" name="escolha" value="Secretaria Escolar"/>Secretaria Escolar</br>		
+				<input onclick="ecolheCurso()" type="radio" name="escolha" value="Segurança na Internet"/>Segurança na Internet</br>
+				</br>
+				<label class="formulario">Curso escolhido:</label></br>
+				<input class="entrada" id="curso" type="text" size="52" disabled>
+
+				
+			</div>
+				
+				<input class="entrada" type="text" onfocus=" return validaCurso()">
+			
+
 		</form>
-		<input type="submit" value="Enviar" onclick="return validarAPorraToda()"/>
+		<input type="submit" value="Enviar" onclick="return validarTudo()"/>
 	</div>
-	
-<body>
+</body>
 </html>

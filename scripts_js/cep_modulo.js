@@ -10,6 +10,7 @@ function my_callback(content){
 		document.getElementById("rua").value=(content.logradouro);
 		document.getElementById("bairro").value=(content.bairro);
 		document.getElementById("cidade").value=(content.localidade);
+		document.getElementById("cepI").style.visibility = "hidden";
 		return true;
 	}else{
 		clear_data();
@@ -36,6 +37,7 @@ function search_cep(value){
 			var script = document.createElement("script");
 			script.src= "https://viacep.com.br/ws/"+cep+"/json/?callback=my_callback";
 			document.body.appendChild(script);
+			document.getElementById("cepI").style.visibility = "hidden";
 			return true;
 		}else{
 			//INVALID CEP
@@ -310,7 +312,7 @@ function validarCidade()
 }
 
 
-function validarAPorraToda()
+function validarTudo()
 {
 	var nome = validarNome();
 	var Telefone = validarTelefone();
@@ -322,9 +324,9 @@ function validarAPorraToda()
 	var bairro = validarBairro();
 	var cidade = validarCidade();
 	var cep = search_cep("Cadastro.cep");
-	
+	var curso = validaCurso();
 
-	if(cpf== false || email==false || nome ==false || Telefone ==false || Celular ==false || Data ==false ||cidade ==false || bairro ==false || rua ==false || cep == false)
+	if(curso == false || cpf== false || email==false || nome ==false || Telefone ==false || Celular ==false || Data ==false ||cidade ==false || bairro ==false || rua ==false || cep == false)
 	{
 		alert("preencha os campos obrigatórios corretamente");
 		return false;
@@ -409,3 +411,35 @@ function mData(data)
 	data=data.replace(/(\d{2})(\d)/,"$1/$2")
 	return data
 }
+
+function ecolheCurso()
+{
+	var escolha = document.forms[0];
+	var i=0;
+	var valor="";
+
+	for (i = 0; i < escolha.length; i++) 
+	{
+		if(escolha[i].checked)
+		{
+			valor = valor + escolha[i].value +"";
+			
+		}
+	}
+	document.getElementById("curso").value= valor;
+}
+function validaCurso()
+{
+	var cur = document.getElementById("curso").value;
+ if(cur=="")
+ {	
+
+ 	document.getElementById("cursoI").style.visibility="visible";
+ 	return false;
+ }
+ else
+ {	
+ 	document.getElementById("cursoI").style.visibility="hidden";
+ 	return true;
+ }
+} 

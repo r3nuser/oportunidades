@@ -19,6 +19,7 @@ CREATE TABLE aluno_curso(
 
 CREATE TABLE curso(
 	curso_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	nome VARCHAR(255),
 	inicio_curso DATE NOT NULL,
 	fim_curso DATE
 );
