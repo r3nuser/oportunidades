@@ -47,12 +47,7 @@ function search_cep(value){
 			return false;
 		}
 	}
-	else{
-		clear_data();
-		document.getElementById("cepI").style.visibility = "visible";
-		Cadastro.cep.focus();
-		return false;
-	}
+	
 }
 
 
@@ -63,7 +58,7 @@ function validarNome()
 {
 	var nome= Cadastro.nome.value;
 
-	if(nome =="")
+	if(nome =="" || nome.length<14)
 	{
 		Cadastro.nome.focus();
 		document.getElementById("nomeIncorreto").style.visibility = "visible";
@@ -325,8 +320,9 @@ function validarTudo()
 	var cidade = validarCidade();
 	var cep = search_cep("Cadastro.cep");
 	var curso = validaCurso();
+	var trabalho = seleciona();
 
-	if(curso == false || cpf== false || email==false || nome ==false || Telefone ==false || Celular ==false || Data ==false ||cidade ==false || bairro ==false || rua ==false || cep == false)
+	if(trabalho == false || curso == false || cpf== false || email==false || nome ==false || Telefone ==false || Celular ==false || Data ==false ||cidade ==false || bairro ==false || rua ==false || cep == false)
 	{
 		alert("preencha os campos obrigatórios corretamente");
 		return false;
@@ -435,6 +431,7 @@ function validaCurso()
  {	
 
  	document.getElementById("cursoI").style.visibility="visible";
+
  	return false;
  }
  else
@@ -443,3 +440,32 @@ function validaCurso()
  	return true;
  }
 } 
+
+function seleciona()
+{
+	var selecao = document.getElementById("selecao");
+	if(selecao.selectedIndex==0)
+	{
+		document.getElementById("trabalho").style.visibility = "visible";
+		document.getElementById("selecao").focus();
+		return false;
+	}
+	else
+	{
+		document.getElementById("trabalho").style.visibility = "hidden";
+		return true;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

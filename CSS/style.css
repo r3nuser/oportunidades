@@ -4,20 +4,29 @@
 	border-top: 0;
 	border-left:0;
 	border-right:0;
-	font-size:24;
+	font-size:14;
 	border-bottom-color: #ADD8E6;
 }
 .obrigatorio
 {
 	color: red;
-	font-size:20px;
+	
 }
 .formulario
 {
-	font-size:29;
+	font-size:14;
 }
 .ocultos
 {
 	color: red;
 	visibility:hidden;
+}
+.separador
+{
+	background-color:SkyBlue;
+	font-size: 25;
+}
+.font14
+{
+	font-size: 14;
 }
