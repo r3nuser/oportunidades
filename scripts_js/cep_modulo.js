@@ -321,8 +321,9 @@ function validarTudo()
 	var cep = search_cep("Cadastro.cep");
 	var curso = validaCurso();
 	var trabalho = seleciona();
+	var expectativa = selecionaExpec();
 
-	if(trabalho == false || curso == false || cpf== false || email==false || nome ==false || Telefone ==false || Celular ==false || Data ==false ||cidade ==false || bairro ==false || rua ==false || cep == false)
+	if(expectativa == false || trabalho == false || curso == false || cpf== false || email==false || nome ==false || Telefone ==false || Celular ==false || Data ==false ||cidade ==false || bairro ==false || rua ==false || cep == false)
 	{
 		alert("preencha os campos obrigatórios corretamente");
 		return false;
@@ -457,8 +458,38 @@ function seleciona()
 	}
 
 }
+function selecionaExpec()
+{
+	var selecao = document.getElementById("selecao2");
+	if(selecao.selectedIndex==0)
+	{
+		document.getElementById("trabalho2").style.visibility = "visible";
+		document.getElementById("selecao2").focus();
+		return false;
+	}
+	else
+	{
+		document.getElementById("trabalho2").style.visibility = "hidden";
+		return true;
+	}
+}
 
-
+function selecionaOutra()
+{	
+	var selecao = document.getElementById("selecao2");
+	
+	if (selecao.selectedIndex==4) 
+	{
+		document.getElementById("texto").style.visibility = "visible";
+		document.getElementById("texto").focus();
+		return false;
+	}
+	else
+	{
+		document.getElementById("texto").style.visibility = "hidden";
+		return true;
+	}
+}
 
 
 

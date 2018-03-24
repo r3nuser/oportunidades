@@ -132,17 +132,33 @@
 				
 				</br>
 
-				<p class="separador">Informações Socioeconomicas</p>
+				<p class="separador">Informações Socioeconômicas</p>
 
-				<label>Você está trabalhando atualmente?</label><font color="red">*</font>
+				<label class="formulario">Você está trabalhando atualmente?</label><font color="red">*</font>
 					</br>
 					<select class="entrada" id="selecao" onfocus=" return validaCurso()" onblur="return seleciona()">
-						<option class="14">selecionar</option>
-						<option class="14">sim</option>
-						<option class="14">não</option>
+						<option class="font14">Selecionar</option>
+						<option class="font14">Sim</option>
+						<option class="font14">Não</option>
 					</select>
 				<p id="trabalho" class="ocultos">Selecione uma das opções</p>
 			
+				<label class="formulario">Qual a sua expectativa sobre o curso?</label><font color="red">*</font>
+					</br>
+					<select onclick="return selecionaOutra()" onblur="return selecionaExpec()" class="entrada" id="selecao2" >
+						<option class="font14">selecionar</option>
+						<option class="font14">Conseguir um emprego</option>
+						<option class="font14">Agregar conhecimento</option>
+						<option class="font14">Gerara renda com um empreendimento próprio</option>
+						<option class="font14">Outra</option>
+					</select>
+					<br>
+					<p id="trabalho2" class="ocultos">Selecione uma das opções</p>
+					<br>
+					
+					<p class="ocultos" id="texto"><label class="formulario"><font color="black">Qual?</font></label><textarea cols="20" rows="5" class="area"></textarea></p>
+					
+					
 
 		</form>
 		<br>
