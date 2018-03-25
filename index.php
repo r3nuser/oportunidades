@@ -22,6 +22,7 @@
 			<label class="formulario">Nome Completo: <font color="red">*</font></label></br>
 			<input class="entrada" type="text" name="nome" id="nome" size="30" onblur="return validarNome()"/>
 			<p class="ocultos" id="nomeIncorreto">Informe seu nome completo</p>
+			<!-- search_cep(this.value) -->
 			
 			</br>
 			
@@ -156,7 +157,13 @@
 					<p id="trabalho2" class="ocultos">Selecione uma das opções</p>
 					<br>
 					
-					<p class="ocultos" id="texto"><label class="formulario"><font color="black">Qual?</font></label><textarea cols="20" rows="5" class="area"></textarea></p>
+					<p name="p"class="ocultos" id="texto">
+						<label class="formulario">
+							<font color="black"> Qual? </font>
+						</label>
+						<textarea id="qual" onblur="OutraIsselected()" value="" cols="20" rows="5" class="area"></textarea>
+						<p id="expectativa" class="ocultos">Informe sua expectativa com o curso</p>
+					</p>
 					
 					
 
