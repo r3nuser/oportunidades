@@ -74,7 +74,7 @@
 			<!--Campo CEP-->
 			
 			<label class="formulario">CEP:<font color="red">*</font></label><br>
-			<input class="entrada" name="cep" type="text" value="" onkeydown="javascript: fMasc( this, mCEP );"  maxlength="10" onblur="return search_cep(this.value);"/> 
+			<input class="entrada" id="CEP" type="text" value="" onkeydown="javascript: fMasc( this, mCEP );"  maxlength="10" onblur="return search_cep(this.value);"/> 
 			<p class="ocultos" id="cepI">Infome um CEP válido</p>
 			
 			</br>
@@ -103,8 +103,8 @@
 			
 			<br>
 			
-			<p class="separador">Cursos</p> <br>
-			<label class="formulario">O candidato opta pelo curso de:</label> <input class="entrada" id="curso" type="text" size="52" disabled><font color="red">*</font></br>
+			<p class="separador">Cursos</p> </br>
+			<label class="formulario">O candidato opta pelo curso de:</label> <input class="entrada" id="curso" type="text" size="52" disabled/><font color="red">*</font></br>
 			<p class="ocultos" id="cursoI">escolha um dos cursos abaixo</p>
 			
 			<form>
@@ -161,11 +161,32 @@
 						<label class="formulario">
 							<font color="black"> Qual? </font>
 						</label>
-						<textarea id="qual" onblur="OutraIsselected()" value="" cols="20" rows="5" class="area"></textarea>
+						<textarea id="qual" onblur="return OutraIsselected()" value="" cols="20" rows="5" class="area"></textarea>
 						<p id="expectativa" class="ocultos">Informe sua expectativa com o curso</p>
 					</p>
 					
+					<label class="formulario">Como você ficou sabendo dos cursos presenciais do projeto oportunidades?</label>
+						</br>
+						<select onclick="return selecionaOutro()" onblur="selecionaConhece()"class="entrada" id="selecao3" >
+							<option class="font14">selecionar</option>
+							<option class="font14">Divulgação na TV</option>
+							<option class="font14">Noticiários em Jornais</option>
+							<option class="font14">Internet</option>
+							<option class="font14">Por meio de amigos</option>
+							<option class="font14">Outros</option>
+						</select>
+						<br>
+						<p id="conheceu" class="ocultos">Selecione uma das opções</p>
+						<br>
+
 					
+					<p class="ocultos" id="texto2">
+						<label class="formulario">
+							<font color="black"> Qual? </font>
+						</label>							
+						<textarea id="qual2" onblur="return outroSelecionado()" value="" cols="20" rows="5" class="area"></textarea>
+						<p id="soube" class="ocultos">Informe como conheceu o curso</p>
+					</p>
 
 		</form>
 		<br>
