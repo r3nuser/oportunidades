@@ -10,6 +10,12 @@ function my_callback(content){
 		document.getElementById("rua").value=(content.logradouro);
 		document.getElementById("bairro").value=(content.bairro);
 		document.getElementById("cidade").value=(content.localidade);
+		document.getElementById("cepI").style.visibility = "hidden";
+		document.getElementById("ruaI").style.visibility="hidden";	
+		document.getElementById("bairroI").style.visibility="hidden";
+		document.getElementById("cidadeI").style.visibility="hidden";
+
+
 		return true;
 	}else{
 		clear_data();
@@ -36,32 +42,36 @@ function search_cep(value){
 			var script = document.createElement("script");
 			script.src= "https://viacep.com.br/ws/"+cep+"/json/?callback=my_callback";
 			document.body.appendChild(script);
+			document.getElementById("cepI").style.visibility = "hidden";
 			return true;
 		}else{
 			//INVALID CEP
-			clear_data();
+			
 			document.getElementById("cepI").style.visibility = "visible";
-			Cadastro.cep.focus();
+			document.getElementById("CEP").focus();
+			clear_data();
 			return false;
 		}
 	}
-	else{
-		clear_data();
+	else
+	{
 		document.getElementById("cepI").style.visibility = "visible";
-		Cadastro.cep.focus();
+		document.getElementById("CEP").focus();
 		return false;
 	}
+	
 }
 
 
 //Fazendo a verificação se os campos estão vazios
 
 
+
 function validarNome()
 {
 	var nome= Cadastro.nome.value;
 
-	if(nome =="")
+	if(nome =="" || nome.length<14)
 	{
 		Cadastro.nome.focus();
 		document.getElementById("nomeIncorreto").style.visibility = "visible";
@@ -310,7 +320,7 @@ function validarCidade()
 }
 
 
-function validarAPorraToda()
+function validarTudo()
 {
 	var nome = validarNome();
 	var Telefone = validarTelefone();
@@ -322,9 +332,14 @@ function validarAPorraToda()
 	var bairro = validarBairro();
 	var cidade = validarCidade();
 	var cep = search_cep("Cadastro.cep");
-	
+	var curso = validaCurso();
+	var trabalho = seleciona();
+	var expectativa = selecionaExpec();
+	var outra = OutraIsselected();
+	var conheceu = selecionaConhece();
+	var	outro = outroSelecionado();
 
-	if(cpf== false || email==false || nome ==false || Telefone ==false || Celular ==false || Data ==false ||cidade ==false || bairro ==false || rua ==false || cep == false)
+	if(conheceu==false||outro==false || outra==false || expectativa == false || trabalho == false || curso == false || cpf== false || email==false || nome ==false || Telefone ==false || Celular ==false || Data ==false ||cidade ==false || bairro ==false || rua ==false || cep == false)
 	{
 		alert("preencha os campos obrigatórios corretamente");
 		return false;
@@ -409,3 +424,182 @@ function mData(data)
 	data=data.replace(/(\d{2})(\d)/,"$1/$2")
 	return data
 }
+
+function ecolheCurso()
+{
+	var escolha = document.forms[0];
+	var i=0;
+	var valor="";
+
+	for (i = 0; i < escolha.length; i++) 
+	{
+		if(escolha[i].checked)
+		{
+			valor = valor + escolha[i].value +"";
+			
+		}
+	}
+	document.getElementById("curso").value= valor;
+}
+function validaCurso()
+{
+	var cur = document.getElementById("curso").value;
+ if(cur=="")
+ {	
+
+ 	document.getElementById("cursoI").style.visibility="visible";
+
+ 	return false;
+ }
+ else
+ {	
+ 	document.getElementById("cursoI").style.visibility="hidden";
+ 	return true;
+ }
+} 
+
+function seleciona()
+{
+	var selecao = document.getElementById("selecao");
+	if(selecao.selectedIndex==0)
+	{
+		document.getElementById("trabalho").style.visibility = "visible";
+		document.getElementById("selecao").focus();
+		return false;
+	}
+	else
+	{
+		document.getElementById("trabalho").style.visibility = "hidden";
+		return true;
+	}
+
+}
+function selecionaExpec()
+{
+	var selecao = document.getElementById("selecao2");
+	if(selecao.selectedIndex==0)
+	{
+		document.getElementById("trabalho2").style.visibility = "visible";
+		document.getElementById("selecao2").focus();
+		return false;
+	}
+	else
+	{
+		document.getElementById("trabalho2").style.visibility = "hidden";
+		return true;
+	}
+}
+
+function selecionaConhece()
+{
+	var selecao = document.getElementById("selecao3");
+	if(selecao.selectedIndex==0)
+	{
+		document.getElementById("conheceu").style.visibility = "visible";
+		document.getElementById("selecao3").focus();
+		return false;
+	}
+	else
+	{
+		document.getElementById("conheceu").style.visibility = "hidden";
+		return true;
+	}
+}
+
+
+
+function selecionaOutra()
+{	
+	var selecao = document.getElementById("selecao2");
+	
+	if (selecao.selectedIndex==4) 
+	{
+		document.getElementById("texto").style.visibility = "visible";
+		document.getElementById("texto").focus();
+		
+		return false;
+	}
+	else
+	{
+		document.getElementById("texto").style.visibility = "hidden";
+		document.getElementById("expectativa").style.visibility = "hidden";
+		return true;
+	}
+}
+
+function selecionaOutro()
+{	
+	var selecao = document.getElementById("selecao3");
+	
+	if (selecao.selectedIndex==5) 
+	{
+		document.getElementById("texto2").style.visibility = "visible";
+		document.getElementById("texto2").focus();
+		
+		return false;
+	}
+	else
+	{
+		document.getElementById("texto2").style.visibility = "hidden";
+		document.getElementById("soube").style.visibility = "hidden";
+		return true;
+	}
+}
+
+function OutraIsselected()
+{
+	var selecao = document.getElementById("selecao2");
+	
+
+	if (selecao.selectedIndex==4) 
+	{
+		var valor = document.getElementById("qual").value;
+	
+		if (valor=="") 
+		{
+			document.getElementById("qual").focus();
+			document.getElementById("expectativa").style.visibility="visible";
+			return false;
+		}
+		else
+		{
+			document.getElementById("expectativa").style.visibility="hidden";
+			return true;	
+		}
+	}
+	else
+	{
+		return true;
+	}
+}
+
+function outroSelecionado()
+{
+	var selecionou = document.getElementById("selecao3");
+	if (selecionou.selectedIndex==5) 
+		{
+			var valor2 = document.getElementById("qual2").value;
+		
+			if (valor2=="") 
+			{
+				document.getElementById("qual2").focus();
+				document.getElementById("soube").style.visibility="visible";
+				return false;
+			}
+			else
+			{
+				document.getElementById("soube").style.visibility="hidden";
+				return true;	
+			}
+		}
+		else
+		{
+			return true;
+		}
+}
+
+
+
+
+
+
