@@ -16,12 +16,11 @@ function my_callback(content){
 		document.getElementById("cidadeI").style.visibility="hidden";
 
 
-		return true;
+		
 	}else{
 		clear_data();
 		alert("CEP não encontrado !");
-		document.getElementById("cepI").style.visibility = "visible";
-		return false;
+		
 	}
 }
 // SEARCHING CEP USING ViaCEP
@@ -42,23 +41,16 @@ function search_cep(value){
 			var script = document.createElement("script");
 			script.src= "https://viacep.com.br/ws/"+cep+"/json/?callback=my_callback";
 			document.body.appendChild(script);
-			document.getElementById("cepI").style.visibility = "hidden";
-			return true;
+			
 		}else{
 			//INVALID CEP
 			
-			document.getElementById("cepI").style.visibility = "visible";
-			document.getElementById("CEP").focus();
+			
 			clear_data();
-			return false;
+			
 		}
 	}
-	else
-	{
-		document.getElementById("cepI").style.visibility = "visible";
-		document.getElementById("CEP").focus();
-		return false;
-	}
+	
 	
 }
 
@@ -331,7 +323,7 @@ function validarTudo()
 	var rua = validarRua();
 	var bairro = validarBairro();
 	var cidade = validarCidade();
-	var cep = search_cep("Cadastro.cep");
+	
 	var curso = validaCurso();
 	var trabalho = seleciona();
 	var expectativa = selecionaExpec();
@@ -339,7 +331,7 @@ function validarTudo()
 	var conheceu = selecionaConhece();
 	var	outro = outroSelecionado();
 
-	if(conheceu==false||outro==false || outra==false || expectativa == false || trabalho == false || curso == false || cpf== false || email==false || nome ==false || Telefone ==false || Celular ==false || Data ==false ||cidade ==false || bairro ==false || rua ==false || cep == false)
+	if(conheceu==false||outro==false || outra==false || expectativa == false || trabalho == false || curso == false || cpf== false || email==false || nome ==false || Telefone ==false || Celular ==false || Data ==false ||cidade ==false || bairro ==false || rua ==false)
 	{
 		alert("preencha os campos obrigatórios corretamente");
 		return false;

@@ -18,7 +18,7 @@ function open_connection(){
 
 function close_connection($conn) {
 	try{
-		mysqli->close($con);
+		mysqli_close($con);
 	}catch(Exception $e){
 		echo $e->getMessage();
 	}

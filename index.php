@@ -8,21 +8,23 @@
 </head>
 <body>
 	<div>
-		<form name="Cadastro" action="cadastrar.php" method="POST">
+		<form name="Cadastro" action="ValidarComPHP.php" method="POST">
 			
 			
 			
 			<!--Aviso a respeito da obrigatoriedade dos campos-->
 			
 			<p class="obrigatorio">todos os campos com "*" são obrigatórios</p></br>				
-			<!--Campo Nome-->
+			
 			
 			<p class="separador">Dados Pessoais</p>
+			
+			<!--Campo Nome-->
 
 			<label class="formulario">Nome Completo: <font color="red">*</font></label></br>
 			<input class="entrada" type="text" name="nome" id="nome" size="30" onblur="return validarNome()"/>
 			<p class="ocultos" id="nomeIncorreto">Informe seu nome completo</p>
-			<!-- search_cep(this.value) -->
+			
 			
 			</br>
 			
@@ -74,7 +76,7 @@
 			<!--Campo CEP-->
 			
 			<label class="formulario">CEP:<font color="red">*</font></label><br>
-			<input class="entrada" id="CEP" type="text" value="" onkeydown="javascript: fMasc( this, mCEP );"  maxlength="10" onblur="return search_cep(this.value);"/> 
+			<input class="entrada" name="CEP" id="CEP" type="text" value="" onkeydown="javascript: fMasc( this, mCEP );"  maxlength="10" onblur="return search_cep(this.value);"/> 
 			<p class="ocultos" id="cepI">Infome um CEP válido</p>
 			
 			</br>
@@ -104,10 +106,10 @@
 			<br>
 			
 			<p class="separador">Cursos</p> </br>
-			<label class="formulario">O candidato opta pelo curso de:</label> <input class="entrada" id="curso" type="text" size="52" disabled/><font color="red">*</font></br>
+			<label class="formulario">O candidato opta pelo curso de:</label> <input class="entrada" name="curso" id="curso" type="text" size="52" disabled/><font color="red">*</font></br>
 			<p class="ocultos" id="cursoI">escolha um dos cursos abaixo</p>
 			
-			<form>
+			<div>
 				<input  onclick="ecolheCurso()" type="radio" name="escolha" value="Auxiliar de pequenos negócios"/>Auxiliar de pequenos negócios</br>
 				<input  onclick="ecolheCurso()" type="radio" name="escolha" value="Auxiliar de Departamento pessoal"/>Auxiliar de Departamento pessoal</br>
 				<input  onclick="ecolheCurso()" type="radio" name="escolha" value="Balconista de Farmácia"/>Balconista de Farmácia</br>
@@ -129,7 +131,7 @@
 				<input  onclick="ecolheCurso()" type="radio" name="escolha" value="Secretaria Escolar"/>Secretaria Escolar</br>		
 				<input  onclick="ecolheCurso()" type="radio" name="escolha" value="Segurança na Internet"/>Segurança na Internet</br>
 				</br>
-			</form>
+			</div>
 				
 				</br>
 
@@ -137,7 +139,7 @@
 
 				<label class="formulario">Você está trabalhando atualmente?</label><font color="red">*</font>
 					</br>
-					<select class="entrada" id="selecao" onfocus=" return validaCurso()" onblur="return seleciona()">
+					<select class="entrada" name="selecao" id="selecao" onfocus=" return validaCurso()" onblur="return seleciona()">
 						<option class="font14">Selecionar</option>
 						<option class="font14">Sim</option>
 						<option class="font14">Não</option>
@@ -146,7 +148,7 @@
 			
 				<label class="formulario">Qual a sua expectativa sobre o curso?</label><font color="red">*</font>
 					</br>
-					<select onclick="return selecionaOutra()" onblur="return selecionaExpec()" class="entrada" id="selecao2" >
+					<select onclick="return selecionaOutra()" onblur="return selecionaExpec()" class="entrada" name="selecao2" id="selecao2" >
 						<option class="font14">selecionar</option>
 						<option class="font14">Conseguir um emprego</option>
 						<option class="font14">Agregar conhecimento</option>
@@ -161,13 +163,13 @@
 						<label class="formulario">
 							<font color="black"> Qual? </font>
 						</label>
-						<textarea id="qual" onblur="return OutraIsselected()" value="" cols="20" rows="5" class="area"></textarea>
+						<textarea name="qual" id="qual" onblur="return OutraIsselected()" value="" cols="20" rows="5" class="area"></textarea>
 						<p id="expectativa" class="ocultos">Informe sua expectativa com o curso</p>
 					</p>
 					
 					<label class="formulario">Como você ficou sabendo dos cursos presenciais do projeto oportunidades?</label>
 						</br>
-						<select onclick="return selecionaOutro()" onblur="selecionaConhece()"class="entrada" id="selecao3" >
+						<select onclick="return selecionaOutro()" onblur="selecionaConhece()"class="entrada" name="selecao3" id="selecao3" >
 							<option class="font14">selecionar</option>
 							<option class="font14">Divulgação na TV</option>
 							<option class="font14">Noticiários em Jornais</option>
@@ -184,13 +186,13 @@
 						<label class="formulario">
 							<font color="black"> Qual? </font>
 						</label>							
-						<textarea id="qual2" onblur="return outroSelecionado()" value="" cols="20" rows="5" class="area"></textarea>
+						<textarea name="qual2" id="qual2" onblur="return outroSelecionado()" value="" cols="20" rows="5" class="area"></textarea>
 						<p id="soube" class="ocultos">Informe como conheceu o curso</p>
 					</p>
-
+			<input type="submit" value="Enviar" onclick="return validarTudo()"/>
 		</form>
 		<br>
-		<input type="submit" value="Enviar" onclick="return validarTudo()"/>
+		
 	</div>
 </body>
 </html>
