@@ -7,7 +7,7 @@
 	<script type="text/javascript" src="scripts_js/cep_modulo.js"></script>
 </head>
 <body>
-	<div>
+	<div class="caixa">
 		<form name="Cadastro" action="ValidarComPHP.php" method="POST">
 			
 			
@@ -175,7 +175,7 @@
 							<option class="font14">Noticiários em Jornais</option>
 							<option class="font14">Internet</option>
 							<option class="font14">Por meio de amigos</option>
-							<option class="font14">Outros</option>
+							<option class="font14">Outro</option>
 						</select>
 						<br>
 						<p id="conheceu" class="ocultos">Selecione uma das opções</p>
