@@ -27,9 +27,19 @@
 
 	$job = $_POST['selecao'];
 	$expectativa = $_POST['selecao2'];
-	$qual = $_POST['qual'];
+	
 	$conheceu = $_POST['selecao3'];
-	$qual2 = $_POST['qual2'];
+	
+
+
+	if ($expectativa=="Outra")
+	{
+		$qual2 = $_POST['qual2'];
+	}
+	if ($conheceu=="Outro")   
+	{
+		$qual = $_POST['qual'];
+	}
 
 //Verificação de campo nulo
 
@@ -128,7 +138,7 @@ function exibe($campoRecebido)
 	
 	echo "<br>";
 	echo "Como você conheceu o Curso? ";
-	if ($conheceu=="Outro")
+	if ($conheceu=="Outro")                         
 	{
 		echo "<br>";
 		echo NotNull($qual2);

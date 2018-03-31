@@ -22,8 +22,18 @@
 			<!--Campo Nome-->
 
 			<label class="formulario">Nome Completo: <font color="red">*</font></label></br>
-			<input class="entrada" type="text" name="nome" id="nome" size="30" onblur="return validarNome()"/>
+			
+			<input 
+				class="entrada" 
+				type="text" 
+				name="nome" 
+				id="nome" 
+				size="30" 
+				onblur="return verify(this.value,'nome','nomeIncorreto')"
+			/>
+			
 			<p class="ocultos" id="nomeIncorreto">Informe seu nome completo</p>
+			
 			
 			
 			</br>
@@ -31,7 +41,17 @@
 			<!--Campo Data de nascimento-->
 			
 			<label class="formulario">Data de Nascimento:<font color="red">*</font></label></br>
-			<input class="entrada" type="text" name="data" id="data" onkeydown="javascript: fMasc( this, mData );" maxlength="10" onblur="return validarData()" />
+			
+			<input 
+				class="entrada"
+				type="text" 
+				name="data" 
+				id="data" 
+				onkeydown="javascript: fMasc( this, mData );" 
+				maxlength="10" 
+				onblur="verify(this.value,'data','dataN')" 
+			/>
+			
 			<p class="ocultos" id="dataN">Informe sua data de nascimento</p>
 			
 			</br>
@@ -39,8 +59,19 @@
 			<!--Campo CPF-->
 			
 			<label class="formulario">CPF:<font color="red">*</font></label></br>
-			<input class="entrada" type="text" name="CPF" id="cpf" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14" onblur="return ValidarCPF(Cadastro.cpf)"/>
-			<p class="ocultos" id="cpfi">Informe seu CPF</p>
+			
+			<input 
+				class="entrada" 
+				type="text" 
+				name="CPF" 
+				id="cpf" 
+				onkeydown="javascript: fMasc( this, mCPF );" 
+				maxlength="14" 
+				onblur="return ValidarCPF(Cadastro.cpf)"
+				
+			/>
+			
+			<p class="ocultos" id="cpfi">Informe um CPF válido</p>
 			
 			</br>
 			
@@ -48,7 +79,18 @@
 			<!--Campo Telefone-->
 			
 			<label class="formulario">Telefone/Celular 01:<font color="red">*</font></label></br>
-			<input class="entrada" type="text" name="telefone" id="telefone" size="14" maxlength="14" onkeydown="javascript: fMasc( this, mTel );" onblur="return validarTelefone()"/>
+			
+			<input 
+				class="entrada" 
+				type="text" 
+				name="telefone" 
+				id="telefone" 
+				size="14" 
+				maxlength="14" 
+				onkeydown="javascript: fMasc( this, mTel );" 
+				onblur="verify(this.value,'telefone','tel')"
+			/>
+			
 			<p class="ocultos" id="tel">Infome um número de contato</p>
 			
 			</br>
@@ -56,7 +98,18 @@
 			<!--Campo Celular-->
 			
 			<label class="formulario">Telefone/Celular 02:<font color="red">*</font></label></br>
-			<input class="entrada" type="text" name="celular" id="celular" size="14" maxlength="14" onkeydown="javascript: fMasc( this, mTel );" onblur="return validarCelular()"/>
+			
+			<input 
+				class="entrada" 
+				type="text" 
+				name="celular" 
+				id="celular" 
+				size="14" 
+				maxlength="14" 
+				onkeydown="javascript: fMasc( this, mTel );" 
+				onblur="verify(this.value,'celular','cel')"
+			/>
+			
 			<p class="ocultos" id="cel">Infome um número de contato</p>
 			
 			</br>
@@ -66,7 +119,16 @@
 			<!--Campo E-mail-->
 			
 			<label class="formulario">E-mail:<font color="red">*</font></label></br>
-			<input class="entrada" type="mail" name="email" id="email" value="" size="25" onblur="return IsEmail(document.getElementById('email').value)"/>
+			
+			<input 
+				class="entrada" 	
+				type="mail" name="email" 
+				id="email" 
+				value="" 
+				size="25" 
+				onblur="return IsEmail(document.getElementById('email').value)"
+			/>
+			
 			<p class="ocultos" id="ei"> Informe um endereço de e-mail válido</p>
 			
 			</br>
@@ -76,7 +138,18 @@
 			<!--Campo CEP-->
 			
 			<label class="formulario">CEP:<font color="red">*</font></label><br>
-			<input class="entrada" name="CEP" id="CEP" type="text" value="" onkeydown="javascript: fMasc( this, mCEP );"  maxlength="10" onblur="return search_cep(this.value);"/> 
+			
+			<input 
+				class="entrada" 
+				name="CEP" 
+				id="CEP" 
+				type="text" 
+				value="" 
+				onkeydown="javascript: fMasc( this, mCEP );"  
+				maxlength="10" 
+				onblur="return search_cep(this.value);"
+			/> 
+			
 			<p class="ocultos" id="cepI">Infome um CEP válido</p>
 			
 			</br>
@@ -84,7 +157,16 @@
 			<!--Campo Rua-->
 		
 			<label class="formulario">Rua:<font color="red">*</font></label><br>
-			<input class="entrada" type="text" onblur="return validarRua()" value="" name="rua" id="rua">
+			
+			<input 
+				class="entrada" 
+				type="text" 
+				value="" 
+				name="rua" 
+				id="rua"
+				onblur="verify(this.value,'rua','ruaI')" 
+			/>
+			
 			<p class="ocultos" id="ruaI">Informe o nome da rua</p>
 			
 			<br>
@@ -92,7 +174,16 @@
 			<!--Campo bairro-->
 			
 			<label class="formulario">Bairro:<font color="red">*</font></label></br>
-			<input class="entrada" type="text" onblur="return validarBairro()" name="bairro" value="" id="bairro">
+			
+			<input 
+				class="entrada" 
+				type="text" 
+				name="bairro" 
+				value="" 
+				id="bairro"
+				onblur="verify(this.value,'bairro','bairroI')" 
+			/>
+			
 			<p class="ocultos" id="bairroI">Informe o nome do bairro</p>
 			
 			<br>
@@ -100,17 +191,39 @@
 			<!--Campo Cidade-->
 			
 			<label class="formulario">Cidade:<font color="red">*</font></label><br>
-			<input class="entrada" type="text" onblur="return validarCidade()" name="cidade" value="" id="cidade">
+			
+			<input 
+				class="entrada" 
+				type="text" 
+				name="cidade" 
+				value="" 
+				id="cidade"
+				onblur="verify(this.value,'cidade','cidadeI')" 
+			/>
+			
 			<p class="ocultos" id="cidadeI">Informe o nome da cidade</p>
 			
 			<br>
 			
 			<p class="separador">Cursos</p> </br>
-			<label class="formulario">O candidato opta pelo curso de:</label> <input class="entrada" name="curso" id="curso" type="text" size="52" disabled/><font color="red">*</font></br>
+			<label class="formulario">O candidato opta pelo curso de:</label> 
+
+			<input 
+				class="entrada" 
+				name="curso" 
+				id="curso" 
+				type="text" 
+				size="52" 
+				disabled
+			/>
+
+			<font color="red">*</font></br>
+
 			<p class="ocultos" id="cursoI">escolha um dos cursos abaixo</p>
 			
 			<div>
-				<input  onclick="ecolheCurso()" type="radio" name="escolha" value="Auxiliar de pequenos negócios"/>Auxiliar de pequenos negócios</br>
+				<input id="APN" type="radio" name="escolha" value="NULL" checked/>selecione um dos campos abaixo</br>
+				<input  onclick="ecolheCurso()" type="radio" name="escolha" value="Administração de pequenos negócios"/>Administração de pequenos negócios</br>
 				<input  onclick="ecolheCurso()" type="radio" name="escolha" value="Auxiliar de Departamento pessoal"/>Auxiliar de Departamento pessoal</br>
 				<input  onclick="ecolheCurso()" type="radio" name="escolha" value="Balconista de Farmácia"/>Balconista de Farmácia</br>
 				<input  onclick="ecolheCurso()" type="radio" name="escolha" value="Berçarista"/>Berçarista</br>
@@ -137,58 +250,92 @@
 
 				<p class="separador">Informações Socioeconômicas</p>
 
+				<!--###############################################################-->
+				<!--###############################################################-->
+				<!--###############################################################-->
+
 				<label class="formulario">Você está trabalhando atualmente?</label><font color="red">*</font>
 					</br>
-					<select class="entrada" name="selecao" id="selecao" onfocus=" return validaCurso()" onblur="return seleciona()">
+					<select 
+						class="entrada" 
+						name="selecao" 
+						id="selecao" 
+						onfocus=" verify(Cadastro.curso.value,'APN','cursoI')" 
+						onblur="ifIsSelected(this.value,'selecao','trabalho')"
+					/>
 						<option class="font14">Selecionar</option>
 						<option class="font14">Sim</option>
 						<option class="font14">Não</option>
 					</select>
 				<p id="trabalho" class="ocultos">Selecione uma das opções</p>
-			
+						
+						<!--###############################################################-->
+						<!--###############################################################-->
+						<!--###############################################################-->
+
 				<label class="formulario">Qual a sua expectativa sobre o curso?</label><font color="red">*</font>
 					</br>
-					<select onclick="return selecionaOutra()" onblur="return selecionaExpec()" class="entrada" name="selecao2" id="selecao2" >
-						<option class="font14">selecionar</option>
+					<select  
+						
+						class="entrada" 
+						name="selecao2" 
+						id="selecao2"
+						onclick="verificarSelect(this.value,'qual')"
+						onblur="ifIsSelected(this.value,'selecao2','trabalho2')" 
+					>
+						<option class="font14">Selecionar</option>
 						<option class="font14">Conseguir um emprego</option>
 						<option class="font14">Agregar conhecimento</option>
 						<option class="font14">Gerara renda com um empreendimento próprio</option>
 						<option class="font14">Outra</option>
 					</select>
-					<br>
-					<p id="trabalho2" class="ocultos">Selecione uma das opções</p>
-					<br>
+					<input 
+						class="entrada"  
+						type="text" 
+						name="qual" 
+						id="qual" 
+						onblur="verify(this.value,'qual','trabalho2')"
+						disabled/>
 					
-					<p name="p"class="ocultos" id="texto">
-						<label class="formulario">
-							<font color="black"> Qual? </font>
-						</label>
-						<textarea name="qual" id="qual" onblur="return OutraIsselected()" value="" cols="20" rows="5" class="area"></textarea>
-						<p id="expectativa" class="ocultos">Informe sua expectativa com o curso</p>
-					</p>
+					<br>
+					<p id="trabalho2" class="ocultos">Informe sua expectativa com o curso</p>
+					<br>
+						
+					<!--###############################################################-->
+					<!--###############################################################-->
+					<!--###############################################################-->
 					
 					<label class="formulario">Como você ficou sabendo dos cursos presenciais do projeto oportunidades?</label>
 						</br>
-						<select onclick="return selecionaOutro()" onblur="selecionaConhece()"class="entrada" name="selecao3" id="selecao3" >
-							<option class="font14">selecionar</option>
+						<select 
+							
+							class="entrada" 
+							name="selecao3" 
+							id="selecao3" 
+							onclick="verificarSelect(this.value,'qual2')"
+							onblur="ifIsSelected(this.value,'selecao3','conheceu')" 
+						/>
+							<option class="font14">Selecionar</option>
 							<option class="font14">Divulgação na TV</option>
 							<option class="font14">Noticiários em Jornais</option>
 							<option class="font14">Internet</option>
 							<option class="font14">Por meio de amigos</option>
 							<option class="font14">Outro</option>
-						</select>
+						</select> 
+						<input 
+							class="entrada"  
+							type="text" 
+							name="qual2" 
+							id="qual2" 
+							onblur="verify(this.value,'qual2','conheceu')"
+							disabled/>
 						<br>
-						<p id="conheceu" class="ocultos">Selecione uma das opções</p>
+						<p id="conheceu" class="ocultos">Informe a forma pela qual você soube do oportunidades</p>
 						<br>
 
 					
-					<p class="ocultos" id="texto2">
-						<label class="formulario">
-							<font color="black"> Qual? </font>
-						</label>							
-						<textarea name="qual2" id="qual2" onblur="return outroSelecionado()" value="" cols="20" rows="5" class="area"></textarea>
-						<p id="soube" class="ocultos">Informe como conheceu o curso</p>
-					</p>
+					
+
 			<input type="submit" value="Enviar" onclick="return validarTudo()"/>
 		</form>
 		<br>

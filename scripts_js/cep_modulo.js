@@ -56,82 +56,45 @@ function search_cep(value){
 
 
 //Fazendo a verificação se os campos estão vazios
-
-
-
-function validarNome()
+function focar(ID)
 {
-	var nome= Cadastro.nome.value;
+	document.getElementById(ID).focus();
+}
 
-	if(nome =="" || nome.length<14)
+function habilitar(ID)
+{
+	document.getElementById(ID).style.visibility= "visible";
+}
+
+function desabilitar(ID)
+{
+	document.getElementById(ID).style.visibility= "hidden";	
+}
+
+function verify(valor,ElementID,errorMessageID)
+{
+	
+
+	if(valor =="")
 	{
-		Cadastro.nome.focus();
-		document.getElementById("nomeIncorreto").style.visibility = "visible";
-		return false;
+		
+		focar(ElementID);
+		habilitar(errorMessageID);
+		return 0;
 	} 
 	
 	else
 	{
-		document.getElementById("nomeIncorreto").style.visibility = "hidden";
-		return true;
+		desabilitar(errorMessageID);
+		return 1;
+		
 	}
 }
 
-function validarTelefone()
-{
-	var tel= Cadastro.telefone.value;
-	
-	if(tel =="")
-	{
-	
-		Cadastro.telefone.focus();
-		document.getElementById("tel").style.visibility = "visible";
-		return false;
-		
-	}
-	
-	else
-	{
-	
-		document.getElementById("tel").style.visibility = "hidden";
-		return true;
-	}
-}
-function validarCelular()
-{
-	var cel= Cadastro.celular.value;
-	
-	if(cel =="")
-	{
-		Cadastro.celular.focus();
-		document.getElementById("cel").style.visibility = "visible";
-		return false;
-	}
-	
-	else
-	{
-		document.getElementById("cel").style.visibility = "hidden";
-		return true;
-	}
-}
-function validarData()
-{
-	var data= Cadastro.data.value;
-	
-	if(data =="")
-	{
-		
-		Cadastro.data.focus();
-		document.getElementById("dataN").style.visibility = "visible";
-		return false;
-	}
-	
-	else
-	{	
-		document.getElementById("dataN").style.visibility = "hidden";
-		return true;
-	}
-}
+//####################################################################################################
+
+
+
 function IsEmail(email)
 {
 	var exclude=/[^@\-\.\w]|^[_@\.\-]|[\._\-]{2}|[@\.]{2}|(@)[^@]*\1/;
@@ -155,7 +118,8 @@ function IsEmail(email)
 function ValidarCPF(Objcpf)
 {
 	var cpf = Objcpf.value;
-// Descartando logo de inicio alguns formatos inválidos de cpf 
+	
+	// Descartando logo de inicio alguns formatos inválidos de cpf 
 
 	if(cpf =="111.111.111-11")
 	{
@@ -249,101 +213,117 @@ function ValidarCPF(Objcpf)
 		return true;
 	}
 }
-
-function validarRua()
-{
-	var rua= Cadastro.rua.value;
-	
-	if(rua =="")
-	{
-	
-		Cadastro.rua.focus();
-		document.getElementById("ruaI").style.visibility = "visible";
-		return false;
-		
-	}
-	
-	else
-	{
-	
-		document.getElementById("ruaI").style.visibility = "hidden";
-		return true;
-	}
-}
-function validarBairro()
-{
-	var bairro= Cadastro.bairro.value;
-	
-	if(bairro =="")
-	{
-	
-		Cadastro.bairro.focus();
-		document.getElementById("bairroI").style.visibility = "visible";
-		return false;
-		
-	}
-	
-	else
-	{
-	
-		document.getElementById("bairroI").style.visibility = "hidden";
-		return true;
-	}
-}
-function validarCidade()
-{
-	var cidade= Cadastro.cidade.value;
-	
-	if(cidade =="")
-	{
-	
-		Cadastro.cidade.focus();
-		document.getElementById("cidadeI").style.visibility = "visible";
-		return false;
-		
-	}
-	
-	else
-	{
-	
-		document.getElementById("cidadeI").style.visibility = "hidden";
-		return true;
-	}
-}
-
-
+// revalidando tudo antes de enviar
 function validarTudo()
 {
-	var nome = validarNome();
-	var Telefone = validarTelefone();
-	var Celular = validarCelular();
-	var Data = validarData();
-	var email = IsEmail(document.getElementById('email').value);
-	var cpf = ValidarCPF(Cadastro.cpf);
-	var rua = validarRua();
-	var bairro = validarBairro();
-	var cidade = validarCidade();
 	
-	var curso = validaCurso();
-	var trabalho = seleciona();
-	var expectativa = selecionaExpec();
-	var outra = OutraIsselected();
-	var conheceu = selecionaConhece();
-	var	outro = outroSelecionado();
 
-	if(conheceu==false||outro==false || outra==false || expectativa == false || trabalho == false || curso == false || cpf== false || email==false || nome ==false || Telefone ==false || Celular ==false || Data ==false ||cidade ==false || bairro ==false || rua ==false)
+	if(document.getElementById("nome").value=="" || document.getElementById("nome").value.length<7)
 	{
-		alert("preencha os campos obrigatórios corretamente");
+		document.getElementById("nome").value= "";
+		document.getElementById("nome").focus();
+		alert("Existem campos que precisam de sua atenção");
+		return false;
+	}
+	if(document.getElementById("data").value=="")
+	{
+		document.getElementById("data").focus();
+		alert("Existem campos que precisam de sua atenção");
+		return false;
+	}
+	if(document.getElementById("cpf").value=="")
+	{
+		document.getElementById("cpf").focus();
+		alert("Existem campos que precisam de sua atenção");
+		return false;
+	}
+	if(document.getElementById("telefone").value=="")
+	{
+		document.getElementById("telefone").focus();
+		alert("Existem campos que precisam de sua atenção");
+		return false;
+	}
+	if(document.getElementById("celular").value=="")
+	{
+		document.getElementById("celular").focus();
+		alert("Existem campos que precisam de sua atenção");
+		return false;
+	}
+	if(document.getElementById("email").value=="")
+	{
+		document.getElementById("email").focus();
+		alert("Existem campos que precisam de sua atenção");
+		return false;
+	}
+	if(document.getElementById("rua").value=="")
+	{
+		document.getElementById("rua").focus();
+		alert("Existem campos que precisam de sua atenção");
+		return false;
+	}
+	if(document.getElementById("bairroI").value=="")
+	{
+		document.getElementById("bairroI").focus();
+		alert("Existem campos que precisam de sua atenção");
+		return false;
+	}
+	if(document.getElementById("cidade").value=="")
+	{
+		document.getElementById("cidade").focus();
+		alert("Existem campos que precisam de sua atenção");
+		return false;
+	}
+	if(document.getElementById("curso").value=="")
+	{
+		document.getElementById("APN").focus();
+		document.getElementById("cursoI").style.visibility="visible";
+		alert("Existem campos que precisam de sua atenção");
+		return false;
+	}
+	if(document.getElementById("selecao").value=="Selecionar")
+	{
+		document.getElementById("selecao").focus();
+		alert("Existem campos que precisam de sua atenção");
 		return false;
 	}
 	
+	if(document.getElementById("selecao2").value=="Selecionar")
+	{
+		document.getElementById("selecao2").focus();
+		alert("Existem campos que precisam de sua atenção");
+		return false;
+	}
+	if(document.getElementById("selecao2").value=="Outra")
+	{
+		if(document.getElementById("qual").value=="")
+		{
+			alert("Existem campos que precisam de sua atenção");
+			document.getElementById("qual").disabled= false;
+			document.getElementById("qual").focus();
+			return false;
+		}
+	}
+	if(document.getElementById("selecao3").value=="Selecionar")
+	{
+		document.getElementById("selecao3").focus();
+		alert("Existem campos que precisam de sua atenção");
+		return false;
+	}
+	if(document.getElementById("selecao3").value=="Outro")
+	{
+		if(document.getElementById("qual2").value=="")
+		{
+			alert("Existem campos que precisam de sua atenção");
+			document.getElementById("qual2").disabled= false;
+			document.getElementById("qual2").focus();
+			return false;
+		}
+	}
 	else
 	{
 		return true;
 	}
-	
-}
-	
+}	
 // Adicionando  Mascaras aos campos 
 
 function fMasc(objeto,mascara) 
@@ -355,7 +335,7 @@ function fMasc(objeto,mascara)
 function fMascEx() 
 {
 		obj.value=masc(obj.value)
-	}
+}
 function mTel(tel)
 {
 	
@@ -433,165 +413,42 @@ function ecolheCurso()
 	}
 	document.getElementById("curso").value= valor;
 }
-function validaCurso()
+ 
+
+function ifIsSelected(value,ID,ocultoID)
 {
-	var cur = document.getElementById("curso").value;
- if(cur=="")
- {	
-
- 	document.getElementById("cursoI").style.visibility="visible";
-
- 	return false;
- }
- else
- {	
- 	document.getElementById("cursoI").style.visibility="hidden";
- 	return true;
- }
-} 
-
-function seleciona()
-{
-	var selecao = document.getElementById("selecao");
-	if(selecao.selectedIndex==0)
+	if(value=="Selecionar")
 	{
-		document.getElementById("trabalho").style.visibility = "visible";
-		document.getElementById("selecao").focus();
-		return false;
+		focar(ID);
+		habilitar(ocultoID);
 	}
 	else
 	{
-		document.getElementById("trabalho").style.visibility = "hidden";
-		return true;
+		desabilitar(ocultoID);
 	}
-
 }
-function selecionaExpec()
+
+
+//#######################################
+
+
+function habilitarInput(ID)
 {
-	var selecao = document.getElementById("selecao2");
-	if(selecao.selectedIndex==0)
-	{
-		document.getElementById("trabalho2").style.visibility = "visible";
-		document.getElementById("selecao2").focus();
-		return false;
-	}
-	else
-	{
-		document.getElementById("trabalho2").style.visibility = "hidden";
-		return true;
-	}
+	document.getElementById(ID).disabled = false;
 }
-
-function selecionaConhece()
+function desabilitarInput(ID)
 {
-	var selecao = document.getElementById("selecao3");
-	if(selecao.selectedIndex==0)
-	{
-		document.getElementById("conheceu").style.visibility = "visible";
-		document.getElementById("selecao3").focus();
-		return false;
-	}
-	else
-	{
-		document.getElementById("conheceu").style.visibility = "hidden";
-		return true;
-	}
+	document.getElementById(ID).disabled = true;
 }
 
-
-
-function selecionaOutra()
-{	
-	var selecao = document.getElementById("selecao2");
-	
-	if (selecao.selectedIndex==4) 
-	{
-		document.getElementById("texto").style.visibility = "visible";
-		document.getElementById("texto").focus();
-		
-		return false;
-	}
-	else
-	{
-		document.getElementById("texto").style.visibility = "hidden";
-		document.getElementById("expectativa").style.visibility = "hidden";
-		return true;
-	}
-}
-
-function selecionaOutro()
-{	
-	var selecao = document.getElementById("selecao3");
-	
-	if (selecao.selectedIndex==5) 
-	{
-		document.getElementById("texto2").style.visibility = "visible";
-		document.getElementById("texto2").focus();
-		
-		return false;
-	}
-	else
-	{
-		document.getElementById("texto2").style.visibility = "hidden";
-		document.getElementById("soube").style.visibility = "hidden";
-		return true;
-	}
-}
-
-function OutraIsselected()
+function verificarSelect(value,inputID)
 {
-	var selecao = document.getElementById("selecao2");
-	
-
-	if (selecao.selectedIndex==4) 
+	if(value=="Outra"|| value=="Outro")
 	{
-		var valor = document.getElementById("qual").value;
-	
-		if (valor=="") 
-		{
-			document.getElementById("qual").focus();
-			document.getElementById("expectativa").style.visibility="visible";
-			return false;
-		}
-		else
-		{
-			document.getElementById("expectativa").style.visibility="hidden";
-			return true;	
-		}
+		habilitarInput(inputID);
 	}
 	else
 	{
-		return true;
+		desabilitarInput(inputID);
 	}
 }
-
-function outroSelecionado()
-{
-	var selecionou = document.getElementById("selecao3");
-	if (selecionou.selectedIndex==5) 
-		{
-			var valor2 = document.getElementById("qual2").value;
-		
-			if (valor2=="") 
-			{
-				document.getElementById("qual2").focus();
-				document.getElementById("soube").style.visibility="visible";
-				return false;
-			}
-			else
-			{
-				document.getElementById("soube").style.visibility="hidden";
-				return true;	
-			}
-		}
-		else
-		{
-			return true;
-		}
-}
-
-
-
-
-
-
