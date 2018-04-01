@@ -2,6 +2,7 @@
 
 <html>
 <head>
+	<link REL="SHORTCUT ICON" HREF="icones/favicon.ico">
 	<link REL="STYLESHEET" HREF="CSS/STYLE.CSS" TYPE="TEXT/CSS"/>
 	<meta charset="utf-8">
 	<script type="text/javascript" src="scripts_js/cep_modulo.js"></script>

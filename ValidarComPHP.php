@@ -1,4 +1,5 @@
 <?php 
+
 //Pegando os dados pessoais
 
 	$nome = $_POST['nome'];
@@ -63,8 +64,22 @@ function exibe($campoRecebido)
 			return exibe($input);
 		}	
 	}
+	function NotSelecionar($input)
+	{
+		if($input=="Selecionar")
+		{
+			echo "<script> alert('Existem campos vazios que precisam ser preenchidos');</script>";
+			echo "<script>history.back(1);</script>";
+			
+		}
+		else
+		{
+			return exibe($input);
+		}	
+	}
 //Mostrando os dados pessoais
 	echo "<link REL='STYLESHEET' HREF='CSS/STYLE.CSS' TYPE='TEXT/CSS'/>";
+	echo "<link REL='SHORTCUT ICON' HREF='icones/favicon.ico'>";
 	echo "<center>";
 	
 	echo "<div class='caixa'>";
@@ -118,36 +133,44 @@ function exibe($campoRecebido)
 	echo "<p class='separador'>Informações Socioeconômicas</p>";
 	echo "<br>";
 	echo "Trabalha? ";
-	echo NotNull($job);
+	echo NotSelecionar($job);
 	echo "<br>";
 	echo "Qual sua expectativa com o curso?";
 	
-	if ($expectativa=="Outra") 
+	
+
+
+
+
+	if ($expectativa!="Outra") 
 	{
 		echo "<br>";
-		echo NotNull($qual);
+		echo NotSelecionar($expectativa);
 		echo "<br>";
+
+
 	}
 	else
 	{	
 		echo "<br>";
-		echo NotNull($expectativa);
+		echo NotNull($qual);
 		echo "<br>";
 	}
 
 	
 	echo "<br>";
 	echo "Como você conheceu o Curso? ";
-	if ($conheceu=="Outro")                         
+	if ($conheceu!="Outro")                         
 	{
 		echo "<br>";
-		echo NotNull($qual2);
-		echo "<br>";	
+		echo NotSelecionar($conheceu);
+		echo "<br>";
+
 	}
 	else
 	{	
 		echo "<br>";
-		echo NotNull($conheceu);
+		echo NotNull($qual2);
 		echo "<br>";
 	}
 	
