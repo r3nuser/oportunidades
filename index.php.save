@@ -5,10 +5,8 @@
 	<link REL="SHORTCUT ICON" HREF="icones/favicon.ico">
 	<link REL="STYLESHEET" HREF="CSS/STYLE.CSS" TYPE="TEXT/CSS"/>
 	<meta charset="utf-8">
-	<script type="text/javascript" src="scripts_js/mask_camp.js"></script>
 	<script type="text/javascript" src="scripts_js/cep_modulo.js"></script>
 	<script type="text/javascript" src="scripts_js/valid_data.js"></script>
-
 </head>
 <body>
 	<div class="caixa">
@@ -35,42 +33,30 @@
 				type="text"
 				name="data"
 				id="data"
-				onkeydown="javascript: fMasc( this, mData );" 
+				onkeydown="javascript: fMasc( this, mData );"
 				maxlength="10"
-				onblur="verify(this.value,'data','dataN')" 
+				onblur="verify(this.value,'data','dataN')"
 			/>
-			
 			<p class="ocultos" id="dataN">Informe sua data de nascimento</p>
-			
 			</br>
-			
 			<!--Campo CPF-->
-			
 			<label class="formulario">CPF:<font color="red">*</font></label></br>
-			
-			<input 
-				class="entrada" 
-				type="text" 
-				name="CPF" 
-				id="cpf" 
-				onkeydown="javascript: fMasc( this, mCPF );" 
-				maxlength="14" 
+			<input
+				class="entrada"
+				type="text"
+				name="CPF"
+				id="cpf"
+				onkeydown="javascript: fMasc( this, mCPF );"
+				maxlength="14"
 				onblur="return ValidarCPF(Cadastro.cpf)"
-				
 			/>
-			
 			<p class="ocultos" id="cpfi">Informe um CPF válido</p>
-			
 			</br>
-			
 			<p class="separador">Contato</p>
 			<!--Campo Telefone-->
-			
 			<label class="formulario">Telefone/Celular 01:<font color="red">*</font></label></br>
-			
-			<input 
-				class="entrada" 
-				type="text" 
+			<input
+				class="entrada" 				type="text" 
 				name="telefone" 
 				id="telefone" 
 				size="14" 

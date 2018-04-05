@@ -1,31 +1,19 @@
 <?php 
 
-//Pegando os dados pessoais
-
+//Personal data
 	$nome = $_POST['nome'];
 	$data = $_POST['data'];
 	$CPF = $_POST['CPF'];
-
-//pegando os contatos
-
 	$telefone1 = $_POST['telefone'];
 	$telefone2 = $_POST['celular'];
 	$email = $_POST['email'];
-
-//pegando endereço
-
 	$CEP = $_POST['CEP'];
 	$rua = $_POST['rua'];
 	$bairro = $_POST['bairro'];
-	$cidade = $_POST['cidade'];	
-	
-//pegar curso escolhido
-
+	$cidade = $_POST['cidade'];
+//Switch -> Curso
 	$curso = $_POST['escolha'];
-
-
-//pegar dados socioeconômicos
-
+//Social Data
 	$job = $_POST['selecao'];
 	$expectativa = $_POST['selecao2'];
 	
