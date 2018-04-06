@@ -1,20 +1,20 @@
 
-//Fazendo a verificação se os campos estão vazios
+//add focus to input
 function focar(ID)
 {
 	document.getElementById(ID).focus();
 }
-
+//Show hidden element
 function habilitar(ID)
 {
 	document.getElementById(ID).style.visibility= "visible";
 }
-
+// hide element
 function desabilitar(ID)
 {
 	document.getElementById(ID).style.visibility= "hidden";	
 }
-
+//Null field verification
 function verify(valor,ElementID,errorMessageID)
 {
 	if(valor=="")
@@ -29,11 +29,7 @@ function verify(valor,ElementID,errorMessageID)
 		return 1;
 	}
 }
-
-//####################################################################################################
-
-
-
+//Check if email is valid
 function IsEmail(email)
 {
 	var exclude=/[^@\-\.\w]|^[_@\.\-]|[\._\-]{2}|[@\.]{2}|(@)[^@]*\1/;
@@ -151,7 +147,7 @@ function ValidarCPF(Objcpf)
 		return true;
 	}
 }
-// revalidando tudo antes de enviar
+// revalidating everything, one by one, before sending
 function validarTudo()
 {
 	if(document.getElementById("nome").value=="" || document.getElementById("nome").value.length<7)
@@ -216,41 +212,43 @@ function validarTudo()
 		alert("Existem campos que precisam de sua atenção");
 		return false;
 	}
-	if(document.getElementById("selecao").value=="Selecionar")
+	if(document.getElementById("job").value=="Selecionar")
 	{
-		document.getElementById("selecao").focus();
+		document.getElementById("job").focus();
 		alert("Existem campos que precisam de sua atenção");
 		return false;
 	}
-	if(document.getElementById("selecao2").value=="Selecionar")
+	if(document.getElementById("expectativa").value=="Selecionar")
 	{
-		document.getElementById("selecao2").focus();
+		document.getElementById("expectativa").focus();
 		alert("Existem campos que precisam de sua atenção");
 		return false;
 	}
-	if(document.getElementById("selecao2").value=="Outra")
+	if(document.getElementById("expectativa").value=="Outra")
 	{
-		if(document.getElementById("qual").value=="")
+		document.getElementById("ExpectativaInput").disabled= false;
+		if(document.getElementById("ExpectativaInput").value=="")
 		{
 			alert("Existem campos que precisam de sua atenção");
-			document.getElementById("qual").disabled= false;
-			document.getElementById("qual").focus();
+			document.getElementById("ExpectativaInput").disabled= false;
+			document.getElementById("ExpectativaInput").focus();
 			return false;
 		}
 	}
-	if(document.getElementById("selecao3").value=="Selecionar")
+	if(document.getElementById("discoveredTheCourse").value=="Selecionar")
 	{
-		document.getElementById("selecao3").focus();
+		document.getElementById("discoveredTheCourse").focus();
 		alert("Existem campos que precisam de sua atenção");
 		return false;
 	}
-	if(document.getElementById("selecao3").value=="Outro")
+	if(document.getElementById("discoveredTheCourse").value=="Outro")
 	{
-		if(document.getElementById("qual2").value=="")
+		document.getElementById("discoveredTheCourseInput").disabled= false;
+		if(document.getElementById("discoveredTheCourseInput").value=="")
 		{
 			alert("Existem campos que precisam de sua atenção");
-			document.getElementById("qual2").disabled= false;
-			document.getElementById("qual2").focus();
+			document.getElementById("discoveredTheCourseInput").disabled= false;
+			document.getElementById("discoveredTheCourseInput").focus();
 			return false;
 		}
 	}
@@ -260,8 +258,8 @@ function validarTudo()
 	}
 }
 
-
-function ecolheCurso()
+// Select course
+function escolheCurso()
 {
 	var escolha = document.forms[0];
 	var i=0;
@@ -278,7 +276,7 @@ function ecolheCurso()
 	document.getElementById("curso").value= valor;
 }
  
-
+//verify if "selecionar" is selected
 function ifIsSelected(value,ID,ocultoID)
 {
 	if(value=="Selecionar")
@@ -291,23 +289,10 @@ function ifIsSelected(value,ID,ocultoID)
 		desabilitar(ocultoID);
 	}
 }
-
-
-//#######################################
-
-
-function habilitarInput(ID)
+//Action if "Outra" is selected
+function ifOutraIsSelected(value,inputID)
 {
-	document.getElementById(ID).disabled = false;
-}
-function desabilitarInput(ID)
-{
-	document.getElementById(ID).disabled = true;
-}
-
-function verificarSelect(value,inputID)
-{
-	if(value=="Outra"|| value=="Outro")
+	if(value=="Outra")
 	{
 		habilitarInput(inputID);
 	}
@@ -315,4 +300,28 @@ function verificarSelect(value,inputID)
 	{
 		desabilitarInput(inputID);
 	}
+}
+//Action if "Outro" is selected
+function ifOutroIsSelected(value,inputID)
+{
+	if(value=="Outro")
+	{
+		habilitarInput(inputID);
+	}
+	else
+	{
+		desabilitarInput(inputID);
+	}
+}
+
+
+// makes the input enable
+function habilitarInput(ID)
+{
+	document.getElementById(ID).disabled = false;
+}
+//makes the input disable
+function desabilitarInput(ID)
+{
+	document.getElementById(ID).disabled = true;
 }
