@@ -14,6 +14,17 @@
 	$bairro = $_POST['bairro'];
 	$cidade = $_POST['cidade'];
 
+// convert date format
+
+$BrazilianDateTimeFormat = DateTime::createFromFormat('d/m/Y', $data);
+$AmericanDateTimeFormat = $BrazilianDateTimeFormat->format('Y-m-d');
+
+if(strtotime($AmericanDateTimeFormat)> strtotime('2002-12-31'))
+{	
+	echo "<script> alert('É necessário ter no mínimo 16 anos para se inscrever no oportunidES');</script>";
+	echo "<script>history.back(1);</script>";
+}
+
 //Switch -> Curso
 
 	$curso = $_POST['escolha'];
@@ -71,6 +82,8 @@ function exibe($campoRecebido)
 			return exibe($input);
 		}	
 	}
+	
+
 //Showing Data
 echo"
 	<html>
@@ -78,10 +91,12 @@ echo"
 			<link REL='SHORTCUT ICON' HREF='icones/favicon.ico'>
 			<title>Confirmar dados</title>
 			<link REL='STYLESHEET' HREF='CSS/STYLE.CSS' TYPE='TEXT/CSS'/>
+			<script type='text/javascript' src='scripts_js/valid_data.js'></script>
 		</head>	
 		<body>
 			<center>
 				<div class='caixa'>
+					<h1>Confirme Seus Dados</h1>
 					<p class='separador'>Dados Pessoais</p>
 					Nome: ".NotNull($nome).
 					"<br>
@@ -135,6 +150,9 @@ echo"
 					".NotSelecionar($discoveredTheCourse)."
 					<br>
 					<br>
+					<div class='bntDiv'>
+						<input onclick='Voltar()' class='bnt' type='button' value='voltar'/> <input class='bnt' type='button' value='Confirmar'/>
+					</div>
 					<br>
 				</div>
 			</center>

@@ -325,3 +325,8 @@ function desabilitarInput(ID)
 {
 	document.getElementById(ID).disabled = true;
 }
+//Back to the form
+function Voltar()
+	{
+		history.back(1);
+	}

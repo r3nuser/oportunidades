@@ -45,5 +45,24 @@
 	height: wrap_content;
 	box-shadow: 2px 5px #000000;
 	border: outset ;
-	display: inline-grid;
+	
+}
+.bntDiv
+{
+	display: flex;
+	margin-right: 35%;
+	margin-left:25%;
+}
+.bnt
+{
+	margin-right: 10%;
+	margin-left: 10%;
+	width: 100px;
+	height: 30px;
+	font-size: 15px;
+	background-color: DimGray;
+	text-decoration: none;
+	color: Black;
+	cursor: pointer;
+	
 }
