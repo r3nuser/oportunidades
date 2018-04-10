@@ -4,7 +4,7 @@ session_start();
 //Receiving data using the post method
 
 //Personal data
-
+	
 	$nome = $_POST['nome'];
 	$data = $_POST['data'];
 	$CPF = $_POST['CPF'];
@@ -16,12 +16,16 @@ session_start();
 	$bairro = $_POST['bairro'];
 	$cidade = $_POST['cidade'];
 
+	$ano=date("Y")-16;
+	$dia=date("d");
+	$mes=date("m");
+	
 	// convert date format to know the age of the candidate
 
 	$BrazilianDateTimeFormat = DateTime::createFromFormat('d/m/Y', $data);
 	$AmericanDateTimeFormat = $BrazilianDateTimeFormat->format('Y-m-d');
 
-	if(strtotime($AmericanDateTimeFormat)> strtotime('2002-12-31'))
+	if(strtotime($AmericanDateTimeFormat)> strtotime(''.$ano.'-'.$mes.'-'.$dia.''))
 	{	
 		echo "<script> alert('É necessário ter no mínimo 16 anos para se inscrever no oportunidES');</script>";
 		echo "<script>history.back(1);</script>";
