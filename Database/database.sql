@@ -2,16 +2,26 @@ CREATE DATABASE oportunidades;
 
 USE oportunidades;
 
+
 CREATE TABLE aluno(
-	aluno_cpf INT NOT NULL PRIMARY KEY,
+	aluno_cpf varchar(255) NOT NULL PRIMARY KEY,
 	nome VARCHAR(255) NOT NULL,
-	telefone VARCHAR(255),
 	email VARCHAR(255) not null,
-	fk_endereco_id INT NOT NULL
+	fk_endereco_id INT NOT NULL,
+	trabalhando BOOLEAN NOT NULL,
+	expec_sobre_curso varchar(255) not null,
+	como_conheceu varchar(255) not null
+);
+
+CREATE TABLE telefone(
+	prefixo varchar(255) not null,
+	sufixo varchar(255) not null,
+	ddd varchar(255) not null,
+	fk_aluno_cpf varchar(255) not null
 );
 
 CREATE TABLE aluno_curso(
-	fk_aluno_cpf INT NOT NULL,
+	fk_aluno_cpf varchar(255) not null,
 	fk_curso_id INT NOT NULL,
 	fk_instituicao_id INT NOT NULL,
 	situacao VARCHAR(255)
@@ -64,4 +74,5 @@ FOREIGN KEY(fk_instituicao_id) REFERENCES instituicao(instituicao_id);
 ALTER TABLE instituicao ADD CONSTRAINT fk_endereco_2
 FOREIGN KEY(fk_endereco_id) REFERENCES endereco(endereco_id);
 
-
+ALTER TABLE telefone ADD CONSTRAINT fk_aluno2
+FOREIGN KEY(fk_aluno_cpf) REFERENCES aluno(aluno_cpf);
