@@ -1,67 +1,232 @@
-CREATE DATABASE oportunidadesBETA;
+-- phpMyAdmin SQL Dump
+-- version 4.7.9
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Tempo de geração: 18/04/2018 às 16:40
+-- Versão do servidor: 10.1.31-MariaDB
+-- Versão do PHP: 7.2.3
 
-USE oportunidadesBETA;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
 
 
-CREATE TABLE curso(
-	idCurso INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(255),
-	cursoInicio DATE NOT NULL,
-	cursoFim DATE NOT NULL
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Banco de dados: oportunidadesbeta
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela aluno
+--
+CREATE DATABASE OPORTUNIDADESBETA;
+USE OPORTUNIDADESBETA;
+
+CREATE TABLE aluno (
+  aluno_cpf varchar(255) NOT NULL,
+  nome varchar(255) NOT NULL,
+  email varchar(255) NOT NULL,
+  trabalhando varchar(3) NOT NULL,
+  expec_sobre_curso varchar(255) NOT NULL,
+  como_conheceu varchar(255) NOT NULL,
+  FK_idCurso int(11) DEFAULT NULL
 );
 
-CREATE TABLE endereco(
-	cep VARCHAR(255) NOT NULL PRIMARY KEY,
-	rua VARCHAR(255),
-	bairro VARCHAR(255),
-	cidade VARCHAR(255)
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela curso
+--
+
+CREATE TABLE curso (
+  idCurso int(11) NOT NULL,
+  nome varchar(255) NOT NULL,
+  cursoInicio date NOT NULL,
+  cursoFim date NOT NULL
 );
 
-CREATE TABLE aluno
-(
-	aluno_cpf varchar(255) NOT NULL PRIMARY KEY,
-	nome VARCHAR(255) NOT NULL,
-	email VARCHAR(255) not null,
-	fk_CEP VARCHAR(255) NOT NULL,
-	trabalhando varchar(3) NOT NULL,
-	expec_sobre_curso varchar(255) not null,
-	como_conheceu varchar(255) not null,
-	FK_idCurso INTEGER,
-	CONSTRAINT fk_endereco FOREIGN KEY(fk_CEP) REFERENCES endereco(cep),
-	CONSTRAINT fk_curso FOREIGN KEY(FK_idCurso) REFERENCES curso(idCurso)
+--
+-- Fazendo dump de dados para tabela curso
+--
+
+INSERT INTO curso (idCurso, nome, cursoInicio, cursoFim) VALUES
+(1, 'Administração de pequenos negócios', '2018-04-15', '2020-04-20'),
+(2, 'Auxiliar de Departamento pessoal', '2018-04-15', '2020-04-20'),
+(3, 'Balconista de Farmácia', '2018-04-15', '2020-04-20'),
+(4, 'Berçarista', '2018-04-15', '2020-04-20'),
+(5, 'Como Organizar seu Evento', '2018-04-15', '2020-04-20'),
+(6, 'Cuidador Infantil', '2018-04-15', '2020-04-20'),
+(7, 'Excel Avançado', '2018-04-15', '2020-04-20'),
+(8, 'Gestão de Rotinas Administrativas', '2018-04-15', '2020-04-20'),
+(9, 'Gestão Financeiras de Empresa pequena e Médias Empresas', '2018-04-15', '2020-04-20'),
+(10, 'Informática para Concursos', '2018-04-15', '2020-04-20'),
+(11, 'Informática para Educadores', '2018-04-15', '2020-04-20'),
+(12, 'Informática Avançada', '2018-04-15', '2020-04-20'),
+(13, 'Inglês Básico', '2018-04-15', '2020-04-20'),
+(14, 'Introdução à Nova Legislação Trabalhista', '2018-04-15', '2020-04-20'),
+(15, 'Logística', '2018-04-15', '2020-04-20'),
+(16, 'Operador de Caixa', '2018-04-15', '2020-04-20'),
+(17, 'Rede de Computadores', '2018-04-15', '2020-04-20'),
+(18, 'Secretaria Escolar', '2018-04-15', '2020-04-20'),
+(19, 'Segurança na Internet', '2018-04-15', '2020-04-20');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela curso_instituicao
+--
+
+CREATE TABLE curso_instituicao (
+  fk_idCurso int(11) NOT NULL,
+  fk_instituicao_id int(11) NOT NULL
 );
 
-CREATE TABLE telefone(
-	telefone1 varchar(255) not null,
-	telefone2 varchar(255) not null,
-	fk_aluno_cpf varchar(255) not null,
-	
-	CONSTRAINT fk_aluno2 FOREIGN KEY(fk_aluno_cpf) REFERENCES aluno(aluno_cpf)
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela endereco
+--
+
+CREATE TABLE endereco (
+  cep varchar(255) NOT NULL,
+  rua varchar(255) NOT NULL,
+  bairro varchar(255) NOT NULL,
+  cidade varchar(255) NOT NULL,
+  numeroResidencia varchar(255) DEFAULT NULL,
+  fk_aluno_cpf varchar(255) DEFAULT NULL,
+  fk_instituicao_id int(11) DEFAULT NULL
 );
 
+-- --------------------------------------------------------
 
-CREATE TABLE instituicao(
-	instituicao_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(255),
-	fk_CEP VARCHAR(255),
-	CONSTRAINT fk_endereco_2 FOREIGN KEY(fk_CEP) REFERENCES endereco(cep)
+--
+-- Estrutura para tabela instituicao
+--
+
+CREATE TABLE instituicao (
+  instituicao_id int(11) NOT NULL,
+  nome varchar(255) NOT NULL,
+  fk_CEP varchar(255) DEFAULT NULL
 );
 
+-- --------------------------------------------------------
 
-CREATE TABLE curso_instituicao(
-	fk_idCurso INT NOT NULL,
-	fk_instituicao_id INT NOT NULL,
+--
+-- Estrutura para tabela telefone
+--
 
-	CONSTRAINT fk_curso_2 FOREIGN KEY(fk_idCurso) REFERENCES curso(idCurso),
-	CONSTRAINT fk_instituicao_2 FOREIGN KEY(fk_instituicao_id) REFERENCES instituicao(instituicao_id)
-	 
-	 
+CREATE TABLE telefone (
+  telefone1 varchar(255) NOT NULL,
+  telefone2 varchar(255) NOT NULL,
+  fk_aluno_cpf varchar(255) NOT NULL
 );
 
-ALTER DATABASE `oportunidadesbeta` CHARSET = UTF8 COLLATE = utf8_general_ci;
+--
+-- Índices de tabelas apagadas
+--
 
+--
+-- Índices de tabela aluno
+--
+ALTER TABLE aluno
+  ADD PRIMARY KEY (aluno_cpf),
+  ADD KEY fk_curso (FK_idCurso);
 
+--
+-- Índices de tabela curso
+--
+ALTER TABLE curso
+  ADD PRIMARY KEY (idCurso);
 
+--
+-- Índices de tabela curso_instituicao
+--
+ALTER TABLE curso_instituicao
+  ADD KEY fk_curso_2 (fk_idCurso),
+  ADD KEY fk_instituicao_2 (fk_instituicao_id);
 
+--
+-- Índices de tabela endereco
+--
+ALTER TABLE endereco
+  ADD PRIMARY KEY (cep),
+  ADD KEY fk_aluno_cpf (fk_aluno_cpf),
+  ADD KEY fk_instituicao_id (fk_instituicao_id);
 
+--
+-- Índices de tabela instituicao
+--
+ALTER TABLE instituicao
+  ADD PRIMARY KEY (instituicao_id),
+  ADD KEY fk_endereco_2 (fk_CEP);
 
+--
+-- Índices de tabela telefone
+--
+ALTER TABLE telefone
+  ADD KEY fk_aluno2 (fk_aluno_cpf);
+
+--
+-- AUTO_INCREMENT de tabelas apagadas
+--
+
+--
+-- AUTO_INCREMENT de tabela curso
+--
+ALTER TABLE curso
+  MODIFY idCurso int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT de tabela instituicao
+--
+ALTER TABLE instituicao
+  MODIFY instituicao_id int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Restrições para dumps de tabelas
+--
+
+--
+-- Restrições para tabelas aluno
+--
+ALTER TABLE aluno
+  ADD CONSTRAINT fk_curso FOREIGN KEY (FK_idCurso) REFERENCES curso (idCurso);
+
+--
+-- Restrições para tabelas curso_instituicao
+--
+ALTER TABLE curso_instituicao
+  ADD CONSTRAINT fk_curso_2 FOREIGN KEY (fk_idCurso) REFERENCES curso (idCurso),
+  ADD CONSTRAINT fk_instituicao_2 FOREIGN KEY (fk_instituicao_id) REFERENCES instituicao (instituicao_id);
+
+--
+-- Restrições para tabelas endereco
+--
+ALTER TABLE endereco
+  ADD CONSTRAINT fk_aluno_cpf FOREIGN KEY (fk_aluno_cpf) REFERENCES aluno (aluno_cpf),
+  ADD CONSTRAINT fk_instituicao_id FOREIGN KEY (fk_instituicao_id) REFERENCES instituicao (instituicao_id);
+
+--
+-- Restrições para tabelas instituicao
+--
+ALTER TABLE instituicao
+  ADD CONSTRAINT fk_endereco_2 FOREIGN KEY (fk_CEP) REFERENCES endereco (cep);
+
+--
+-- Restrições para tabelas telefone
+--
+ALTER TABLE telefone
+  ADD CONSTRAINT fk_aluno2 FOREIGN KEY (fk_aluno_cpf) REFERENCES aluno (aluno_cpf);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
