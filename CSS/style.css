@@ -42,7 +42,9 @@
 	margin-left: 25%;
 	margin-right: 25%;
 	width: 50%;
-	
+	background-color: rgba(255,255,255,0.2);
+	background-repeat: no-repeat;
+	background-position: top;
 	box-shadow: 2px 5px #000000;
 	border: outset ;
 	
@@ -82,4 +84,9 @@ table,th,td{
 	margin: 1%;
 	border: 3px outset;
 	border-collapse:collapse;
+}
+body{
+	background-image: url(https://imagepng.org/wp-content/uploads/2017/06/bandeira-do-espirito-santo-estado.png);
+	background-size: cover;
+	background-attachment: fixed;
 }

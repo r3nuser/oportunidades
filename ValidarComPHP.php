@@ -15,6 +15,7 @@ session_start();
 	$rua = $_POST['rua'];
 	$bairro = $_POST['bairro'];
 	$cidade = $_POST['cidade'];
+	$numeroResidencia = $_POST['numeroResidencia'];
 
 	$ano=date("Y")-16;
 	$dia=date("d");
@@ -71,6 +72,7 @@ session_start();
 	$_SESSION['job']=$job;
 	$_SESSION['expectativa']=$expectativa;
 	$_SESSION['discoveredTheCourse']=$discoveredTheCourse;	
+	$_SESSION['numeroResidencia']=$numeroResidencia;
 
 
 //Null field verification
@@ -118,60 +120,69 @@ session_start();
 				<title>Confirmar dados</title>
 				<link REL='STYLESHEET' HREF='CSS/STYLE.CSS' TYPE='TEXT/CSS'/>
 				<script type='text/javascript' src='scripts_js/valid_data.js'></script>
+				
+				
 			</head>	
 			<body>
 				<center>
 					<div class='caixa'>
 						<h1>Confirme Seus Dados</h1>
 						<p class='separador'>Dados Pessoais</p>
-						Nome: ".NotNull($nome).
+						<b>Nome:</b> ".NotNull($nome).
 						"<br>
-						Data: ".NotNull($data).
+						<b>Data: </b>
+						".NotNull($data).
 						"<br>
-						CPF: ".NotNull($CPF).
+						<b>CPF: </b>
+						".NotNull($CPF).
 						"<br>".
 						//mostrando os contatos
 						"<br>
 						<p class='separador'>Contato</p>
-						Telefone/Celular01: 
+						<b>Telefone/Celular01: </b>
 						".NotNull($telefone1).
 						"<br>
-						Telefone/Celular02 
+						<b>Telefone/Celular02: </b>
 						".NotNull($telefone1).
 						"<br>
-						E-mail: 
+						<b>E-mail: </b>
 						".NotNull($email).
 						"<br>".
 						//Mostrando endereço
 						 "<p class='separador'>Endereço</p>
-						 CEP: 
+						 <b>CEP: </b>
 						 ".NotNull($CEP)."
 						 <br>
-						 Rua: 
+						<b> Rua: </b>
 						 ".NotNull($rua)."
 						 <br>
-						 Bairro: 
+						 <b>Bairro: </b>
 						 ".NotNull($bairro)."
 						 <br>
-						 Cidade: 	
-						 ".NotNull($cidade)."".
+						 <b>Cidade: 	</b>
+						 ".NotNull($cidade)."
+						 <br>
+						 <b>Número da Residência:</b>
+						 ".NotNull($numeroResidencia)."".
+
 						//Mostrar curso escolhido
 						 "<p class='separador'>Cursos</p> 
-						 Curso: 
+						 <b>Curso: </b>
 						 ".NotNull($curso).
 						 "<br>".
 						//Mostrar dados socioeconômicos
 						 "<p class='separador'>Informações Socioeconômicas</p>
 						 <br>
-						 Trabalha? 
+						 <b>Trabalha? </b>
 						".NotSelecionar($job)."
 						<br>
-						Qual sua expectativa com o curso?
+						<br>
+						<b>Qual sua expectativa com o curso?</b>
 						<br>
 						".NotSelecionar($expectativa)."
 						<br>
 						<br>
-						Como ficou sabendo sobre os<br>cursos presenciais do oportunidades?
+						<b>Como ficou sabendo sobre os cursos presenciais do oportunidades?</b>
 						<br>
 						".NotSelecionar($discoveredTheCourse)."
 						<br>

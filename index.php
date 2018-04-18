@@ -84,6 +84,12 @@
 				<input  class="entrada"  type="text"  name="cidade"  value=""  id="cidade" onblur="verify(this.value,'cidade','cidadeI')" />
 				<p class="ocultos" id="cidadeI">Informe o nome da cidade</p>
 				<br>
+				
+				<!--Campo Número da Residência-->
+				<label class="formulario">Número da Residência:<font color="red">*</font></label><br>
+				<input  class="entrada"  type="number"  name="numeroResidencia"  value=""  id="numeroResidencia" onblur="verify(this.value,'numeroResidencia','numI')" />
+				<p class="ocultos" id="numI">Informe o número da residência</p>
+				<br>
 
 				<p class="separador">Cursos</p> 
 				</br>

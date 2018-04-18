@@ -16,6 +16,7 @@
 	$rua = $_SESSION['rua'];
 	$bairro  =$_SESSION['bairro'];
 	$cidade = $_SESSION['cidade'];
+	$numeroResidencia=$_SESSION['numeroResidencia'];
 	/**********************/
 	$curso=$_SESSION['curso'];
 	/**********************/
@@ -36,39 +37,39 @@
 
 	echo"o ID de ".$curso." é".$cursoID."<br>";
 	
-		//Cadastro do endereço
-		$sql= "INSERT INTO endereco VALUES ";
-		$sql.= "('$CEP','$rua','$bairro','$cidade')";
-
-		if(!mysqli_query($conexao,$sql))
-		{
-			echo("Error description: " . mysqli_error($conexao)."<br>");
-		}
-		else
-		{ 
-			$enderecoOK=true;
-		}
-		//Cadastro do Aluno
-		$sql= "INSERT INTO aluno VALUES ";
-		$sql.="('$CPF','$nome','$email','$CEP','$job','$expectativa','$discoveredTheCourse','$cursoID')"; 
-
-		if(!mysqli_query($conexao,$sql))
-		{
-			echo("Error description: " . mysqli_error($conexao)."<br>");
-		}
-		else
-		{
-			
-			$AlunoOK=true;
+	//Cadastro do Aluno
+	$sql= "INSERT INTO aluno VALUES ";
+	$sql.="('$CPF','$nome','$email','$job','$expectativa','$discoveredTheCourse','$cursoID')"; 
 	
-		}
+	if(!mysqli_query($conexao,$sql))
+	{
+		echo("\"Aluno\" Error description: " . mysqli_error($conexao)."<br>");
+	}
+	else
+	{
+		
+		$AlunoOK=true;
+		
+	}
+	//Cadastro do endereço
+	$sql= "INSERT INTO endereco VALUES ";
+	$sql.= "('$CEP','$rua','$bairro','$cidade','$numeroResidencia','$CPF',null)";
+
+	if(!mysqli_query($conexao,$sql))
+	{
+		echo("\"Endereço\" Error description: " . mysqli_error($conexao)."<br>");
+	}
+	else
+	{ 
+		$enderecoOK=true;
+	}
 		//cadastro dos telefones do aluno
 		$sql="INSERT INTO telefone VALUES";
 		$sql.="('$telefone1','$telefone2','$CPF')";
 		
 		if(!mysqli_query($conexao,$sql))
 		{
-			echo("Error description: " . mysqli_error($conexao)."<br>");
+			echo("\"telefone\" Error description: " . mysqli_error($conexao)."<br>");
 		}
 		else
 		{
