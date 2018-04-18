@@ -30,25 +30,6 @@ session_start();
 		echo "<script> alert('É necessário ter no mínimo 16 anos para se inscrever no oportunidES');</script>";
 		echo "<script>history.back(1);</script>";
 	}
-
-	//convert date format before put them into a session
-	
-
-	// putting the data caught in a "session"
-
-	$_SESSION['nome']=$nome;
-	$_SESSION['data']=$AmericanDateTimeFormat;
-	$_SESSION['CPF']=$CPF;
-	$_SESSION['telefone1']=$telefone1;
-	$_SESSION['telefone2']=$telefone2;
-	$_SESSION['email']=$email;
-	$_SESSION['CEP']=$CEP;
-	$_SESSION['rua']=$rua;
-	$_SESSION['bairro']=$bairro;
-	$_SESSION['cidade']=$cidade;
-
-	
-
 //Switch -> Curso
 
 	$curso = $_POST['escolha'];
@@ -71,6 +52,27 @@ session_start();
 		$discoveredTheCourse = $_POST['discoveredTheCourseInput'];
 	}
 
+	// putting the data caught in a "session"
+
+	$_SESSION['nome']=$nome;
+	$_SESSION['data']=$AmericanDateTimeFormat;
+	$_SESSION['CPF']=$CPF;
+	/*---*/
+	$_SESSION['telefone1']=$telefone1;
+	$_SESSION['telefone2']=$telefone2;
+	$_SESSION['email']=$email;
+	$_SESSION['CEP']=$CEP;
+	$_SESSION['rua']=$rua;
+	$_SESSION['bairro']=$bairro;
+	$_SESSION['cidade']=$cidade;
+	/*-----*/
+	$_SESSION['curso']=$curso;
+	/*-----*/
+	$_SESSION['job']=$job;
+	$_SESSION['expectativa']=$expectativa;
+	$_SESSION['discoveredTheCourse']=$discoveredTheCourse;	
+
+
 //Null field verification
 
 
@@ -84,7 +86,7 @@ session_start();
 	{
 		if($input=="")
 		{
-			echo "<script> alert('Existem campos vazios que precisam ser preenchidos php ERRO');</script>";
+			echo "<script> alert('PHP ERRO: Existem campos vazios que precisam ser preenchidos ');</script>";
 			echo "<script>history.back(1);</script>";
 			
 		}

@@ -1,9 +1,10 @@
 <?php 
 
-public class dao_curso{
-
 	include("../conexao.php");
 	include("../bean/curso.php");
+ class dao_curso{
+
+	
 
 	function create($curso){
 	    $sql = "";

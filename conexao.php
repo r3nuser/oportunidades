@@ -1,14 +1,9 @@
 <?php
-//include("conexao.php");
-$host = "localhost";
-$user = "root";
-$password = "root";
-$db = "oportunidades";
-
 
 function open_connection(){
 	try {
-		$con = new mysqli($host,$user,$password,$db);
+		$con = new mysqli("localhost","root","root","oportunidadesbeta");
+		mysqli_query($con,"SET NAMES 'utf8'");
 		return $con;
 	} catch (Exception $e){
 		echo $e->getMessage();
@@ -16,7 +11,7 @@ function open_connection(){
 	}
 }
 
-function close_connection($conn) {
+function close_connection($con) {
 	try{
 		mysqli_close($con);
 	}catch(Exception $e){

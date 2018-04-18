@@ -38,11 +38,11 @@
 .caixa
 {
 	text-align: left;
-	position: relative;
+	
 	margin-left: 25%;
 	margin-right: 25%;
-	width: wrap_content;
-	height: wrap_content;
+	width: 50%;
+	
 	box-shadow: 2px 5px #000000;
 	border: outset ;
 	
@@ -65,4 +65,21 @@
 	color: Black;
 	cursor: pointer;
 	
+}
+.bntEnviar
+{
+	margin-right: 30%;
+	margin-left: 40%;
+	width: 100px;
+	height: 30px;
+	font-size: 15px;
+	background-color: DimGray;
+	text-decoration: none;
+	color: Black;
+	cursor: pointer;
+}
+table,th,td{
+	margin: 1%;
+	border: 3px outset;
+	border-collapse:collapse;
 }
