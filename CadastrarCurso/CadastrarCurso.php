@@ -2,11 +2,11 @@
     <head>
         <meta charset="ISO-8859-1">
         <title>Cadastrar Cursos</title>
-        <link REL="SHORTCUT ICON" HREF="icones/favicon.ico">
-        <link REL="STYLESHEET" HREF="CSS/STYLE.CSS" TYPE="TEXT/CSS"/>
-        <script type="text/javascript" src="scripts_js/mask_camp.js"></script>
-		<script type="text/javascript" src="scripts_js/cep_modulo.js"></script>
-        <script type="text/javascript" src="scripts_js/valid_data.js"></script>
+        <link REL="SHORTCUT ICON" HREF="../icones/favicon.ico">
+        <link REL="STYLESHEET" HREF="../CSS/STYLE.CSS" TYPE="TEXT/CSS"/>
+        <script type="text/javascript" src="../scripts_js/mask_camp.js"></script>
+		<script type="text/javascript" src="../scripts_js/cep_modulo.js"></script>
+        <script type="text/javascript" src="../scripts_js/valid_data.js"></script>
     </head>
     
     <body>
@@ -35,7 +35,7 @@
                
                 <tbody>
                     <?php
-                        include("conexao.php");
+                        include("../conexao.php");
 
                         $con = open_connection();
                         $sql="SELECT * FROM curso";

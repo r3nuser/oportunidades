@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 18/04/2018 às 16:40
+-- Tempo de geração: 20/04/2018 às 04:53
 -- Versão do servidor: 10.1.31-MariaDB
 -- Versão do PHP: 7.2.3
 
@@ -27,8 +27,8 @@ SET time_zone = "+00:00";
 --
 -- Estrutura para tabela aluno
 --
-CREATE DATABASE OPORTUNIDADESBETA;
-USE OPORTUNIDADESBETA;
+CREATE DATABASE oportunidadesbeta;
+USE oportunidadesbeta;
 
 CREATE TABLE aluno (
   aluno_cpf varchar(255) NOT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE aluno (
   expec_sobre_curso varchar(255) NOT NULL,
   como_conheceu varchar(255) NOT NULL,
   FK_idCurso int(11) DEFAULT NULL
-);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -51,7 +51,7 @@ CREATE TABLE curso (
   nome varchar(255) NOT NULL,
   cursoInicio date NOT NULL,
   cursoFim date NOT NULL
-);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Fazendo dump de dados para tabela curso
@@ -87,7 +87,7 @@ INSERT INTO curso (idCurso, nome, cursoInicio, cursoFim) VALUES
 CREATE TABLE curso_instituicao (
   fk_idCurso int(11) NOT NULL,
   fk_instituicao_id int(11) NOT NULL
-);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -100,10 +100,10 @@ CREATE TABLE endereco (
   rua varchar(255) NOT NULL,
   bairro varchar(255) NOT NULL,
   cidade varchar(255) NOT NULL,
-  numeroResidencia varchar(255) DEFAULT NULL,
+  numeroResidencia varchar(255) NOT NULL,
   fk_aluno_cpf varchar(255) DEFAULT NULL,
   fk_instituicao_id int(11) DEFAULT NULL
-);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -113,9 +113,10 @@ CREATE TABLE endereco (
 
 CREATE TABLE instituicao (
   instituicao_id int(11) NOT NULL,
-  nome varchar(255) NOT NULL,
-  fk_CEP varchar(255) DEFAULT NULL
-);
+  nome varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
 
 -- --------------------------------------------------------
 
@@ -124,10 +125,11 @@ CREATE TABLE instituicao (
 --
 
 CREATE TABLE telefone (
-  telefone1 varchar(255) NOT NULL,
-  telefone2 varchar(255) NOT NULL,
-  fk_aluno_cpf varchar(255) NOT NULL
-);
+  telefone1 varchar(255) DEFAULT NULL,
+  telefone2 varchar(255) DEFAULT NULL,
+  fk_aluno_cpf varchar(255) DEFAULT NULL,
+  fk_instituicao_id int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Índices de tabelas apagadas
@@ -157,7 +159,6 @@ ALTER TABLE curso_instituicao
 -- Índices de tabela endereco
 --
 ALTER TABLE endereco
-  ADD PRIMARY KEY (cep),
   ADD KEY fk_aluno_cpf (fk_aluno_cpf),
   ADD KEY fk_instituicao_id (fk_instituicao_id);
 
@@ -165,14 +166,14 @@ ALTER TABLE endereco
 -- Índices de tabela instituicao
 --
 ALTER TABLE instituicao
-  ADD PRIMARY KEY (instituicao_id),
-  ADD KEY fk_endereco_2 (fk_CEP);
+  ADD PRIMARY KEY (instituicao_id);
 
 --
 -- Índices de tabela telefone
 --
 ALTER TABLE telefone
-  ADD KEY fk_aluno2 (fk_aluno_cpf);
+  ADD KEY fk_aluno2 (fk_aluno_cpf),
+  ADD KEY fk_telefone_instituicao_id (fk_instituicao_id);
 
 --
 -- AUTO_INCREMENT de tabelas apagadas
@@ -182,13 +183,13 @@ ALTER TABLE telefone
 -- AUTO_INCREMENT de tabela curso
 --
 ALTER TABLE curso
-  MODIFY idCurso int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY idCurso int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de tabela instituicao
 --
 ALTER TABLE instituicao
-  MODIFY instituicao_id int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY instituicao_id int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Restrições para dumps de tabelas
@@ -215,16 +216,11 @@ ALTER TABLE endereco
   ADD CONSTRAINT fk_instituicao_id FOREIGN KEY (fk_instituicao_id) REFERENCES instituicao (instituicao_id);
 
 --
--- Restrições para tabelas instituicao
---
-ALTER TABLE instituicao
-  ADD CONSTRAINT fk_endereco_2 FOREIGN KEY (fk_CEP) REFERENCES endereco (cep);
-
---
 -- Restrições para tabelas telefone
 --
 ALTER TABLE telefone
-  ADD CONSTRAINT fk_aluno2 FOREIGN KEY (fk_aluno_cpf) REFERENCES aluno (aluno_cpf);
+  ADD CONSTRAINT fk_aluno2 FOREIGN KEY (fk_aluno_cpf) REFERENCES aluno (aluno_cpf),
+  ADD CONSTRAINT fk_telefone_instituicao_id FOREIGN KEY (fk_instituicao_id) REFERENCES instituicao (instituicao_id);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

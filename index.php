@@ -155,6 +155,7 @@
 				<label class="formulario">Como você ficou sabendo dos cursos presenciais do projeto oportunidades?</label>
 				</br>
 				<select class="entrada" name="discoveredTheCourse" id="discoveredTheCourse" onclick="ifOutroIsSelected(this.value,'discoveredTheCourseInput')"onblur="ifIsSelected(this.value,'discoveredTheCourse','discoveredTheCourseError')"/>
+					
 					<option class="font14">Selecionar</option>
 					<option class="font14">Divulgação na TV</option>
 					<option class="font14">Noticiários em Jornais</option>

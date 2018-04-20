@@ -65,7 +65,7 @@
 	}
 		//cadastro dos telefones do aluno
 		$sql="INSERT INTO telefone VALUES";
-		$sql.="('$telefone1','$telefone2','$CPF')";
+		$sql.="('$telefone1','$telefone2','$CPF',null)";
 		
 		if(!mysqli_query($conexao,$sql))
 		{
