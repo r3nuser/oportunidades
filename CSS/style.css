@@ -1,62 +1,53 @@
-.entrada
-{
+.entrada {
 	height: 35px;
 	border-top: 0;
-	border-left:0;
-	border-right:0;
-	font-size:14;
+	border-left: 0;
+	border-right: 0;
+	font-size: 14;
 	border-bottom-color: #ADD8E6;
 }
-.obrigatorio
-{
+
+.obrigatorio {
 	color: red;
-	
 }
-.formulario
-{
-	font-size:17;
+
+.formulario {
+	font-size: 17;
 }
-.ocultos
-{
+
+.ocultos {
 	color: red;
-	visibility:hidden;
+	visibility: hidden;
 }
-.separador
-{
-	background-color:SkyBlue;
+
+.separador {
+	background-color: SkyBlue;
 	font-size: 25;
 }
-.font14
-{
-	font-size: 14;
-}
-.area
-{
+
+.area {
 	vertical-align: top;
-	
 }
-.caixa
-{
+
+.caixa {
 	text-align: left;
-	
 	margin-left: 25%;
 	margin-right: 25%;
 	width: 50%;
-	background-color: rgba(255,255,255,0.2);
+	background-color: rgba(255, 255, 255, 0.2);
 	background-repeat: no-repeat;
 	background-position: top;
 	box-shadow: 2px 5px #000000;
-	border: outset ;
-	
+	border: outset;
 }
-.bntDiv
-{
+
+.bntDiv {
 	display: flex;
 	margin-right: 35%;
-	margin-left:25%;
+	margin-left: 25%;
 }
-.bnt
-{
+
+.bnt {
 	margin-right: 10%;
 	margin-left: 10%;
 	width: 100px;
@@ -66,10 +57,9 @@
 	text-decoration: none;
 	color: Black;
 	cursor: pointer;
-	
 }
-.bntEnviar
-{
+
+.bntEnviar {
 	margin-right: 30%;
 	margin-left: 40%;
 	width: 100px;
@@ -80,12 +70,14 @@
 	color: Black;
 	cursor: pointer;
 }
-table,th,td{
+
+table, th, td {
 	margin: 1%;
 	border: 3px outset;
-	border-collapse:collapse;
+	border-collapse: collapse;
 }
-body{
+
+body {
 	background-image: url(https://imagepng.org/wp-content/uploads/2017/06/bandeira-do-espirito-santo-estado.png);
 	background-size: cover;
 	background-attachment: fixed;

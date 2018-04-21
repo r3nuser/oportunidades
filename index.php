@@ -1,5 +1,3 @@
-<?php include("conexao.php"); ?>
-
 <html>
 	<head>
 		<title>Formulário de Mátricula</title>
@@ -23,19 +21,19 @@
 				
 				<!--Campo Nome-->
 				<label class="formulario">Nome Completo: <font color="red">*</font></label></br>
-				<input class="entrada" type="text" name="nome" id="nome"size="30" onblur="return verify(this.value,'nome','nomeIncorreto')"/>
+				<input required class="entrada" type="text" name="nome" id="nome"size="30" onblur="return verify(this.value,'nome','nomeIncorreto')"/>
 				<p class="ocultos" id="nomeIncorreto">Informe seu nome completo</p>
 				</br>
 				
 				<!--Campo Data de nascimento-->
 				<label class="formulario">Data de Nascimento:<font color="red">*</font></label></br>
-				<input class="entrada" type="text" name="data" id="data" onkeydown="javascript: fMasc( this, mData );"  maxlength="10" onblur="verify(this.value,'data','dataN')"/>
+				<input required class="entrada" type="text" name="data" id="data" onkeydown="javascript: fMasc( this, mData );"  maxlength="10" onblur="verify(this.value,'data','dataN')"/>
 				<p class="ocultos" id="dataN">Informe sua data de nascimento</p>
 				</br>
 
 				<!--Campo CPF-->
 				<label class="formulario">CPF:<font color="red">*</font></label></br>
-				<input  class="entrada"  type="text"  name="CPF"  id="cpf"  onkeydown="javascript: fMasc( this, mCPF );"  maxlength="14"  onblur="return ValidarCPF(Cadastro.cpf)"/>
+				<input required  class="entrada"  type="text"  name="CPF"  id="cpf"  onkeydown="javascript: fMasc( this, mCPF );"  maxlength="14"  onblur="return ValidarCPF(Cadastro.cpf)"/>
 				<p class="ocultos" id="cpfi">Informe um CPF válido</p>
 				</br>
 
@@ -43,19 +41,19 @@
 
 				<!--Campo Telefone-->
 				<label class="formulario">Telefone/Celular 01:<font color="red">*</font></label></br>
-				<input  class="entrada"  type="text"  name="telefone"  id="telefone"  size="14"  maxlength="14"  onkeydown="javascript: fMasc( this, mTel );"  onblur="verify(this.value,'telefone','tel')"/>
+				<input required  class="entrada"  type="text"  name="telefone"  id="telefone"  size="14"  maxlength="14"  onkeydown="javascript: fMasc( this, mTel );"  onblur="verify(this.value,'telefone','tel')"/>
 				<p class="ocultos" id="tel">Infome um número de contato</p>
 				</br>
 
 				<!--Campo Celular-->
 				<label class="formulario">Telefone/Celular 02:<font color="red">*</font></label></br>
-				<input  class="entrada"  type="text"  name="celular"  id="celular"  size="14"  maxlength="14"  onkeydown="javascript: fMasc( this, mTel );"  onblur="verify(this.value,'celular','cel')"/>
+				<input required  class="entrada"  type="text"  name="celular"  id="celular"  size="14"  maxlength="14"  onkeydown="javascript: fMasc( this, mTel );"  onblur="verify(this.value,'celular','cel')"/>
 				<p class="ocultos" id="cel">Infome um número de contato</p>
 				</br>
 
 				<!--Campo E-mail-->
 				<label class="formulario">E-mail:<font color="red">*</font></label></br>
-				<input  class="entrada" 	 type="mail" name="email"  id="email"  value=""  size="25"  onblur="return IsEmail(document.getElementById('email').value)"/>
+				<input required  class="entrada" 	 type="mail" name="email"  id="email"  value=""  size="25"  onblur="return IsEmail(document.getElementById('email').value)"/>
 				<p class="ocultos" id="ei"> Informe um endereço de e-mail válido</p>
 				</br>
 
@@ -63,31 +61,31 @@
 
 				<!--Campo CEP-->
 				<label class="formulario">CEP:<font color="red">*</font></label><br>
-				<input  class="entrada"  name="CEP"  id="CEP"  type="text"  value=""  onkeydown="javascript: fMasc( this, mCEP );"   maxlength="10"  onblur="return search_cep(this.value);"/> 
+				<input required  class="entrada"  name="CEP"  id="CEP"  type="text"  value=""  onkeydown="javascript: fMasc( this, mCEP );"   maxlength="10"  onblur="return search_cep(this.value);"/> 
 				<p class="ocultos" id="cepI">Infome um CEP válido</p>
 				</br>
 
 				<!--Campo Rua-->
 				<label class="formulario">Rua:<font color="red">*</font></label><br>
-				<input  class="entrada"  type="text"  value=""  name="rua"  id="rua" onblur="verify(this.value,'rua','ruaI')" />
+				<input required  class="entrada"  type="text"  value=""  name="rua"  id="rua" onblur="verify(this.value,'rua','ruaI')" />
 				<p class="ocultos" id="ruaI">Informe o nome da rua</p>
 				<br>
 
 				<!--Campo bairro-->
 				<label class="formulario">Bairro:<font color="red">*</font></label></br>
-				<input  class="entrada"  type="text"  name="bairro"  value=""  id="bairro" onblur="verify(this.value,'bairro','bairroI')" />
+				<input required  class="entrada"  type="text"  name="bairro"  value=""  id="bairro" onblur="verify(this.value,'bairro','bairroI')" />
 				<p class="ocultos" id="bairroI">Informe o nome do bairro</p>
 				<br>
 
 				<!--Campo Cidade-->
 				<label class="formulario">Cidade:<font color="red">*</font></label><br>
-				<input  class="entrada"  type="text"  name="cidade"  value=""  id="cidade" onblur="verify(this.value,'cidade','cidadeI')" />
+				<input required  class="entrada"  type="text"  name="cidade"  value=""  id="cidade" onblur="verify(this.value,'cidade','cidadeI')" />
 				<p class="ocultos" id="cidadeI">Informe o nome da cidade</p>
 				<br>
 				
 				<!--Campo Número da Residência-->
 				<label class="formulario">Número da Residência:<font color="red">*</font></label><br>
-				<input  class="entrada"  type="number"  name="numeroResidencia"  value=""  id="numeroResidencia" onblur="verify(this.value,'numeroResidencia','numI')" />
+				<input required  class="entrada"  type="number"  name="numeroResidencia"  value=""  id="numeroResidencia" onblur="verify(this.value,'numeroResidencia','numI')" />
 				<p class="ocultos" id="numI">Informe o número da residência</p>
 				<br>
 
@@ -101,7 +99,7 @@
 				<div>
 					<input id="APN" type="radio"onclick="escolheCurso()" name="escolha" value="" checked/>selecione um dos campos abaixo</br>
 					<?php
-
+					include("conexao.php");
                     $con = open_connection();
                     $sql="SELECT * FROM curso";
         
@@ -129,9 +127,9 @@
 				<label class="formulario">Você está trabalhando atualmente?</label><font color="red">*</font>
 				</br>
 				<select class="entrada" name="job" id="job" onfocus=" verify(Cadastro.curso.value,'APN','cursoI')" onblur="ifIsSelected(this.value,'job','trabalho')"/>
-					<option class="font14">Selecionar</option>
-					<option class="font14">Sim</option>
-					<option class="font14">Não</option>
+					<option>Selecionar</option>
+					<option>Sim</option>
+					<option>Não</option>
 				</select>
 				<p id="trabalho" class="ocultos">Selecione uma das opções</p>
 				
@@ -140,11 +138,11 @@
 				<label class="formulario">Qual a sua expectativa sobre o curso?</label><font color="red">*</font>
 				</br>
 				<select  class="entrada" name="expectativa" id="expectativa" onclick="ifOutraIsSelected(this.value,'ExpectativaInput')"onblur="ifIsSelected(this.value,'expectativa','expectativaError')"/>
-					<option class="font14">Selecionar</option>
-					<option class="font14">Conseguir um emprego</option>
-					<option class="font14">Agregar conhecimento</option>
-					<option class="font14">Gerara renda com um empreendimento próprio</option>
-					<option class="font14">Outra</option>
+					<option >Selecionar</option>
+					<option>Conseguir um emprego</option>
+					<option>Agregar conhecimento</option>
+					<option>Gerara renda com um empreendimento próprio</option>
+					<option>Outra</option>
 				</select>
 				<input  class="entrada"   type="text"  name="ExpectativaInput"  id="ExpectativaInput"  onblur="verify(this.value,'ExpectativaInput','expectativaError')" disabled/>
 
@@ -155,22 +153,20 @@
 				<label class="formulario">Como você ficou sabendo dos cursos presenciais do projeto oportunidades?</label>
 				</br>
 				<select class="entrada" name="discoveredTheCourse" id="discoveredTheCourse" onclick="ifOutroIsSelected(this.value,'discoveredTheCourseInput')"onblur="ifIsSelected(this.value,'discoveredTheCourse','discoveredTheCourseError')"/>
-					
-					<option class="font14">Selecionar</option>
-					<option class="font14">Divulgação na TV</option>
-					<option class="font14">Noticiários em Jornais</option>
-					<option class="font14">Internet</option>
-					<option class="font14">Por meio de amigos</option>
-					<option class="font14">Outro</option>
+					<option>Selecionar</option>
+					<option>Divulgação na TV</option>
+					<option>Noticiários em Jornais</option>
+					<option>Internet</option>
+					<option>Por meio de amigos</option>
+					<option>Outro</option>
 				</select> 
 				<input  class="entrada"   type="text"  name="discoveredTheCourseInput"  id="discoveredTheCourseInput"  onblur="verify(this.value,'discoveredTheCourseInput','discoveredTheCourseError')" disabled/>
 				<br>
 				<p id="discoveredTheCourseError" class="ocultos">Informe a forma pela qual você soube do oportunidades</p>
 				<br>
-
 				<input class="bntEnviar" type="submit" value="Enviar" onclick="return validarTudo()"/>
 			</form>
 			<br>
 		</div>
 	</body>
-</ 
+</html> 

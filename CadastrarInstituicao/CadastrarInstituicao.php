@@ -17,41 +17,41 @@
             <br>
             <!--Campo Nome-->
 				<label class="formulario">Nome da Instituição: <font color="red">*</font></label></br>
-				<input class="entrada" type="text" name="nome" id="nome"size="30" onblur="return verify(this.value,'nome','nomeIncorreto')"/>
+				<input required class="entrada" type="text" name="nome" id="nome"size="30" onblur="return verify(this.value,'nome','nomeIncorreto')"/>
 				<p class="ocultos" id="nomeIncorreto">Informe seu nome da Instituição</p>
 				</br>
                 <!--Campo Telefone-->
 				<label class="formulario">Telefone:<font color="red">*</font></label></br>
-				<input  class="entrada"  type="text"  name="telefone"  id="telefone"  size="14"  maxlength="14"  onkeydown="javascript: fMasc( this, mTel );"  onblur="verify(this.value,'telefone','tel')"/>
+				<input required  class="entrada"  type="text"  name="telefone"  id="telefone"  size="14"  maxlength="14"  onkeydown="javascript: fMasc( this, mTel );"  onblur="verify(this.value,'telefone','tel')"/>
 				<p class="ocultos" id="tel">Infome um número de contato</p>
 				</br>
                 <!--Campo CEP-->
 				<label class="formulario">CEP:<font color="red">*</font></label><br>
-				<input  class="entrada"  name="CEP"  id="CEP"  type="text"  value=""  onkeydown="javascript: fMasc( this, mCEP );"   maxlength="10"  onblur="return search_cep(this.value);"/> 
+				<input required class="entrada"  name="CEP"  id="CEP"  type="text"  value=""  onkeydown="javascript: fMasc( this, mCEP );"   maxlength="10"  onblur="return search_cep(this.value);"/> 
 				<p class="ocultos" id="cepI">Infome um CEP válido</p>
 				</br>
 
 				<!--Campo Rua-->
 				<label class="formulario">Rua:<font color="red">*</font></label><br>
-				<input  class="entrada"  type="text"  value=""  name="rua"  id="rua" onblur="verify(this.value,'rua','ruaI')" />
+				<input required class="entrada"  type="text"  value=""  name="rua"  id="rua" onblur="verify(this.value,'rua','ruaI')" />
 				<p class="ocultos" id="ruaI">Informe o nome da rua</p>
 				<br>
 
 				<!--Campo bairro-->
 				<label class="formulario">Bairro:<font color="red">*</font></label></br>
-				<input  class="entrada"  type="text"  name="bairro"  value=""  id="bairro" onblur="verify(this.value,'bairro','bairroI')" />
+				<input required class="entrada"  type="text"  name="bairro"  value=""  id="bairro" onblur="verify(this.value,'bairro','bairroI')" />
 				<p class="ocultos" id="bairroI">Informe o nome do bairro</p>
 				<br>
 
 				<!--Campo Cidade-->
 				<label class="formulario">Cidade:<font color="red">*</font></label><br>
-				<input  class="entrada"  type="text"  name="cidade"  value=""  id="cidade" onblur="verify(this.value,'cidade','cidadeI')" />
+				<input required class="entrada"  type="text"  name="cidade"  value=""  id="cidade" onblur="verify(this.value,'cidade','cidadeI')" />
 				<p class="ocultos" id="cidadeI">Informe o nome da cidade</p>
 				<br>
 				
 				<!--Campo Número-->
 				<label class="formulario">Número (S/N casa não haja):<font color="red">*</font></label><br>
-				<input  class="entrada"  type="text"  name="numeroResidencia"  value=""  id="numeroResidencia" onblur="verify(this.value,'numeroResidencia','numI')" />
+				<input required class="entrada"  type="text"  name="numeroResidencia"  value=""  id="numeroResidencia" onblur="verify(this.value,'numeroResidencia','numI')" />
 				<p class="ocultos" id="numI">Informe o número da residência</p>
                 <br>
                 
@@ -85,9 +85,11 @@
                        close_connection($con);
                     ?>
                     
-
+                <input class="bntEnviar" type="submit" value="Enviar" />
+                <br>
+                <br>
         </div>
-        <input class="bntEnviar" type="submit" value="Enviar" />
+        
     </form>
     </body>
 </html>

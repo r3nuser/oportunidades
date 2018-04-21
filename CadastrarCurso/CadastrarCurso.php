@@ -16,11 +16,11 @@
             <br>
             <form action="sendCourseToDatabase.php" method="POST">
                 <label class="formulario" for="cursoNome">Nome do Curso</label><br>
-                <input class="entrada" type="text" name="cursoNome"><br>
+                <input required class="entrada" type="text" name="cursoNome"><br>
                 <label class="formulario" for="cursoInicio">Data de inicio</label><br>
-                <input maxlength="10" class="entrada" type="text" name="cursoInicio" onkeydown="javascript: fMasc( this, mData );" ><br>
+                <input required maxlength="10" class="entrada" type="text" name="cursoInicio" onkeydown="javascript: fMasc( this, mData );" ><br>
                 <label class="formulario" for="cursoFim">Data de Témino</label><br>
-                <input maxlength="10" class="entrada" type="text"name="cursoFim" onkeydown="javascript: fMasc( this, mData );"><br>
+                <input required maxlength="10" class="entrada" type="text"name="cursoFim" onkeydown="javascript: fMasc( this, mData );"><br>
                 <br>
                 <input class="bntEnviar" type="submit" value="Cadastrar"> 
             </form>
