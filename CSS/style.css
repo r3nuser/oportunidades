@@ -25,9 +25,7 @@
 	font-size: 25;
 }
 
-.area {
-	vertical-align: top;
-}
+
 
 .caixa {
 	text-align: left;
@@ -35,21 +33,36 @@
 	margin-right: 25%;
 	width: 50%;
 	background-color: rgba(255, 255, 255, 0.2);
-	background-repeat: no-repeat;
-	background-position: top;
+	
 	box-shadow: 2px 5px #000000;
 	border: outset;
+}
+.caixaImprimir{
+	text-align: left;
+	margin-left: 5%;
+	margin-right: 5%;
+	width: 80%;
+	background-color: rgba(255, 255, 255, 0.2);
+	/*box-shadow: 2px 5px #000000;*/
+	border: none;
 }
 
 .bntDiv {
 	display: flex;
-	margin-right: 35%;
-	margin-left: 25%;
+	margin-right: 25%;
+	margin-left: 15%;
+	visibility: visible;
+}
+.bntDivImprimir {
+	display: flex;
+	margin-right: 20%;
+	margin-left: 15%;
+	visibility: hidden;
 }
 
 .bnt {
-	margin-right: 10%;
-	margin-left: 10%;
+	margin-right: 5%;
+	margin-left: 5%;
 	width: 100px;
 	height: 30px;
 	font-size: 15px;
@@ -77,8 +90,8 @@ table, th, td {
 	border-collapse: collapse;
 }
 
-body {
+/*body {
 	background-image: url(https://imagepng.org/wp-content/uploads/2017/06/bandeira-do-espirito-santo-estado.png);
 	background-size: cover;
 	background-attachment: fixed;
-}
+}*/

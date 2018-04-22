@@ -120,6 +120,8 @@ session_start();
 				<title>Confirmar dados</title>
 				<link REL='STYLESHEET' HREF='CSS/STYLE.CSS' TYPE='TEXT/CSS'/>
 				<script type='text/javascript' src='scripts_js/valid_data.js'></script>
+				<script type='text/javascript' src='scripts_js/funcao.js'></script>
+				
 				
 				
 			</head>	
@@ -130,7 +132,7 @@ session_start();
 						<p class='separador'>Dados Pessoais</p>
 						<b>Nome:</b> ".NotNull($nome).
 						"<br>
-						<b>Data: </b>
+						<b>Data De Nascimento: </b>
 						".NotNull($data).
 						"<br>
 						<b>CPF: </b>
@@ -187,8 +189,8 @@ session_start();
 						".NotSelecionar($discoveredTheCourse)."
 						<br>
 						<br>
-						<div class='bntDiv'>
-							<input onclick='Voltar()' class='bnt' type='button' value='voltar'/> <input class='bnt' type='button' value='Confirmar' onclick='javascript: location.href=\"sendToDatabase.php\";'/>
+						<div id='some' class='bntDiv'>
+							<input onclick='Voltar()' class='bnt' type='button' value='voltar'/> <input class='bnt' type='button' value='imprimir' onclick=\"desabilitar('some');trocarDiv('caixa','caixaImprimir');imprimir();trocarDiv('caixaImprimir','caixa');habilitar('some');\"/>  <input class='bnt' type='button' value='Confirmar' onclick='javascript: location.href=\"sendToDatabase.php\";'/>
 						</div>
 						<br>
 					</div>
