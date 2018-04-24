@@ -1,7 +1,7 @@
 <?php
 
     include("../conexao.php");
-    include("../returnIDCourse.php");
+    include("../returnID.php");
 
     $con = open_connection();
 

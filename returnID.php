@@ -1,6 +1,6 @@
 <?php
 
-function returnID($cursoNome,$con)
+function returnIDCourse($cursoNome,$con)
 {
     
  

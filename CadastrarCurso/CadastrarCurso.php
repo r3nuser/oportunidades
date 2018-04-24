@@ -4,9 +4,9 @@
         <title>Cadastrar Cursos</title>
         <link REL="SHORTCUT ICON" HREF="../icones/favicon.ico">
         <link REL="STYLESHEET" HREF="../CSS/STYLE.CSS" TYPE="TEXT/CSS"/>
-        <script type="text/javascript" src="../scripts_js/mask_camp.js"></script>
-		<script type="text/javascript" src="../scripts_js/cep_modulo.js"></script>
-        <script type="text/javascript" src="../scripts_js/valid_data.js"></script>
+        <script type="text/javascript" src="../Javascript/formatterFields.js"></script>
+		<script type="text/javascript" src="../Javascript/CEP.js"></script>
+        <script type="text/javascript" src="../Javascript/checkFields.js"></script>
     </head>
     
     <body>

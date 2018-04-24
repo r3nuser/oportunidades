@@ -1,7 +1,7 @@
 <?php
 	
 	include("conexao.php");
-	include("returnIDCourse.php");
+	include("returnID.php");
 	
 	session_start();
 
@@ -29,7 +29,7 @@
 
 	$conexao=open_connection();
 	
-	$cursoID=returnID($curso,$conexao);
+	$cursoID=returnIDCourse($curso,$conexao);
 
 	$enderecoOK=false;
 	$AlunoOK=false;

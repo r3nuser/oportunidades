@@ -1,4 +1,5 @@
 .entrada {
+
 	height: 35px;
 	border-top: 0;
 	border-left: 0;
@@ -28,22 +29,25 @@
 
 
 .caixa {
+	margin-top: 15.5%;
 	text-align: left;
 	margin-left: 25%;
 	margin-right: 25%;
 	width: 50%;
-	background-color: rgba(255, 255, 255, 0.2);
+	background-color: rgba(255, 255, 255);
+	border-top-color: rgb(255,20,147);
+	border-top-style: solid;
+	border-top-width: 8px;
+	box-shadow: 2px 2px #000000;
 	
-	box-shadow: 2px 5px #000000;
-	border: outset;
 }
 .caixaImprimir{
+	margin-top: 15.5%;
 	text-align: left;
 	margin-left: 5%;
 	margin-right: 5%;
 	width: 80%;
-	background-color: rgba(255, 255, 255, 0.2);
-	/*box-shadow: 2px 5px #000000;*/
+	background-color: rgba(255, 255, 255);
 	border: none;
 }
 
@@ -90,8 +94,9 @@ table, th, td {
 	border-collapse: collapse;
 }
 
-/*body {
-	background-image: url(https://imagepng.org/wp-content/uploads/2017/06/bandeira-do-espirito-santo-estado.png);
-	background-size: cover;
-	background-attachment: fixed;
-}*/
+body {
+	background-image: url(https://lh5.googleusercontent.com/hFPuUWnDzTTTnDWmpTevbdQUnBOai9UBN3M5mOyBhesUcLJmvO72XJ7OHnRP7f21hErDi1g8vQ=w2042);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	
+}

@@ -1,12 +1,19 @@
 <html>
 	<head>
 		<title>Formulário de Mátricula</title>
+		
 		<link REL="SHORTCUT ICON" HREF="icones/favicon.ico">
 		<link REL="STYLESHEET" HREF="CSS/STYLE.CSS" TYPE="TEXT/CSS"/>
+		
 		<meta charset="ISO-8859-1">
-		<script type="text/javascript" src="scripts_js/mask_camp.js"></script>
-		<script type="text/javascript" src="scripts_js/cep_modulo.js"></script>
-		<script type="text/javascript" src="scripts_js/valid_data.js"></script>
+
+		<script type="text/javascript" src="Javascript/formatterFields.js"></script>
+		<script type="text/javascript" src="Javascript/CEP.js"></script>
+		<script type="text/javascript" src="Javascript/checkFields.js"></script>
+		<script type="text/javascript" src="Javascript/checkEmail.js"></script>
+		<script type="text/javascript" src="Javascript/checkCPF.js"></script>
+		<script type="text/javascript" src="Javascript/checkAll.js"></script>
+		<script type="text/javascript" src="Javascript/checkCourse.js"></script>
 	</head>
 	
 	<body>
@@ -91,13 +98,13 @@
 
 				<p class="separador">Cursos</p> 
 				</br>
-
-				<label class="formulario">O candidato opta pelo curso de:</label> 
-				<input  class="entrada"  name="curso"  id="curso"  type="text"  size="52"  disabled/>
-				<font color="red">*</font></br>
+				
+				<p id="teste" class="formulario">O candidato opta pelo curso de:<font color="red">*</font></p></br> 
+			
+				
 				<p class="ocultos" id="cursoI">escolha um dos cursos abaixo</p>
 				<div>
-					<input id="APN" type="radio"onclick="escolheCurso()" name="escolha" value="" checked/>selecione um dos campos abaixo</br>
+					<input  id="APN" type="radio"onclick="escolheCurso()" name="escolha" value="" checked/>selecione um dos campos abaixo</br>
 					<?php
 					include("conexao.php");
                     $con = open_connection();
@@ -110,7 +117,7 @@
                     while($registro = mysqli_fetch_array($resultado))
                     {
 						$nome=  $registro["nome"];
-						echo"<input onclick='escolheCurso()' type='radio' name='escolha' value='$nome'>".$nome."<br>";
+						echo"<input onclick='escolheCurso()' onfocus=\"desabilitar('cursoI');\" type='radio' name='escolha' value='$nome'>".$nome."<br>";
 						
 					}
         
@@ -126,7 +133,7 @@
 
 				<label class="formulario">Você está trabalhando atualmente?</label><font color="red">*</font>
 				</br>
-				<select class="entrada" name="job" id="job" onfocus=" verify(Cadastro.curso.value,'APN','cursoI')" onblur="ifIsSelected(this.value,'job','trabalho')"/>
+				<select class="entrada" name="job" id="job" onfocus="courseUnchecked()" onblur="ifIsSelected(this.value,'job','trabalho')"/>
 					<option>Selecionar</option>
 					<option>Sim</option>
 					<option>Não</option>
