@@ -1,5 +1,8 @@
 // revalidating everything, one by one, before sending
 function validarTudo() {
+	
+	
+	
 	if (document.getElementById("nome").value == "" || document.getElementById("nome").value.length < 7) {
 		document.getElementById("nome").value = "";
 		document.getElementById("nome").focus();
@@ -16,6 +19,15 @@ function validarTudo() {
 		alert("Existem campos que precisam de sua atenção");
 		return false;
 	}
+	if(ValidarCPF(Cadastro.cpf)==false)
+	{
+		document.getElementById("cpf").focus();
+		alert("Existem campos que precisam de sua atenção");
+		return false;
+	}
+
+
+
 	if (document.getElementById("telefone").value == "") {
 		document.getElementById("telefone").focus();
 		alert("Existem campos que precisam de sua atenção");
@@ -30,6 +42,12 @@ function validarTudo() {
 		document.getElementById("email").focus();
 		alert("Existem campos que precisam de sua atenção");
 		return false;
+	}
+	if(IsEmail(document.getElementById("email").value)==false)
+	{
+		document.getElementById("email").focus();
+		alert("Existem campos que precisam de sua atenção");
+		return false;	
 	}
 	if (document.getElementById("rua").value == "") {
 		document.getElementById("rua").focus();

@@ -47,6 +47,31 @@ function returnIDInstituicao($instituicaoNome,$con)
     
 }
 
+function returnCPF($cpf,$con)
+{
+    $sql = "SELECT `aluno_cpf` FROM `aluno` WHERE aluno_cpf = '$cpf'";
+    
+    if(!$rs = mysqli_query($con,$sql))
+    {
+        echo("Error description: " . mysqli_error($con)."<br>");
+        
+    }
+    else
+    {
+
+    while($rg = mysqli_fetch_array($rs))
+    {
+        $id= $rg['aluno_cpf'];
+    }
+        if(isset($id))
+        if($id==$cpf)
+        {
+            echo"<script>alert('cpf ".$cpf." já cadastrado! ')</script>";
+        }
+   
+               
+    }
+}
 
 
 ?>

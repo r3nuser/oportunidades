@@ -39,7 +39,7 @@
 	
 	//Cadastro do Aluno
 	$sql= "INSERT INTO aluno VALUES ";
-	$sql.="('$CPF','$nome','$email','$job','$expectativa','$discoveredTheCourse','$cursoID')"; 
+	$sql.="('$CPF','$nome','$data','$email','$job','$expectativa','$discoveredTheCourse','$cursoID')"; 
 	
 	if(!mysqli_query($conexao,$sql))
 	{

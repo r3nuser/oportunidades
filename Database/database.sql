@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20/04/2018 às 04:53
+-- Tempo de geração: 25/04/2018 às 21:17
 -- Versão do servidor: 10.1.31-MariaDB
 -- Versão do PHP: 7.2.3
 
@@ -27,12 +27,14 @@ SET time_zone = "+00:00";
 --
 -- Estrutura para tabela aluno
 --
+
 CREATE DATABASE oportunidadesbeta;
 USE oportunidadesbeta;
 
 CREATE TABLE aluno (
   aluno_cpf varchar(255) NOT NULL,
   nome varchar(255) NOT NULL,
+  dataDeNascimento date NOT NULL,
   email varchar(255) NOT NULL,
   trabalhando varchar(3) NOT NULL,
   expec_sobre_curso varchar(255) NOT NULL,
@@ -76,7 +78,8 @@ INSERT INTO curso (idCurso, nome, cursoInicio, cursoFim) VALUES
 (16, 'Operador de Caixa', '2018-04-15', '2020-04-20'),
 (17, 'Rede de Computadores', '2018-04-15', '2020-04-20'),
 (18, 'Secretaria Escolar', '2018-04-15', '2020-04-20'),
-(19, 'Segurança na Internet', '2018-04-15', '2020-04-20');
+(19, 'Segurança na Internet', '2018-04-15', '2020-04-20'),
+(20, 'Ciências da computação', '2018-10-14', '2020-12-15');
 
 -- --------------------------------------------------------
 
@@ -100,7 +103,7 @@ CREATE TABLE endereco (
   rua varchar(255) NOT NULL,
   bairro varchar(255) NOT NULL,
   cidade varchar(255) NOT NULL,
-  numeroResidencia varchar(255) NOT NULL,
+  numeroResidencia varchar(255) DEFAULT NULL,
   fk_aluno_cpf varchar(255) DEFAULT NULL,
   fk_instituicao_id int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -115,8 +118,6 @@ CREATE TABLE instituicao (
   instituicao_id int(11) NOT NULL,
   nome varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
 
 -- --------------------------------------------------------
 
@@ -183,13 +184,13 @@ ALTER TABLE telefone
 -- AUTO_INCREMENT de tabela curso
 --
 ALTER TABLE curso
-  MODIFY idCurso int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY idCurso int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de tabela instituicao
 --
 ALTER TABLE instituicao
-  MODIFY instituicao_id int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY instituicao_id int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restrições para dumps de tabelas
