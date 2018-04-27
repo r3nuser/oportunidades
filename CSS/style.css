@@ -41,6 +41,21 @@
 	box-shadow: 2px 2px #000000;
 	
 }
+.caixaExportar {
+	margin-top: 17%;
+	text-align: left;
+	margin-left: 5%;
+	margin-right: 5%;
+	width: 90%;
+	background-color: rgba(255, 255, 255);
+	border-top-color: rgb(255,20,147);
+	border-top-style: solid;
+	border-top-width: 8px;
+	box-shadow: 2px 2px #000000;
+	padding-bottom: 2%
+	
+}
+
 .caixaImprimir{
 	margin-top: 15.5%;
 	text-align: left;
@@ -75,7 +90,17 @@
 	color: Black;
 	cursor: pointer;
 }
-
+.bntEX {
+	margin-right: 1%;
+	margin-left: 1%;
+	width: 150px;
+	height: 30px;
+	font-size: 15px;
+	background-color: DimGray;
+	text-decoration: none;
+	color: Black;
+	cursor: pointer;
+}
 .bntEnviar {
 	margin-right: 30%;
 	margin-left: 40%;
