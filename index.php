@@ -105,7 +105,7 @@
 						
 						<!--Campo Número da Residência-->
 						<label class='formulario'>Número da Residência:<font color='red'>*</font></label><br>
-						<input class='entrada'  type='number'  name='numeroResidencia'  value=\"\"  id='numeroResidencia' onblur=\"verify(this.value,'numeroResidencia','numI')\"/>
+						<input class='entrada'  type='number' min='0'  name='numeroResidencia'  value=\"\"  id='numeroResidencia' onblur=\"verify(this.value,'numeroResidencia','numI')\"/>
 						<p class='ocultos' id='numI'><b>Informe o número da residência</b></p>
 						<br>
 

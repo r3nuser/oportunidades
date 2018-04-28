@@ -19,10 +19,31 @@ session_start();
 	$bairro = $_POST['bairro'];
 	$cidade = $_POST['cidade'];
 	$numeroResidencia = $_POST['numeroResidencia'];
-
+	
+	// getting current date time
 	$ano=date("Y")-16;
 	$dia=date("d");
 	$mes=date("m");
+	
+	// cheching the date time
+	function ValidaData($dat){
+		$data = explode("/","$dat"); 
+		$d = $data[0];
+		$m = $data[1];
+		$y = $data[2];
+	
+		$res = checkdate($m,$d,$y);
+		if ($res == 1){
+		   return true;
+		} else {
+		   return false;
+		}
+	}
+	 
+	
+	
+
+
 
 
 
@@ -92,12 +113,27 @@ session_start();
 			return exibe($input);
 		}	
 	}
-	
-	if(strtotime($AmericanDateTimeFormat)> strtotime(''.$ano.'-'.$mes.'-'.$dia.''))
-	{	
-		echo "<script> alert('É necessário ter no mínimo 16 anos para se inscrever no oportunidES');</script>";
+
+	$Menor16=false;
+	$MaisDe100=false;
+	$DataIncorreta=false;
+
+	if(strtotime($AmericanDateTimeFormat)> strtotime(''.$ano.'-'.$mes.'-'.$dia.'')){	
+		$Menor16 = true;
+	}
+	if(strtotime($AmericanDateTimeFormat) < strtotime('1918-'.$mes.'-'.$dia.'')){
+		$MaisDe100=true;
+	}
+	if(!ValidaData($data)){
+		$DataIncorreta=true;
+	}
+
+	if($Menor16==true||$MaisDe100==true||$DataIncorreta==true)
+	{
+		echo "<script> alert('A idade minima para se inscrever é de 16 anos');</script>";
 		echo "<script>history.back();</script>";
-	}else{
+	}
+	else{
 	
 		//Showing Data
 		echo"
