@@ -1,4 +1,7 @@
 <?php 
+include("conexao.php");
+include("returnID.php");
+$con = open_connection();
 session_start();
 
 //Receiving data using the post method
@@ -20,6 +23,9 @@ session_start();
 	$ano=date("Y")-16;
 	$dia=date("d");
 	$mes=date("m");
+
+
+
 	
 	// convert date format to know the age of the candidate
 
@@ -102,9 +108,6 @@ session_start();
 		<link REL='STYLESHEET' HREF='CSS/STYLE.CSS' TYPE='TEXT/CSS'/>
 		<script type='text/javascript' src='Javascript/checkFields.js'></script>
 		<script type='text/javascript' src='Javascript/prepareForPrinting.js'></script>
-		
-		
-		
 		</head>	
 		<body>
 		<center>
@@ -117,8 +120,7 @@ session_start();
 		".NotNull($data,'Data De Nascimento').
 		"<br>
 		<b>CPF: </b>
-		".NotNull($CPF,'CPF').
-		"<br>".
+		".NotNull($CPF,'CPF')."<label class='ocultos' id='cpfCadastrado'> <b> esse CPF já está cadastrado!</b></label><br>".
 		//mostrando os contatos
 		"<br>
 		<p class='separador'>Contato</p>
@@ -171,7 +173,7 @@ session_start();
 		<br>
 		<br>
 		<div id='some' class='bntDiv'>
-		<input onclick='Voltar()' class='bnt' type='button' value='voltar'/> <input class='bnt' type='button' value='imprimir' onclick=\"desabilitar('some');trocarDiv('caixa','caixaImprimir');imprimir();trocarDiv('caixaImprimir','caixa');habilitar('some');\"/>  <input class='bnt' type='button' value='Confirmar' onclick='javascript: location.href=\"sendToDatabase.php\";'/>
+		<input onclick='Voltar()' class='bnt' type='button' value='voltar'/> <input class='bnt' type='button' value='imprimir' onclick=\"desabilitar('some');trocarDiv('caixa','caixaImprimir');imprimir();trocarDiv('caixaImprimir','caixa');habilitar('some');\"/>  <input id='ocultar' class='bnt' type='button' value='Confirmar' onclick='javascript: location.href=\"sendToDatabase.php\";'/>
 		</div>
 		<br>
 		</div>
@@ -179,6 +181,11 @@ session_start();
 		</body>
 		</html>";
 	}
+	if(returnCPF($CPF,$con))
+		{
+			echo"<script>habilitar('cpfCadastrado');</script>";
+			echo"<script>desabilitar('ocultar');</script>";
+		}
 	// putting the data caught in a "session"
 	
 	$_SESSION['nome']=$nome;

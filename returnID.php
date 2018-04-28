@@ -124,7 +124,10 @@ function returnCPF($cpf,$con){
         if(isset($id))
         if($id==$cpf){
 
-            echo"<script>alert('cpf ".$cpf." já cadastrado! ')</script>";
+            return true;
+            //echo"<script>alert('cpf ".$cpf." já cadastrado! ')</script>";
+        }else{
+            return false;
         }
    
                

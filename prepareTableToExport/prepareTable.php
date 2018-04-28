@@ -46,12 +46,12 @@
                         <th>Nome</th>
                         <th>Data de Nascimento</th>
                         <th>Email</th>
-                        <th>telefone1</th>
-                        <th>telefone2</th>
-                        <th>cep</th>
-                        <th>rua</th>
-                        <th>bairro</th>
-                        <th>cidade</th>
+                        <th>Telefone1</th>
+                        <th>Telefone2</th>
+                        <th>CEP</th>
+                        <th>Cua</th>
+                        <th>Bairro</th>
+                        <th>Cidade</th>
                         <th>Número da Residência</th>
                         <th>Curso</th>
                     </thead>
@@ -62,20 +62,20 @@
 
             //preparando a tabela
 
-            $tabela='<table>';
+            $tabela='<table border="1">';
             $tabela.='<thead>';
             $tabela.='<th>CPF</th>';
             $tabela.='<th>Nome</th>';
             $tabela.='<th>Data de Nascimento</th>';
             $tabela.='<th>Email</th>';
-            $tabela.='<th>telefone1</th>';
-            $tabela.='<th>telefone2</th>';
-            $tabela.='<th>cep</th>';
-            $tabela.='<th>rua</th>';
-            $tabela.='<th>bairro</th>';
-            $tabela.='<th>cidade</th>';
+            $tabela.='<th>Telefone1</th>';
+            $tabela.='<th>Telefone2</th>';
+            $tabela.='<th>CEP</th>';
+            $tabela.='<th>Rua</th>';
+            $tabela.='<th>Bairro</th>';
+            $tabela.='<th>Cidade</th>';
             $tabela.='<th>Número da Residência</th>';
-            $tabela.='<th>Curso</th>';
+            $tabela.='<th colspan="2">Curso</th>';
             $tabela.='</thead>';
             
         while($rg = mysqli_fetch_array($rs)){
@@ -118,7 +118,7 @@
             $tabela.='<td>'.$bairo.'</td>';
             $tabela.='<td>'.$cidade.'</td>';
             $tabela.='<td>'.$numeroResidencia.'</td>';
-            $tabela.='<td>'.$curso.'</td>';
+            $tabela.='<td colspan="2">'.$curso.'</td>';
             $tabela.='</tr>';
            
             echo"
