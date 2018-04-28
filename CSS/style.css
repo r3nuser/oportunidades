@@ -47,12 +47,15 @@
 	margin-left: 5%;
 	margin-right: 5%;
 	width: 90%;
+	height: 90%;
 	background-color: rgba(255, 255, 255);
 	border-top-color: rgb(255,20,147);
 	border-top-style: solid;
 	border-top-width: 8px;
 	box-shadow: 2px 2px #000000;
-	padding-bottom: 2%
+	padding-bottom: 2%;
+	overflow-x: auto;
+	overflow-y: auto;
 	
 }
 
@@ -118,6 +121,8 @@ table, th, td {
 	border: 3px outset;
 	border-collapse: collapse;
 }
+
+
 
 body {
 	background-image: url(https://lh5.googleusercontent.com/hFPuUWnDzTTTnDWmpTevbdQUnBOai9UBN3M5mOyBhesUcLJmvO72XJ7OHnRP7f21hErDi1g8vQ=w2042);

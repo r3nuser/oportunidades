@@ -43,13 +43,13 @@
                <table>
                     <thead>
                         <th>CPF</th>
-                        <th>Nome</th>
+                        <th>Nome Do Aluno</th>
                         <th>Data de Nascimento</th>
                         <th>Email</th>
                         <th>Telefone1</th>
                         <th>Telefone2</th>
                         <th>CEP</th>
-                        <th>Cua</th>
+                        <th>Rua</th>
                         <th>Bairro</th>
                         <th>Cidade</th>
                         <th>Número da Residência</th>
@@ -65,7 +65,7 @@
             $tabela='<table border="1">';
             $tabela.='<thead>';
             $tabela.='<th>CPF</th>';
-            $tabela.='<th>Nome</th>';
+            $tabela.='<th>Nome Do Aluno</th>';
             $tabela.='<th>Data de Nascimento</th>';
             $tabela.='<th>Email</th>';
             $tabela.='<th>Telefone1</th>';
