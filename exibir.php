@@ -126,8 +126,8 @@ session_start();
 		".NotSelecionar($discoveredTheCourse)."
 		<br>
 		<br>
-		<div id='some' class='bntDiv'>
-		<input onclick='Voltar()' class='bnt' type='button' value='voltar'/> <input class='bnt' type='button' value='imprimir' onclick=\"desabilitar('some');trocarDiv('caixa','caixaImprimir');imprimir();trocarDiv('caixaImprimir','caixa');habilitar('some');\"/>  <input id='ocultar' class='bnt' type='button' value='Confirmar' onclick='javascript: location.href=\"sendToDatabase.php\";'/>
+		<div id='some' class='enviar-voltar'>
+		 <input class='bnt' type='button' value='Imprimir' onclick=\"desabilitar('some');trocarDiv('caixa','caixaImprimir');imprimir();trocarDiv('caixaImprimir','caixa');habilitar('some');\"/>  <input id='ocultar' class='bnt' type='button' value='Confirmar' onclick='javascript: location.href=\"sendToDatabase.php\";'/>
 		</div>
 		<br>
 		</div>

@@ -8,7 +8,7 @@
 				<link REL='SHORTCUT ICON' HREF='icones/favicon.ico'>
 				<link REL='STYLESHEET' HREF='CSS/STYLE.CSS' TYPE='TEXT/CSS'/>
 				
-				<meta charset='ISO-8859-1'>
+				<meta charset='UTF-8'>
 
 				<script type='text/javascript' src='Javascript/formatterFields.js'></script>
 				<script type='text/javascript' src='Javascript/checkFields.js'></script>
@@ -52,6 +52,7 @@
 					<br>
 				</div>
 			</body>
+			
 		</html>
 	"; 
 ?>
