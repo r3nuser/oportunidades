@@ -19,10 +19,6 @@
 				<script type='text/javascript' src='Javascript/checkCourse.js'></script>
 				
 				<script type='text/javascript' src='Javascript/checkAll.js'></script>
-				<script type='text/javascript' src='Javascript/checkAll_Contatos.js'></script>
-				<script type='text/javascript' src='Javascript/checkAll_Endereco.js'></script>
-				<script type='text/javascript' src='Javascript/checkAll_Curso.js'></script>
-				<script type='text/javascript' src='Javascript/checkAll_Socioeconomico.js'></script>
 
 			</head>
 			
