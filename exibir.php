@@ -5,21 +5,30 @@ $con = open_connection();
 session_start();
 
 //Receiving data using the post method
+ 
+ //Personal data
+ 	
+ $nome = $_POST['nome'];
+ $data = $_POST['data'];
+ $CPF = $_POST['CPF'];
+ $telefone1 = $_POST['telefone'];
+ $telefone2 = $_POST['celular'];
+ $email = $_POST['email'];
+ $CEP = $_POST['CEP'];
+ $rua = $_POST['rua'];
+ $bairro = $_POST['bairro'];
+ $cidade = $_POST['cidade'];
+ $numeroResidencia = $_POST['numeroResidencia'];
+ $curso = $_POST['escolha'];
 
-//Personal data
-	
-	$nome = $_SESSION['nome'];
-	$data = $_SESSION['BrazilianDateTimeFormat'];
-	$CPF = $_SESSION['CPF'];
-	$telefone1 = $_SESSION['telefone1'];
-	$telefone2 = $_SESSION['telefone2'];
-	$email = $_SESSION['email'];
-	$CEP = $_SESSION['CEP'];
-	$rua = $_SESSION['rua'];
-	$bairro = $_SESSION['bairro'];
-	$cidade = $_SESSION['cidade'];
-	$numeroResidencia = $_SESSION['numeroResidencia'];
-	$curso=$_SESSION['curso'];
+ $ano=date("Y")-16;
+ $dia=date("d");
+ $mes=date("m");
+ 
+ // convert date format to know the age of the candidate
+
+ $BrazilianDateTimeFormat = DateTime::createFromFormat('d/m/Y', $data);
+ $AmericanDateTimeFormat = $BrazilianDateTimeFormat->format('Y-m-d');
 
 	//Social Data
 	
@@ -42,6 +51,22 @@ session_start();
 	function exibe($campoRecebido){
 		return "$campoRecebido";
 	}
+	
+	function NotNull($input,$campo)
+ 	{
+ 		if($input=="")
+
+		{	
+			echo "<script> alert('Existem campos vazios que precisam ser preenchidos: ".$campo."');</script>";
+			echo "<script>history.back();</script>";
+ 			
+ 		}
+ 		else
+ 		{
+ 			return exibe($input);
+ 		}	
+	 }
+	 
 	function NotSelecionar($input)
 	{
 		if($input=="Selecionar"){
@@ -54,60 +79,112 @@ session_start();
 			return exibe($input);
 		}	
 	}
+
+
+	// cheching the date time
+	function ValidaData($dat){
+		$data = explode("/","$dat"); 
+		$d = $data[0];
+		$m = $data[1];
+		$y = $data[2];
+	
+		$res = checkdate($m,$d,$y);
+		if ($res == 1){
+		return true;
+		} else {
+		return false;
+		}
+	}
+
+
+	$Menor16=false;
+	$MaisDe100=false;
+	$DataIncorreta=false;
+
+	if(strtotime($AmericanDateTimeFormat)> strtotime(''.$ano.'-'.$mes.'-'.$dia.'')){	
+		$Menor16 = true;
+	}
+	if(strtotime($AmericanDateTimeFormat) < strtotime('1918-'.$mes.'-'.$dia.'')){
+		$MaisDe100=true;
+	}
+	if(!ValidaData($data)){
+		$DataIncorreta=true;
+	}
+
+	if($Menor16==true||$MaisDe100==true||$DataIncorreta==true)
+	{
+		echo "<script> alert('A idade minima para se inscrever é de 16 anos');</script>";
+		echo "<script>history.back();</script>";
+	}
+	else{
+	
+		if(returnCPF($CPF,$con))
+		{
+			echo "<script> alert('O CPF $CPF já está cadastrado');</script>";
+			close_connection($con);
+			echo "<script>history.back();</script>";
+		}else{
+		
+			close_connection($con);
+			
+
 		echo"
-		<html>
 		<head>
 		<link REL='SHORTCUT ICON' HREF='icones/favicon.ico'>
 		<title>Confirmar dados</title>
 		<link REL='STYLESHEET' HREF='CSS/STYLE.CSS' TYPE='TEXT/CSS'/>
 		<script type='text/javascript' src='Javascript/checkFields.js'></script>
 		<script type='text/javascript' src='Javascript/prepareForPrinting.js'></script>
+		
+		
+		
 		</head>	
 		<body>
 		<center>
 		<div class='caixa'>
 		<h1>Confirme Seus Dados</h1>
 		<p class='separador'>Dados Pessoais</p>
-		<b>Nome:</b> ".$nome.
+		<b>Nome:</b> ".NotNull($nome,'Nome').
 		"<br>
 		<b>Data De Nascimento: </b>
-		".$data.
+		".NotNull($data,'Data De Nascimento').
 		"<br>
 		<b>CPF: </b>
-		".$CPF.
+		".NotNull($CPF,'CPF').
+		"<br>".
 		//mostrando os contatos
 		"<br>
 		<p class='separador'>Contato</p>
 		<b>Telefone/Celular01: </b>
-		".$telefone1.
+		".NotNull($telefone1,'Telefone/Celular01').
 		"<br>
 		<b>Telefone/Celular02: </b>
-		".$telefone1.
+		".NotNull($telefone1,'Telefone/Celular02').
 		"<br>
 		<b>E-mail: </b>
-		".$email.
+		".NotNull($email,'E-mail').
 		"<br>".
 		//Mostrando endereço
 		"<p class='separador'>Endereço</p>
 		<b>CEP: </b>
-		".$CEP."
+		".NotNull($CEP,'CEP')."
 		<br>
 		<b> Rua: </b>
-		".$rua."
+		".NotNull($rua,'Rua')."
 		<br>
 		<b>Bairro: </b>
-		".$bairro."
+		".NotNull($bairro,'Bairro')."
 		<br>
 		<b>Cidade: 	</b>
-		".$cidade."
+		".NotNull($cidade,'Cidade')."
 		<br>
 		<b>Número da Residência:</b>
-		".$numeroResidencia.
+		".NotNull($numeroResidencia,'Número da Residência')."".
 		
 		//Mostrar curso escolhido
 		"<p class='separador'>Cursos</p> 
 		<b>Curso: </b>
-		".$curso.
+		".NotNull($curso,'Curso').
 		"<br>".
 		//Mostrar dados socioeconômicos
 		"<p class='separador'>Informações Socioeconômicas</p>
@@ -126,20 +203,36 @@ session_start();
 		".NotSelecionar($discoveredTheCourse)."
 		<br>
 		<br>
-		<div id='some' class='enviar-voltar'>
-		 <input class='bnt' type='button' value='Imprimir' onclick=\"desabilitar('some');trocarDiv('caixa','caixaImprimir');imprimir();trocarDiv('caixaImprimir','caixa');habilitar('some');\"/>  <input id='ocultar' class='bnt' type='button' value='Confirmar' onclick='javascript: location.href=\"sendToDatabase.php\";'/>
+		<div id='some' class='bntDiv'>
+		<input onclick='Voltar()' class='bnt' type='button' value='voltar'/> <input class='bnt' type='button' value='imprimir' onclick=\"desabilitar('some');trocarDiv('caixa','caixaImprimir');imprimir();trocarDiv('caixaImprimir','caixa');habilitar('some');\"/>  <input class='bnt' type='button' value='Confirmar' onclick='javascript: location.href=\"sendToDatabase.php\";'/>
 		</div>
 		<br>
 		</div>
 		</center>
 		</body>
-		</html>";
-	
-	
-	// putting the data caught in a "session"
-	
-	$_SESSION['job']=$job;
-	$_SESSION['expectativa']=$expectativa;
-	$_SESSION['discoveredTheCourse']=$discoveredTheCourse;	
-	$_SESSION['numeroResidencia']=$numeroResidencia;
-	?>
+ 		</html>";
+
+
+		// putting the data caught in a "session"
+		
+		$_SESSION['nome']=$nome;
+		$_SESSION['data']=$AmericanDateTimeFormat;
+		$_SESSION['CPF']=$CPF;
+		/*---*/
+		$_SESSION['telefone1']=$telefone1;
+		$_SESSION['telefone2']=$telefone2;
+		$_SESSION['email']=$email;
+		$_SESSION['CEP']=$CEP;
+		$_SESSION['rua']=$rua;
+		$_SESSION['bairro']=$bairro;
+		$_SESSION['cidade']=$cidade;
+		/*-----*/
+		$_SESSION['curso']=$curso;
+		/*-----*/
+		$_SESSION['job']=$job;
+		$_SESSION['expectativa']=$expectativa;
+		$_SESSION['discoveredTheCourse']=$discoveredTheCourse;	
+		$_SESSION['numeroResidencia']=$numeroResidencia;
+	}
+}
+?>

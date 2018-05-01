@@ -64,6 +64,11 @@ function validarTudo() {
 		alert("Existem campos que precisam de sua atenção");
 		return false;
 	}
+	if (document.getElementById("numeroResidencia").value == "") {
+		document.getElementById("numeroResidencia").focus();
+		alert("Existem campos que precisam de sua atenção");
+		return false;
+	}
 	if (document.getElementById("APN").checked) {
 		document.getElementById("APN").focus();
 		document.getElementById("cursoI").style.visibility = "visible";
