@@ -4,7 +4,7 @@
 	echo"
 		<html>
 			<head>
-				<title>Formulário de Mátricula - Dados pessoais</title>
+				<title>Formulário de Mátricula</title>
 				
 				<link REL='SHORTCUT ICON' HREF='icones/favicon.ico'>
 				<link REL='STYLESHEET' HREF='CSS/STYLE.CSS' TYPE='TEXT/CSS'/>
@@ -32,37 +32,46 @@
 							<p class='obrigatorio'>todos os campos com asterisco (\"*\") são de preenchimento obrigatório</p></br>
 
 								<div class='container-interno-Dados-Pessoais'>
-					
+									
 									<p class='separador'>Dados Pessoais</p>
+									<div class='div-cotainer-dados-pessoais'>
 									
 									<!--Campo Nome-->
 									<label class='formulario'>Nome Completo: <font color='red'>*</font></label>
 									<input class='entrada' type='text' name='nome' id='nome'size='30' onblur=\"return verify(this.value,'nome','nomeIncorreto')\"/>
 									<span class='ocultos' id='nomeIncorreto'><b>Informe seu nome completo</b></span>
 									
-									
 									<!--Campo CPF-->
 									<label class='formulario'>CPF:<font color='red'>*</font></label>
 									<input class='entrada'  type='text'  name='CPF'  id='cpf'  onkeydown='javascript: fMasc( this, mCPF );'  maxlength='14'  onblur=\"return ValidarCPF(Cadastro.cpf);\"/>
-									<span class='ocultos' id='cpfi'><b>Informe um CPF válido</b></span>
-									<br>
+									<span class='ocultos' id='cpfi'><b>Informe um CPF válido</b></span><br>
+
+									
 									<!--Campo Data de nascimento-->
 									<label class='formulario'>Data de Nascimento:<font color='red'>*</font></label>
 									<input class='entrada' type='text' name='data' id='data' onkeydown='javascript: fMasc( this, mData );'  maxlength='10' onblur=\"verify(this.value,'data','dataN')\"/>
 									<span class='ocultos' id='dataN'><b>Informe sua data de nascimento</b></span>
-
+									
+									
+									
+									
+								</div>
 								</div>
 					
 								<div class='container-interno-Cursos'>
 								
 									<p class='separador'>Cursos</p> 
-									</br>
-							
-									<p id='teste' class='formulario'>O candidato opta pelo curso de:<font color='red'>*</font></p></br> 
+									
+
+									<div class='div-cotainer'>
+									
+									<span id='teste' class='formulario'>O candidato opta pelo curso de:<font color='red'>*</font></span></br> 
 							
 									<!--<input  class='entrada'  name='curso'  id='curso'  type='text'  size='52'  disabled/>-->
 							
-									<p class='ocultos' id='cursoI'><b>escolha um dos cursos abaixo</b></p>
+									<span class='ocultos' id='cursoI'><b>escolha um dos cursos abaixo</b></span>
+									<br>
+									<br>
 							
 									<input  id='APN' type='radio'onclick='escolheCurso()' name='escolha' value=\"\" checked/>selecione um dos campos abaixo</br>
 									
@@ -88,40 +97,44 @@
 									echo"
 						
 								</div>
-					
+								</div>
 								<div class='container-interno-Contatos'>
 					
 					
 					
 									<p class='separador'>Contato</p>
-					
-										<!--Campo Telefone1-->
+									
+									<div class='div-cotainer'>
+									
+									<!--Campo Telefone1-->
 										<label class='formulario'>Telefone/Celular 01:<font color='red'>*</font></label>
 										<input class='entrada'  type='text'  name='telefone'  id='telefone'  size='14'  maxlength='14'  onkeydown='javascript: fMasc( this, mTel );'  onblur=\"verify(this.value,'telefone','tel')\"/>
-										<span class='ocultos' id='tel'><b>Infome um número de contato</b></span>
+										<span class='ocultos' id='tel'><b>Infome um telefone</b></span>
 										
 										
 										<!--Campo Telefone2-->
 										<label class='formulario'>Telefone/Celular 02:<font color='red'>*</font></label>
 										<input class='entrada'  type='text'  name='celular'  id='celular'  size='14'  maxlength='14'  onkeydown='javascript: fMasc( this, mTel );'  onblur=\"verify(this.value,'celular','cel')\"/>
-										<span class='ocultos' id='cel'><b>Infome um número de contato</b></span>
+										<span class='ocultos' id='cel'><b>Infome um telefone</b></span></br>
 										
-										<br>
+										
 										
 										<!--Campo E-mail-->
 										<label class='formulario'>E-mail:<font color='red'>*</font></label>
 										<input class='entrada' 	 type='mail' name='email'  id='email'  value=\"\"  size='25'  onblur='return IsEmail(this.value)'/>
-										<span class='ocultos' id='ei'><b> Informe um endereço de e-mail válido</b></span>
+										<span class='ocultos' id='ei'><b> Informe um endereço de e-mail </b></span>
 										
 										
 										</div>
-										
+										</div>
 										
 										<div class='container-interno-Enderecos'>
 										
 										
 										<p class='separador'>Endereço</p>
 										
+										<div class='div-cotainer'>
+
 											<!--Campo CEP--><!--Não está sendo validado com JS-->
 											<label class='formulario'>CEP:<font color='red'>*</font></label>	
 											<input class='entrada'  name='CEP'  id='CEP'  type='text'  value=\"\"  onkeydown='javascript: fMasc( this, mCEP );'   maxlength='10'  onblur='return search_cep(this.value);'/> 
@@ -152,11 +165,12 @@
 											<br>
 											<span class='ocultos' id='numI'><b>Informe o número da residência</b></span>
 										</div>
+										</div>
 					
 										<div class='container-interno-SocioEconomicas'>
 					
 											<p class='separador'>Informações Socioeconômicas</p>
-											
+											<div class='div-cotainer'>
 											<!-- Sobre trabalho -->
 											
 											<label class='formulario'>Você está trabalhando atualmente?</label><font color='red'>*</font>
@@ -204,7 +218,7 @@
 											<span id='discoveredTheCourseError' class='ocultos'><b>Informe a forma pela qual você soube do oportunidades</b></span>
 											
 										</div>
-					
+										</div>
 						<div class='contenerBotao'>		
 						<div class='enviar-apagar'>	
 						<input class='bnt' type='reset' value='Cancelar'/> <input class='bnt' type='submit' value='Próximo' onclick='return validarTudo();'/>

@@ -143,7 +143,7 @@ session_start();
 		<center>
 		<div class='caixa'>
 		<h1>Confirme Seus Dados</h1>
-		<p class='separador'>Dados Pessoais</p>
+		<p class='separador-page-exibir'>Dados Pessoais</p>
 		<b>Nome:</b> ".NotNull($nome,'Nome').
 		"<br>
 		<b>Data De Nascimento: </b>
@@ -154,7 +154,7 @@ session_start();
 		"<br>".
 		//mostrando os contatos
 		"<br>
-		<p class='separador'>Contato</p>
+		<p class='separador-page-exibir'>Contato</p>
 		<b>Telefone/Celular01: </b>
 		".NotNull($telefone1,'Telefone/Celular01').
 		"<br>
@@ -165,7 +165,7 @@ session_start();
 		".NotNull($email,'E-mail').
 		"<br>".
 		//Mostrando endereço
-		"<p class='separador'>Endereço</p>
+		"<p class='separador-page-exibir'>Endereço</p>
 		<b>CEP: </b>
 		".NotNull($CEP,'CEP')."
 		<br>
@@ -182,12 +182,12 @@ session_start();
 		".NotNull($numeroResidencia,'Número da Residência')."".
 		
 		//Mostrar curso escolhido
-		"<p class='separador'>Cursos</p> 
+		"<p class='separador-page-exibir'>Cursos</p> 
 		<b>Curso: </b>
 		".NotNull($curso,'Curso').
 		"<br>".
 		//Mostrar dados socioeconômicos
-		"<p class='separador'>Informações Socioeconômicas</p>
+		"<p class='separador-page-exibir'>Informações Socioeconômicas</p>
 		<br>
 		<b>Trabalha? </b>
 		".NotSelecionar($job)."

@@ -24,8 +24,13 @@
 .separador {
 	background-color: SkyBlue;
 	font-size: 25;
+	text-align: center;
 }
-
+.separador-page-exibir {
+	background-color: SkyBlue;
+	font-size: 25;
+	
+}
 
 
 .caixa {
@@ -96,8 +101,8 @@
 	width: 100px;
 	height: 30px;
 	font-size: 15px;
-	background-color: DimGray;
-	text-decoration: none;
+	background-color: rgb(182, 176, 176);
+	
 	color: Black;
 	cursor: pointer;
 }
@@ -107,8 +112,8 @@
 	width: 150px;
 	height: 30px;
 	font-size: 15px;
-	background-color: DimGray;
-	text-decoration: none;
+	background-color: rgb(182, 176, 176);
+	
 	color: Black;
 	cursor: pointer;
 }
@@ -118,8 +123,7 @@
 	width: 100px;
 	height: 30px;
 	font-size: 15px;
-	background-color: DimGray;
-	text-decoration: none;
+	background-color: rgb(182, 176, 176);
 	color: Black;
 	cursor: pointer;
 }
