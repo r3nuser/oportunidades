@@ -6,7 +6,7 @@ function IsEmail(email) {
 
 	if (((email.search(exclude) != -1) || (email.search(check)) == -1) || (email.search(checkend) == -1)) {
 				
-		document.getElementById("email").focus();
+		// document.getElementById("email").focus();
 		document.getElementById("ei").style.visibility = "visible";
 		return false;
 	}

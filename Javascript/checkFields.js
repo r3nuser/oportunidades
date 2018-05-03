@@ -14,7 +14,7 @@ function desabilitar(ID) {
 //Null field verification
 function verify(valor, ElementID, errorMessageID) {
 	if (valor == "") {
-		focar(ElementID);
+		// focar(ElementID);
 		habilitar(errorMessageID);
 		return 0;
 	}

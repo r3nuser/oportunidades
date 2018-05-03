@@ -1,0 +1,28 @@
+table{
+    margin-left:5%;
+    margin-right:5%;
+    width: 90%;
+	border: 3px outset;
+	border-collapse: collapse;
+}
+th,td{
+    border: 3px outset;
+	border-collapse: collapse;
+}
+.bntEX {
+	margin-right: 5%;
+    margin-left: 5%;
+    margin-bottom:3%; 
+	width: 150px;
+	height: 30px;
+	font-size: 15px;
+    background-color: rgb(182, 176, 176);
+}
+.formularioTable{
+    font-size: 17;
+    margin-left: 10%;
+}
+.botao{
+    font-size: 15px;
+    background-color: rgb(182, 176, 176);
+}

@@ -64,6 +64,32 @@ function returnAlunoTelefones($alunoID,$con)
         return array($telefone1,$telefone2);   
     }
 }
+
+function returnAlunosByCPF($CPF,$con)
+{
+    $sql = "SELECT `alunoID`, `aluno_cpf`, `nome`, `dataDeNascimento`, `email` FROM `aluno` WHERE aluno_cpf = '$CPF'";
+    
+    if(!$rs = mysqli_query($con,$sql)){
+       
+        echo("Error description: " . mysqli_error($con)."<br>");
+        
+    }else{
+
+        while($rg = mysqli_fetch_array($rs)){
+            
+            $alunoID= $rg['alunoID'];
+            $aluno_cpf= $rg['aluno_cpf'];
+            $nome= $rg['nome'];
+            $dataDeNascimento= $rg['dataDeNascimento'];
+            $email= $rg['email'];
+            
+    }
+        
+        return array($alunoID,$aluno_cpf,$nome,$dataDeNascimento,$email);   
+    }
+}
+
+
 function returnAlunoEndereco($alunoID,$con)
 {
     $sql = "SELECT `cep`, `rua`, `bairro`, `cidade`, `numeroResidencia` FROM `endereco` WHERE `fk_alunoID` = '$alunoID'";

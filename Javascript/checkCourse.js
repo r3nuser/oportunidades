@@ -1,7 +1,7 @@
 //verify if "selecionar" is selected
 function ifIsSelected(value, ID, ocultoID) {
 	if (value == "Selecionar") {
-		focar(ID);
+		// focar(ID);
 		habilitar(ocultoID);
 	}
 	else {
