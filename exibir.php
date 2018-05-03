@@ -1,7 +1,9 @@
 <?php 
 include("conexao.php");
 include("returnID.php");
+
 $con = open_connection();
+
 session_start();
 
 //Receiving data using the post method
@@ -117,15 +119,19 @@ session_start();
 		echo "<script>history.back();</script>";
 	}
 	else{
-	
-		if(returnCPF($CPF,$con))
+
+		$cursoID = returnIDCourse($curso,$con);
+		
+		if(isRegistered($CPF,$cursoID,$con))
 		{
-			echo "<script> alert('O CPF $CPF já está cadastrado');</script>";
+			echo "<script> alert('O CPF $CPF já foi cadastrado para o curso $curso');</script>";
 			close_connection($con);
 			echo "<script>history.back();</script>";
 		}else{
 		
 			close_connection($con);
+	
+		
 			
 
 		echo"
@@ -233,6 +239,7 @@ session_start();
 		$_SESSION['expectativa']=$expectativa;
 		$_SESSION['discoveredTheCourse']=$discoveredTheCourse;	
 		$_SESSION['numeroResidencia']=$numeroResidencia;
+		
 	}
 }
 ?>

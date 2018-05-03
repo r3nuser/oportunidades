@@ -22,7 +22,7 @@
         echo"
         <html>
 			<head>
-				<title>Formulário de Mátricula</title>
+				<title>Alunos Matriculados</title>
 				
 				<link REL='SHORTCUT ICON' HREF='../icones/favicon.ico'>
 				<link REL='STYLESHEET' HREF='../CSS/STYLE.CSS' TYPE='TEXT/CSS'/>
@@ -36,7 +36,7 @@
 			
 			<body>
             <div class='caixaExportar'>
-               <p class ='separador'>Alunos cadastrados</p>
+               <p class ='separador'>Alunos Matriculados</p>
                <input class='bntEX' type='button' value='Exportar para Exel' onclick='javascript: location.href=\"exportar.php\"'/>
 
                
@@ -82,18 +82,17 @@
             $i=0;
             $j=0;
             
-
+            $alunoID = $rg['alunoID'];
             $aluno_cpf = $rg['aluno_cpf'];
             $nome = $rg['nome'];
             $dataDeNascimentoUSFormat = DateTime::createFromFormat('Y-m-d',$rg['dataDeNascimento']);
             $email = $rg['email'];
-            $trabalhando = $rg['trabalhando'];
-            $expec_sobre_curso = $rg['expec_sobre_curso'];
-            $como_conheceu = $rg['como_conheceu'];
            
+           
+            
             $curso = returnNameCourse($rg['FK_idCurso'],$con);
-            $arrayTelefone = returnAlunoTelefones($aluno_cpf,$con);
-            $arrayEndereco = returnAlunoEndereco($aluno_cpf,$con);
+            $arrayTelefone = returnAlunoTelefones($alunoID,$con);
+            $arrayEndereco = returnAlunoEndereco($alunoID,$con);
 
             $dataDeNascimentoBRFormat = $dataDeNascimentoUSFormat->format('d/m/Y');
                         
@@ -160,17 +159,4 @@
         ";      
     }
         close_connection($con);
-
-        /* $_SESSION['aluno_cpf'] = $aluno_cpf;            
-            $_SESSION['nome'] = $nome;
-            $_SESSION['dataDeNascimentoBRFormat'] = $dataDeNascimentoBRFormat;
-            $_SESSION['email'] = $email;
-            $_SESSION['telefone1'] = $telefone1;
-            $_SESSION['telefone2'] = $telefone2;
-            $_SESSION['cep'] = $cep;
-            $_SESSION['rua'] = $rua;
-            $_SESSION['bairo'] = $bairo;
-            $_SESSION['cidade'] = $cidade;
-            $_SESSION['numeroResidencia'] = $numeroResidencia;
-            $_SESSION['curso'] = $curso;*/
 ?>

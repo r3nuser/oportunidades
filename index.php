@@ -32,7 +32,6 @@
 							<p class='obrigatorio'>todos os campos com asterisco (\"*\") são de preenchimento obrigatório</p></br>
 
 								<div class='container-interno-Dados-Pessoais'>
-									
 									<p class='separador'>Dados Pessoais</p>
 									<div class='div-cotainer-dados-pessoais'>
 									

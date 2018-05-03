@@ -29,17 +29,22 @@
 
 	$conexao=open_connection();
 	
-	$cursoID=returnIDCourse($curso,$conexao);
+	$cursoID = returnIDCourse($curso,$conexao); // recupera o ID do curso
 
-	$enderecoOK=false;
+	/* variaveis de controle */
+	
+	$enderecoOK=false; 
 	$AlunoOK=false;
 	$telefoneOK=false;
-
-	echo"o ID de ".$curso." é".$cursoID."<br>";
 	
-	//Cadastro do Aluno
+	/******/
+
+	
+	
+	/* Cadastro do Aluno */
+
 	$sql= "INSERT INTO aluno VALUES ";
-	$sql.="('$CPF','$nome','$data','$email','$job','$expectativa','$discoveredTheCourse','$cursoID')"; 
+	$sql.="(null,'$CPF','$nome','$data','$email','$job','$expectativa','$discoveredTheCourse','$cursoID')"; 
 	
 	if(!mysqli_query($conexao,$sql))
 	{
@@ -51,9 +56,13 @@
 		$AlunoOK=true;
 		
 	}
-	//Cadastro do endereço
+	
+	$alunoID = returnAlunoID($CPF,$conexao); // recuperando do banco o id do aluno
+	
+	/* Cadastro do endereço */
+
 	$sql= "INSERT INTO endereco VALUES ";
-	$sql.= "('$CEP','$rua','$bairro','$cidade','$numeroResidencia','$CPF',null)";
+	$sql.= "('$CEP','$rua','$bairro','$cidade','$numeroResidencia','$alunoID',null)";
 
 	if(!mysqli_query($conexao,$sql))
 	{
@@ -63,26 +72,40 @@
 	{ 
 		$enderecoOK=true;
 	}
-		//cadastro dos telefones do aluno
-		$sql="INSERT INTO telefone VALUES";
-		$sql.="('$telefone1','$telefone2','$CPF',null)";
+	
+	/* cadastro dos telefones do aluno */
+
+	$sql="INSERT INTO telefone VALUES";
+	$sql.="('$telefone1','$telefone2','$alunoID',null)";
+	
+	if(!mysqli_query($conexao,$sql))
+	{
+		echo("\"telefone\" Error description: " . mysqli_error($conexao)."<br>");
+	}
+	else
+	{
 		
+		$telefoneOK=true;
+	}
+
+	if($enderecoOK == true && $AlunoOK == true && $telefoneOK == true)
+	{
+		
+		/*Cadastro na tabela aluno_curso*/
+
+		$sql = "INSERT INTO `curso_aluno`( `Aluno_Nome`, `Aluno_CPF`, `fk_cursoID` ) VALUES ('$nome','$CPF',$cursoID)";
+
 		if(!mysqli_query($conexao,$sql))
 		{
-			echo("\"telefone\" Error description: " . mysqli_error($conexao)."<br>");
-		}
-		else
+			echo("\"curso_aluno\" Error description: " . mysqli_error($conexao)."<br>");
+		}else
 		{
-			
-			$telefoneOK=true;
-		}
-
-		if($enderecoOK == true && $AlunoOK == true && $telefoneOK == true)
-		{
-			echo"<script>alert('cadastro realizado com sucesso')</script>";
-			echo "<script>location.href='index.php'</script>";
-		}
+		echo"<script>alert('cadastro realizado com sucesso')</script>";
 		close_connection($conexao);
+		echo "<script>location.href='index.php'</script>";
+	}
+}
+	
 
 
 

@@ -1,5 +1,6 @@
 <?php
 
+
 function returnIDCourse($cursoNome,$con)
 {
     
@@ -44,9 +45,9 @@ function returnNameCourse($cursoID,$con)
     }
     
 }
-function returnAlunoTelefones($cpf,$con)
+function returnAlunoTelefones($alunoID,$con)
 {
-    $sql = "SELECT `telefone1`, `telefone2` FROM `telefone` WHERE fk_aluno_cpf ='$cpf'";
+    $sql = "SELECT `telefone1`, `telefone2` FROM `telefone` WHERE fk_alunoID ='$alunoID'";
     
     if(!$rs = mysqli_query($con,$sql)){
        
@@ -63,9 +64,9 @@ function returnAlunoTelefones($cpf,$con)
         return array($telefone1,$telefone2);   
     }
 }
-function returnAlunoEndereco($cpf,$con)
+function returnAlunoEndereco($alunoID,$con)
 {
-    $sql = "SELECT `cep`, `rua`, `bairro`, `cidade`, `numeroResidencia` FROM `endereco` WHERE `fk_aluno_cpf` = '$cpf'";
+    $sql = "SELECT `cep`, `rua`, `bairro`, `cidade`, `numeroResidencia` FROM `endereco` WHERE `fk_alunoID` = '$alunoID'";
     
     if(!$rs = mysqli_query($con,$sql)){
        
@@ -107,9 +108,9 @@ function returnIDInstituicao($instituicaoNome,$con)
     
 }
 
-function returnCPF($cpf,$con){
+function returnAlunoID($cpf,$con){
 
-    $sql = "SELECT `aluno_cpf` FROM `aluno` WHERE aluno_cpf = '$cpf'";
+    $sql = "SELECT `alunoID` FROM `aluno` WHERE aluno_cpf = '$cpf'";
     
     if(!$rs = mysqli_query($con,$sql)){
 
@@ -119,20 +120,47 @@ function returnCPF($cpf,$con){
 
     while($rg = mysqli_fetch_array($rs)){
         
-        $id= $rg['aluno_cpf'];
+        $id= $rg['alunoID'];
     }
-        if(isset($id))
-        if($id==$cpf){
-
-            return true;
-            //echo"<script>alert('cpf ".$cpf." já cadastrado! ')</script>";
-        }else{
-            return false;
-        }
-   
-               
+            return $id;
+            //echo"<script>alert('cpf ".$cpf." já cadastrado! ')</script>";          
     }
 }
 
+function isRegistered($cpf,$courseID,$con){
+
+    $sql = "SELECT `fk_cursoID` FROM `curso_aluno` WHERE Aluno_CPF = '$cpf'";
+    
+    if(!$rs = mysqli_query($con,$sql)){
+
+        echo("Error description: " . mysqli_error($con)."<br>");
+        
+    }else{
+        
+        $flag=0;
+
+        while($rg = mysqli_fetch_array($rs)){
+            
+            $registeredCourse= $rg['fk_cursoID'];
+            
+            if(isset($registeredCourse)){
+                if($registeredCourse==$courseID){
+                
+                    $flag++;
+                
+                }
+            }else{
+                $flag=0;
+            }
+        }
+        if($flag==0){
+
+            return false;
+        
+        }else{
+            return true;
+            }
+    }
+}
 
 ?>
