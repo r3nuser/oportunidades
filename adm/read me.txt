@@ -1,0 +1,3 @@
+#Cadastro de curso cadastrara unicamente cursos
+#Cadastro de instituição cadastrara unicamente instituições e seus respectivo endereço
+#cadastro decurso na istituição relacionará os cursos cadastrados com as instituiçoes cadastradas

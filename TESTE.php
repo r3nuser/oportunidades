@@ -23,4 +23,19 @@ echo "$nome <br>" ;
 echo "$data <br>" ;
 echo "$email <br>" ;
 
+
+echo("teste do retorn das datas de inicio e fim");
+$array = returnArrayPeriodo('1','1',$con);
+
+echo $array[0]."<br>";
+echo $array[1];
+
+echo("<br>teste da verificação do cadastro de curso na istituição<br>");
+
+if(courseAlredyRegistered('20','3',$con))
+echo "verdadeiro";
+else
+echo "falso";
+
+
 ?>

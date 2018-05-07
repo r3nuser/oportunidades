@@ -1,6 +1,6 @@
 <?php
 
-
+// RETORNA O ID DO CURSO
 function returnIDCourse($cursoNome,$con)
 {
     
@@ -23,6 +23,7 @@ function returnIDCourse($cursoNome,$con)
     }
     
 }
+// RETORNA O NOME DO CURSO
 function returnNameCourse($cursoID,$con)
 {
     
@@ -45,6 +46,54 @@ function returnNameCourse($cursoID,$con)
     }
     
 }
+// RETURNA UM ARRAY COM OS NÚMEROS DE TELEFONES DAS INSTITUIÇÔES
+function returnInstituicaoTelefones($instituicaoID,$con)
+{
+    $sql = "SELECT `telefone1`, `telefone2` FROM `telefone` WHERE fk_instituicao_id ='$instituicaoID'";
+    
+    if(!$rs = mysqli_query($con,$sql)){
+       
+        echo("Error description: " . mysqli_error($con)."<br>");
+        
+    }else{
+
+        while($rg = mysqli_fetch_array($rs)){
+            
+            $telefone1= $rg['telefone1'];
+            $telefone2= $rg['telefone2'];
+    }
+        
+        return array($telefone1,$telefone2);   
+    }
+}
+// RETORNA UM ARRAY COM AS DATAS DE INICIO E TÉRMINO DOS CURSOS
+function returnArrayPeriodo($cursoID,$instituicaoID,$con)
+{
+   $sql = "SELECT `dataInicio`, `dataFim` FROM `periodo_curso` WHERE fk_cursoID ='$cursoID' AND fk_instituicaoID = '$instituicaoID'";
+   if(!$rs = mysqli_query($con,$sql)){
+       
+    echo("Error description: " . mysqli_error($con)."<br>");
+    
+}else{
+
+    while($rg = mysqli_fetch_array($rs)){
+        
+        $inicio= $rg['dataInicio'];
+        $fim= $rg['dataFim'];
+
+        $cursoInicioUSformat = DateTime::createFromFormat('Y-m-d', $inicio);
+        $cursoInicioBRFormat = $cursoInicioUSformat->format('d/m/Y');
+        
+        $cursoFimUSformat = DateTime::createFromFormat('Y-m-d', $fim);
+        $cursoFimBRFormat = $cursoFimUSformat->format('d/m/Y');
+}
+    
+    return array($cursoInicioBRFormat,$cursoFimBRFormat);   
+}
+}
+
+
+// RETORNA UM ARRAY COM OS NÚMEROS DE TELEFONES 
 function returnAlunoTelefones($alunoID,$con)
 {
     $sql = "SELECT `telefone1`, `telefone2` FROM `telefone` WHERE fk_alunoID ='$alunoID'";
@@ -64,7 +113,7 @@ function returnAlunoTelefones($alunoID,$con)
         return array($telefone1,$telefone2);   
     }
 }
-
+// RETORNA UM ARRAY COM OS DADOS DOS ALUNOS PELO CPF
 function returnAlunosByCPF($CPF,$con)
 {
     $sql = "SELECT `alunoID`, `aluno_cpf`, `nome`, `dataDeNascimento`, `email` FROM `aluno` WHERE aluno_cpf = '$CPF'";
@@ -89,7 +138,7 @@ function returnAlunosByCPF($CPF,$con)
     }
 }
 
-
+// RETORNA UM ARRAY COM O ENDEREÇO DOS ALUNOS APARTIR DO ID
 function returnAlunoEndereco($alunoID,$con)
 {
     $sql = "SELECT `cep`, `rua`, `bairro`, `cidade`, `numeroResidencia` FROM `endereco` WHERE `fk_alunoID` = '$alunoID'";
@@ -112,6 +161,31 @@ function returnAlunoEndereco($alunoID,$con)
         return array($cep,$rua,$bairro,$cidade,$numeroResidencia);   
     }
 }
+// RETORNA UM ARRAY COM OS ENDEREÇOS DAS ISTITUIÇÕES
+
+function returnInstituicaoEndereco($instituicaoID,$con)
+{
+    $sql = "SELECT `cep`, `rua`, `bairro`, `cidade`, `numeroResidencia` FROM `endereco` WHERE fk_instituicao_id = '$instituicaoID'";
+    
+    if(!$rs = mysqli_query($con,$sql)){
+       
+        echo("Error description: " . mysqli_error($con)."<br>");
+        
+    }else{
+
+        while($rg = mysqli_fetch_array($rs)){
+            
+            $cep= $rg['cep'];
+            $rua= $rg['rua'];
+            $bairro = $rg['bairro'];
+            $cidade = $rg['cidade'];
+            $numeroResidencia = $rg['numeroResidencia'];
+    }
+        
+        return array($cep,$rua,$bairro,$cidade,$numeroResidencia);   
+    }
+}
+// RETONA O ID DAS INSTITUIÇÕES A PARTIR DO NOME
 function returnIDInstituicao($instituicaoNome,$con)
 {
     
@@ -133,7 +207,48 @@ function returnIDInstituicao($instituicaoNome,$con)
     }
     
 }
+// RETORNA AS INSTITUIÇOES PELO CURSO QUE OFERECEM
+function returnInstituicaoByCourseID($courseID,$con)
+{
+     $sql = "SELECT * FROM `curso_instituicao` WHERE fk_idCurso = '$courseID'";
+    if(!$rs = mysqli_query($con,$sql)){
 
+        echo("Error description: " . mysqli_error($con)."<br>");
+        
+    }else{
+
+    while($rg = mysqli_fetch_array($rs)){
+        
+        $id= $rg['fk_instituicao_id'];
+    }
+        
+        return $id;   
+    }
+    
+}
+// RETORNA O NOME DAS INSTITUIÇÕES A PARTIR DO ID
+function returnInstituicaoNome($instituicaoID,$con)
+{
+    
+ 
+
+    $sql = "SELECT * FROM `instituicao` WHERE instituicao_id = '$instituicaoID'";
+    if(!$rs = mysqli_query($con,$sql)){
+
+        echo("Error description: " . mysqli_error($con)."<br>");
+        
+    }else{
+
+    while($rg = mysqli_fetch_array($rs)){
+        
+        $nome= $rg['nome'];
+    }
+        
+        return $nome;   
+    }
+    
+}
+// RETORNA O ID DOS ALUNOS A PARTIR DO CPF
 function returnAlunoID($cpf,$con){
 
     $sql = "SELECT `alunoID` FROM `aluno` WHERE aluno_cpf = '$cpf'";
@@ -153,6 +268,44 @@ function returnAlunoID($cpf,$con){
     }
 }
 
+//VERIFICAR SE O CURSO JÁ FOI CADASTRADO NA ISTITUIÇÃO
+
+function courseAlredyRegistered($CourseID,$instituicaoID,$con){
+
+    $sql = "SELECT `fk_idCurso` FROM `curso_instituicao` WHERE `fk_instituicao_id` = '$instituicaoID'";
+    if(!$rs = mysqli_query($con,$sql)){
+
+        echo("Error description: " . mysqli_error($con)."<br>");
+        
+    }else{
+        
+        $flag=0;
+
+        while($rg = mysqli_fetch_array($rs)){
+            
+            $registeredCourse= $rg['fk_idCurso'];
+            
+            if(isset($registeredCourse)){
+                if($registeredCourse==$CourseID){
+                
+                    $flag++;
+                
+                }
+            }else{
+                $flag=0;
+            }
+        }
+        if($flag==0){
+
+            return false;
+        
+        }else{
+            return true;
+            }
+    }
+}
+
+// VERIFICA SE O ALUNO JÁ SE MATRICULOU EM DETERMINADO CURSO
 function isRegistered($cpf,$courseID,$con){
 
     $sql = "SELECT `fk_cursoID` FROM `curso_aluno` WHERE Aluno_CPF = '$cpf'";

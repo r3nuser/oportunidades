@@ -1,0 +1,86 @@
+body{
+    margin: 0;
+    background-image: none;
+}
+.link{
+    text-decoration: none;
+}
+.navbar {
+    overflow: hidden;
+    background-color: rgb(255,20,147);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    margin-bottom: 1%;
+  }
+  
+  .navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    
+  }
+  
+  .navbar a:hover {
+    background: skyblue;
+    color: black;
+  }
+  
+  .main {
+    padding-top: 15px;
+    margin-top: 30px;
+    
+   /* Used in this example to enable scrolling */
+  }
+  div.main div {display: none}
+div.main div:target {display: block}
+
+
+
+/* ***************** */
+.caixa-cadCurso{
+    display: block;
+    border: solid;
+    width: 80%;
+    height:80%;
+}
+.cadCurso-Field{
+    width:40%;
+    margin-bottom:2%;
+    text-align:left;
+}
+
+iframe{
+    width:60%;
+    height:600px;
+    border:none;
+}
+.cad-insti{
+    text-align: left;
+    width: 55%;
+}
+.exportar-iframe{
+    width: 90%;
+    height:600px;
+    margin-left: 5%;
+    margin-right: 5%;
+    border: none;
+    
+    
+}
+#item1{
+    padding-top: 5%
+}
+#item2{
+    padding-top: 5%
+}
+#item3{
+    padding-top: 5%
+}
+#item4{
+    padding-top: 5%
+}
