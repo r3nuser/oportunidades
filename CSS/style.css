@@ -80,7 +80,7 @@
 .bntDiv {
 	display: flex;
 	margin-right: 25%;
-	margin-left: 15%;
+	margin-left: 25%;
 	visibility: visible;
 }
 .enviar-voltar
@@ -93,7 +93,7 @@
 .bntDivImprimir {
 	display: flex;
 	margin-right: 20%;
-	margin-left: 15%;
+	margin-left: 20%;
 	visibility: hidden;
 }
 
