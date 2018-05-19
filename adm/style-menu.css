@@ -1,6 +1,7 @@
 body{
     margin: 0;
     background-image: none;
+    overflow-x: hidden;
 }
 .link{
     text-decoration: none;
@@ -65,11 +66,11 @@ iframe{
 }
 .exportar-iframe{
     width: 100%;
-    height:600px;
+    height:500px;
     margin-left: 0%;
     margin-right: 0%;
     border: none;
-    overflow-x: scroll;
+    overflow-x: auto;
     
     
     

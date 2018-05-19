@@ -35,7 +35,9 @@
             <th>Rua</th>
             <th>Bairro</th>
             <th>Cidade</th>
-            <th>Número</th>    
+            <th>Número</th>
+            <th>ID</th>
+            <th>alterar</th>    
             <?php
             //nome do arquivo que será gerado
             if(isset($cursoName))
@@ -52,7 +54,7 @@
             $tabela.='<th>Email</th>';
             $tabela.='<th>Telefone1</th>';
             $tabela.='<th>Telefone2</th>';
-            $tabela.='<th>CEP</th>';
+            // $tabela.='<th>CEP</th>';
             $tabela.='<th>Rua</th>';
             $tabela.='<th>Bairro</th>';
             $tabela.='<th>Cidade</th>';
@@ -103,29 +105,33 @@
                 $posicao++;
                 echo"
                 <tr>
+                    <form action='makeup.php' method='get'>
                     <td><input class='inputCampo' size='2' type='text' value='$posicao'/></td>
                     <td><input class='inputCampo' size='12' type='text' value='$aluno_cpf'/></td>
-                    <td><input class='inputCampo' size='20' type='text' value='$nome'/></td>
+                    <td><input name='nome' class='inputCampo' size='20' type='text' value='$nome'/></td>
                     <td><input class='inputCampo' size='9' type='text' value='$dataDeNascimentoBRFormat'/></td>
-                    <td><input class='inputCampo' size='25' type='text' value='$email'/></td>
-                    <td><input class='inputCampo' size='12' type='text' value='$telefone1'/></td>
-                    <td><input class='inputCampo' size='12' type='text' value='$telefone2'/></td>
+                    <td><input name='email' class='inputCampo' size='25' type='text' value='$email'/></td>
+                    <td><input name='tel1' class='inputCampo' size='12' type='text' value='$telefone1'/></td>
+                    <td><input name='tel2' class='inputCampo' size='12' type='text' value='$telefone2'/></td>
                <!-- <td><input class='inputCampo' size='8' type='text' value='$cep'/></td>-->
-                    <td><input class='inputCampo' size='15' type='text' value='$rua'/></td>
-                    <td><input class='inputCampo' size='15' type='text' value='$bairo'/></td>
-                    <td><input class='inputCampo' size='15' type='text' value='$cidade'/></td>
-                    <td><input class='inputCampo' size='4' type='text' value='$numeroResidencia'/></td>
-                    
+                    <td><input name='rua' class='inputCampo' size='15' type='text' value='$rua'/></td>
+                    <td><input name='bairro' class='inputCampo' size='5' type='text' value='$bairo'/></td>
+                    <td><input name='cidade' class='inputCampo' size='5' type='text' value='$cidade'/></td>
+                    <td><input name='numero' class='inputCampo' size='4' type='text' value='$numeroResidencia'/></td>
+                    <td><input name='alunoID' class='inputCampo' size='4' type='text' value='$alunoID'/></td>
+                    <td><input type='submit' value='salvar'/></td>
+                    </form>
                 </tr>
             ";
             $tabela.='<tr>';
+            $tabela.='<td>'.$posicao.'</td>';
             $tabela.='<td>'.$aluno_cpf.'</td>';
             $tabela.='<td>'.$nome.'</td>';
             $tabela.='<td>'.$dataDeNascimentoBRFormat.'</td>';
             $tabela.='<td>'.$email.'</td>';
             $tabela.='<td>'.$telefone1.'</td>';
             $tabela.='<td>'.$telefone2.'</td>';
-            $tabela.='<td>'.$cep.'</td>';
+            // $tabela.='<td>'.$cep.'</td>';
             $tabela.='<td>'.$rua.'</td>';
             $tabela.='<td>'.$bairo.'</td>';
             $tabela.='<td>'.$cidade.'</td>';
@@ -142,16 +148,17 @@
 
         ?>
         <tr>
-            <td colspan="11" style="text-align:center">DUPLICADOS</td>
+            <td colspan="13" style="text-align:center">DUPLICADOS</td>
         </tr>
         <?php
         if(isset($cursoID)){
         
-            $sql="SELECT aluno_cpf, nome, dataDeNascimento, email, telefone1, telefone2, cep,rua,bairro,cidade,numeroResidencia FROM `duplicados` WHERE FK_idCurso='$cursoID' ORDER BY `FK_idCurso` ASC ";
+            $sql="SELECT alunoDuplicadoID,aluno_cpf, nome, dataDeNascimento, email, telefone1, telefone2, cep,rua,bairro,cidade,numeroResidencia FROM `duplicados` WHERE FK_idCurso='$cursoID' ORDER BY `FK_idCurso` ASC ";
             if(!$rs = mysqli_query($con,$sql)){
        
             echo("Error description: " . mysqli_error($con)."<br>");
-            
+            	
+             
             }else{
     
                 while($rg = mysqli_fetch_array($rs)){
@@ -167,9 +174,11 @@
                             <td><input class='inputCampo' size='12' type='text' value='".$rg['telefone2']."'/></td>
                         <!--<td><input class='inputCampo' size='8' type='text' value='".$rg['cep']."'/></td>-->
                             <td><input class='inputCampo' size='15' type='text' value='".$rg['rua']."'/></td>
-                            <td><input class='inputCampo' size='15' type='text' value='".$rg['bairro']."'/></td>
-                            <td><input class='inputCampo' size='15' type='text' value='".$rg['cidade']."'/></td>
+                            <td><input class='inputCampo' size='5' type='text' value='".$rg['bairro']."'/></td>
+                            <td><input class='inputCampo' size='5' type='text' value='".$rg['cidade']."'/></td>
                             <td><input class='inputCampo' size='4' type='text' value='".$rg['numeroResidencia']."'/></td>
+                            <td colspan='2'><input name='numero' class='inputCampo' size='4' type='text' value='".$rg['alunoDuplicadoID']."'/></td>
+                            
                         </tr>
                     ";
                 }
