@@ -3,7 +3,11 @@ table{
     margin-right:5%;
     width: 90%;
 	border: 3px outset;
-	border-collapse: collapse;
+    border-collapse: collapse;
+    
+}
+.inputCampo{
+    border: none;
 }
 th,td{
     border: 3px outset;

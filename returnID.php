@@ -306,9 +306,9 @@ function courseAlredyRegistered($CourseID,$instituicaoID,$con){
 }
 
 // VERIFICA SE O ALUNO JÁ SE MATRICULOU EM DETERMINADO CURSO
-function isRegistered($cpf,$courseID,$con){
+function isRegistered($cpf,$nome,$dataDeNascimento,$email,$con){
 
-    $sql = "SELECT `fk_cursoID` FROM `curso_aluno` WHERE Aluno_CPF = '$cpf'";
+    $sql = "SELECT nome, aluno_cpf, dataDeNascimento, email FROM `aluno` WHERE nome = '$nome' AND aluno_cpf='$cpf' AND dataDeNascimento= '$dataDeNascimento' AND email='$email'";
     
     if(!$rs = mysqli_query($con,$sql)){
 
@@ -320,10 +320,16 @@ function isRegistered($cpf,$courseID,$con){
 
         while($rg = mysqli_fetch_array($rs)){
             
-            $registeredCourse= $rg['fk_cursoID'];
             
-            if(isset($registeredCourse)){
-                if($registeredCourse==$courseID){
+            
+            $CPFRegistered = $rg['aluno_cpf'];
+            $nomeRegistered = $rg['nome'];
+            $dataDeNascimentoRegistered = $rg['dataDeNascimento'];
+            $emailRegistered = $rg['email'];
+            
+            if(isset($CPFRegistered) && isset($nomeRegistered) && isset($dataDeNascimentoRegistered) && isset($emailRegistered)){
+                
+                if(($CPFRegistered==$cpf) && ($nomeRegistered==$nome) && ($dataDeNascimentoRegistered==$dataDeNascimento) && ($emailRegistered==$email)){
                 
                     $flag++;
                 

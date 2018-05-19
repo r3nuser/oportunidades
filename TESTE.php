@@ -1,41 +1,20 @@
 <?php
 include('conexao.php');
 include('returnID.php');
-
+echo"<h2>Teste de funções<h2>";
 $con = open_connection();
-$CPF='100.842.817-58';
-$flag =0;
+
+$cpf='514.717.670-51';
+$nome = 'Kiko Tesouro Coração Benzinho LOTERIA';
+$dataDeNascimento = '1998-04-14';
+$email = 'bill@corp.com';
 
 
-   $a = returnAlunosByCPF($CPF,$con);
-    
-    
-    $alunoID = $a[$flag];
-    $aluno_CPF = $a[$flag+1];
-    $nome = $a[$flag+2];
-    $data = $a[$flag+3];
-    $email = $a[$flag+4];
-    $flag++;
-
-echo "$alunoID <br>";
-echo "$aluno_CPF <br>" ;
-echo "$nome <br>" ;
-echo "$data <br>" ;
-echo "$email <br>" ;
 
 
-echo("teste do retorn das datas de inicio e fim");
-$array = returnArrayPeriodo('1','1',$con);
-
-echo $array[0]."<br>";
-echo $array[1];
-
-echo("<br>teste da verificação do cadastro de curso na istituição<br>");
-
-if(courseAlredyRegistered('20','3',$con))
-echo "verdadeiro";
+if (isRegistered($cpf,$nome,$dataDeNascimento,$email,$con))
+    echo "encontrou";
 else
-echo "falso";
-
+    echo "não encontrou";
 
 ?>

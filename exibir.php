@@ -119,21 +119,8 @@ session_start();
 		echo "<script>history.back();</script>";
 	}
 	else{
-
-		$cursoID = returnIDCourse($curso,$con);
-		
-		if(isRegistered($CPF,$cursoID,$con))
-		{
-			echo "<script> alert('O CPF $CPF já foi cadastrado para o curso $curso');</script>";
 			close_connection($con);
-			echo "<script>history.back();</script>";
-		}else{
 		
-			close_connection($con);
-	
-		
-			
-
 		echo"
 		<head>
 		<link REL='SHORTCUT ICON' HREF='icones/favicon.ico'>
@@ -241,5 +228,5 @@ session_start();
 		$_SESSION['numeroResidencia']=$numeroResidencia;
 		
 	}
-}
+// }
 ?>

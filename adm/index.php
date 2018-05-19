@@ -19,6 +19,7 @@ $resultado = mysqli_query($con,$sql) or die("Erro ao retornar dados");
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="style-menu.css">
+        <link REL="SHORTCUT ICON" HREF="../icones/favicon.ico">
         <script type="text/javascript" src="../Javascript/formatterFields.js"></script>
 		<script type="text/javascript" src="../Javascript/CEP.js"></script>
         <title>Oportunidades - Admin</title>
