@@ -17,4 +17,8 @@ if (isRegistered($cpf,$nome,$dataDeNascimento,$email,$con))
 else
     echo "não encontrou";
 
+    echo '<h3>Testar retorno da chave estrangeira pelo id do aluno</h3>';
+    echo returnNameCourse(returnFKCourseByAlunoID("10",$con),$con);
+
+
 ?>

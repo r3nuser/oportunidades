@@ -23,6 +23,27 @@ function returnIDCourse($cursoNome,$con)
     }
     
 }
+// Retorna a chave estrangeira do curso a partir do id do aluno
+
+function returnFKCourseByAlunoID($alunoID,$con){
+    $sql = "SELECT FK_idCurso FROM aluno WHERE alunoID=$alunoID";
+    if(!$rs = mysqli_query($con,$sql)){
+       
+        echo("Error description: " . mysqli_error($con)."<br>");
+        
+    }else{
+
+        while($rg = mysqli_fetch_array($rs)){
+        
+            $id= $rg['FK_idCurso'];
+    }
+        
+        return $id;   
+    }
+    
+}
+
+
 // RETORNA O NOME DO CURSO
 function returnNameCourse($cursoID,$con)
 {

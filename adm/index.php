@@ -183,7 +183,7 @@ $resultado = mysqli_query($con,$sql) or die("Erro ao retornar dados");
             </div>
             <div id="item4">
                 <center>
-                    <form action="prepareTableToExport/buidTable.php" target="my-iframe" method="post">
+                    <form action="prepareTableToExport/buidTable.php" target="my-iframe" method="get">
                         <label class="formularioTable" for="curso">Selecione um curso: </label>
                         <select class="entrada" name="curso">
 

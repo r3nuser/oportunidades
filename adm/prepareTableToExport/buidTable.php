@@ -4,9 +4,9 @@
     session_start();
     $con = open_connection();
 
-    if(!empty($_POST['curso']))
+    if(!empty($_GET['curso']))
     {   
-        $cursoName = $_POST['curso'];
+        $cursoName = $_GET['curso'];
         
     }
     if(isset($cursoName))
