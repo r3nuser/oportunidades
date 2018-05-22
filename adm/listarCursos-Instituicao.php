@@ -61,6 +61,7 @@ $con = open_connection();
         $_SESSION['instituicaoID'] = $instituicaoID;
         
     }else{
+        if(!empty($_SESSION['instituicaoID']))
         $instituicaoID = $_SESSION['instituicaoID'];
     }
 

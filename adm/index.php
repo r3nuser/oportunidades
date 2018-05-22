@@ -61,9 +61,25 @@ $resultado = mysqli_query($con,$sql) or die("Erro ao retornar dados");
                         location.href="http://localhost/oportunidades/adm/#item2";
                     }
                 }
+                if(caminho==3){
+                    
+                    document.getElementById('cad').action = "listarCursos-Instituicao.php";
+                    document.getElementById('cad').submit();
+                }
+                if(caminho==4){
+                    
+                    var option = confirm("Essa ação removerá o curso  da instituição selecionada. Deseja continuar?");
+                    if(option==true){
+                    document.getElementById('cad').action = "removerCurso.php";
+                    document.getElementById('cad').submit();
+                    }else{
+                         location.href="http://localhost/oportunidades/adm/#item3";
+                    }
+                }
                 
 
             }
+            
 
 </script>
     </head>
@@ -154,7 +170,7 @@ $resultado = mysqli_query($con,$sql) or die("Erro ao retornar dados");
                 <center>
                     <fieldset  class="cad-insti">
                         <legend>Cadastrar curso na istituição</legend>
-                        <form name="curso-instituicao"  action="listarCursos-Instituicao.php" target="listar" method="post">
+                        <form name="curso-instituicao" id="cad" action="" target="listar" method="post">
                             <label for="local">Instituição onde o curso ocorrerá:<font color="red">*</font></label>
                             <select name="local" class="entrada" id="local">
                             <?php  
@@ -205,7 +221,8 @@ $resultado = mysqli_query($con,$sql) or die("Erro ao retornar dados");
                                 
                                 <br>
                                 <br>
-                                <input class="bntEnviar" type="submit" value="Enviar" />
+                                <input class="bntCaddastrar" type="button" onclick="SubmitInstituicao('3');" value="Cadastrar"> 
+                                <input class="bntDeletar" type="button" onclick="SubmitInstituicao('4');" value="Remover"> 
                         </form>
                     </fieldset>
                     <br>
