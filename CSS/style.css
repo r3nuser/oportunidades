@@ -96,7 +96,24 @@
 	margin-left: 20%;
 	visibility: hidden;
 }
-
+.bntCaddastrar{
+	margin-left: 35%;
+	width: 100px;
+	height: 30px;
+	font-size: 15px;
+	background-color: rgb(182, 176, 176);
+	color: Black;
+	cursor: pointer;
+}
+.bntDeletar{
+	margin-right: 35%;
+	width: 100px;
+	height: 30px;
+	background-color: rgb(182, 176, 176);
+	font-size: 15px;
+	color: Black;
+	cursor: pointer;
+}
 .bnt {
 	margin-right: 5%;
 	margin-left: 5%;

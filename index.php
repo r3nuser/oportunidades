@@ -37,7 +37,7 @@
 									
 									<!--Campo Nome-->
 									<label class='formulario'>Nome Completo: <font color='red'>*</font></label>
-									<input class='entrada' type='text' name='nome' id='nome'size='30' onblur=\"return verify(this.value,'nome','nomeIncorreto')\"/>
+									<input class='entrada' type='text' name='nome' id='nome'size='30' onkeydown='javascript: fMasc( this, UpperCase );' onblur=\"return verify(this.value,'nome','nomeIncorreto')\"/>
 									<span class='ocultos' id='nomeIncorreto'><b>Informe seu nome completo</b></span>
 									
 									<!--Campo CPF-->
@@ -160,7 +160,7 @@
 											<br>
 											<!--Campo Número da Residência-->
 											<label class='formulario'>Número da Residência:<font color='red'>*</font></label>	
-											<input class='entrada'  type='number' min='0'  name='numeroResidencia'  value=\"\"  id='numeroResidencia' onblur=\"verify(this.value,'numeroResidencia','numI')\"/>
+											<input class='entrada'  type='number' min='1'  name='numeroResidencia'  value=\"\"  id='numeroResidencia' onblur=\"verify(this.value,'numeroResidencia','numI')\"/>
 											<br>
 											<span class='ocultos' id='numI'><b>Informe o número da residência</b></span>
 										</div>
@@ -220,6 +220,7 @@
 										</div>
 						<div class='contenerBotao'>		
 						<div class='enviar-apagar'>	
+						
 						<input class='bnt' type='reset' value='Cancelar'/> <input class='bnt' type='submit' value='Próximo' onclick='return validarTudo();'/>
 						</div>
 						</div>

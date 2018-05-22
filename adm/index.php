@@ -19,10 +19,53 @@ $resultado = mysqli_query($con,$sql) or die("Erro ao retornar dados");
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="style-menu.css">
+        <link rel="stylesheet" href="../css/index-div.css">
         <link REL="SHORTCUT ICON" HREF="../icones/favicon.ico">
         <script type="text/javascript" src="../Javascript/formatterFields.js"></script>
 		<script type="text/javascript" src="../Javascript/CEP.js"></script>
         <title>Oportunidades - Admin</title>
+        <script>
+
+            function Submit(caminho){
+                if(caminho==1){
+                    document.forms[0].action = "cursos/verCursos.php";
+                    document.forms[0].submit();
+                }
+                if(caminho==2){
+                
+                var option = confirm("Essa ação apagará o curso selecionado do banco de dados e não poderá ser desfeita. Deseja continuar?");
+                    if(option==true){
+                        document.forms[0].action = "cursos/deletarCurso.php";
+                        document.forms[0].submit();
+                    }else{
+                        location.href="http://localhost/oportunidades/adm/#item1";
+                    }
+                }
+                
+
+            }
+
+            function SubmitInstituicao(caminho){
+                if(caminho==1){
+                    
+                    document.getElementById('insti').action = "instituicao/verinstituicoes.php";
+                    document.getElementById('insti').submit();
+                }
+                if(caminho==2){
+                    
+                var option = confirm("Essa ação apagará a instituição selecionada do banco de dados e não poderá ser desfeita. Deseja continuar?");
+                    if(option==true){
+                        document.getElementById('insti').action = "instituicao/deletarInstituicao.php";
+                        document.getElementById('insti').submit();
+                    }else{
+                        location.href="http://localhost/oportunidades/adm/#item2";
+                    }
+                }
+                
+
+            }
+
+</script>
     </head>
     <body>
         <div class="navbar">
@@ -39,14 +82,19 @@ $resultado = mysqli_query($con,$sql) or die("Erro ao retornar dados");
                     <fieldset class="cadCurso-Field">
                         <legend>Cadastrar Novo Curso</legend>
                         
-                        <form action="verCursos.php" target="curso" method="POST">
-                            <label class="formulario" for="cursoNome">Nome do Curso:<font color="red">*</font></label>:
-                            <input required class="entrada" type="text" name="cursoNome">
+                        <form action="" target="curso" method="GET">
+                            <label class="formulario" for="cursoNome">Nome do Curso:<font color="red">*</font></label>
+                            <input class="entrada" type="text" name="cursoNome" required/>
                             <br>
-                            <input class="bntEnviar" type="submit" value="Cadastrar"> 
+                            <br>    
+                            
+                               <input class="bntCaddastrar" type="button" onclick="Submit('1');" value="Cadastrar"> 
+                               <input class="bntDeletar" type="button" onclick="Submit('2');" value="Deletar"> 
+                            
+
                         </form>
                     </fieldset>
-                    <iframe name="curso" src="verCursos.php"></iframe>
+                    <iframe name="curso" src="cursos/verCursos.php"></iframe>
                 </center>
             </div>
             <div id="item2">
@@ -54,7 +102,7 @@ $resultado = mysqli_query($con,$sql) or die("Erro ao retornar dados");
                 <fieldset class="cad-insti">
                 <legend>Cadastrar Instituição</legend>
                  
-                    <form name="instituicaoForm" target="instituicao" action="verinstituicoes.php" method="POST">
+                    <form id="insti"name="instituicaoForm" target="instituicao" action="" method="POST">
                         <!--Campo Nome-->
                         <label class="formulario">Nome da Instituição: <font color="red">*</font></label>
                         <input required class="entrada" type="text" name="nome" id="nome"size="30"/>
@@ -94,11 +142,12 @@ $resultado = mysqli_query($con,$sql) or die("Erro ao retornar dados");
                         
                          <br> 
                          <br>              
-                        <input class="bntEnviar" type="submit" value="Enviar" />
+                        <input class="bntCaddastrar" type="button" onclick="SubmitInstituicao('1');" value="Cadastrar"> 
+                        <input class="bntDeletar" type="button" onclick="SubmitInstituicao('2');" value="Deletar"> 
 
                     </form>    
                 </fieldset>
-                    <iframe name="instituicao" src="verinstituicoes.php"></iframe>
+                    <iframe name="instituicao" src="instituicao/verinstituicoes.php"></iframe>
                 </center>
             </div>
             <div id="item3">
@@ -147,6 +196,13 @@ $resultado = mysqli_query($con,$sql) or die("Erro ao retornar dados");
                                 <input required maxlength="10" class="entrada" type="text" name="cursoInicio" onkeydown="javascript: fMasc( this, mData );" >
                                 <label class="formulario" for="cursoFim">Data de Término:<font color="red">*</font></label>
                                 <input required maxlength="10" class="entrada" type="text"name="cursoFim" onkeydown="javascript: fMasc( this, mData );"> 
+                                <label class="formulario" for="turno">Turno:<font color="red">*</font></label>
+                                <select name="turno" class="entrada" id="turno">
+                                    <option>Matutino</option>
+                                    <option>Vespertino</option>
+                                    <option>Noturno</option>
+                                </select>
+                                
                                 <br>
                                 <br>
                                 <input class="bntEnviar" type="submit" value="Enviar" />

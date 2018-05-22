@@ -16,6 +16,13 @@
 <html>
     <head>
     <link REL="STYLESHEET" HREF="style-table.CSS" TYPE="TEXT/CSS"/>
+    <link rel="stylesheet" href="../../css/style.css">
+    <script type="text/javascript" src="../../Javascript/formatterFields.js"></script>
+    <style>
+    body{
+        background-image: none;
+    }
+    </style>
     </head>
     <body>
     <br>
@@ -37,7 +44,7 @@
             <th>Cidade</th>
             <th>Número</th>
             <th>ID</th>
-            <th>alterar</th>    
+            <th>Atualizar</th>    
             <?php
             //nome do arquivo que será gerado
             if(isset($cursoName))
@@ -106,20 +113,20 @@
                 echo"
                 <tr>
                     <form action='makeup.php' method='get'>
-                    <td><input class='inputCampo' size='2' type='text' value='$posicao'/></td>
-                    <td><input class='inputCampo' size='12' type='text' value='$aluno_cpf'/></td>
-                    <td><input name='nome' class='inputCampo' size='20' type='text' value='$nome'/></td>
-                    <td><input class='inputCampo' size='9' type='text' value='$dataDeNascimentoBRFormat'/></td>
-                    <td><input name='email' class='inputCampo' size='25' type='text' value='$email'/></td>
-                    <td><input name='tel1' class='inputCampo' size='12' type='text' value='$telefone1'/></td>
-                    <td><input name='tel2' class='inputCampo' size='12' type='text' value='$telefone2'/></td>
-               <!-- <td><input class='inputCampo' size='8' type='text' value='$cep'/></td>-->
-                    <td><input name='rua' class='inputCampo' size='15' type='text' value='$rua'/></td>
-                    <td><input name='bairro' class='inputCampo' size='5' type='text' value='$bairo'/></td>
-                    <td><input name='cidade' class='inputCampo' size='5' type='text' value='$cidade'/></td>
-                    <td><input name='numero' class='inputCampo' size='4' type='text' value='$numeroResidencia'/></td>
-                    <td><input name='alunoID' class='inputCampo' size='4' type='text' value='$alunoID'/></td>
-                    <td><input type='submit' value='salvar'/></td>
+                    <td><input class='entrada'  size='2' type='text' value='$posicao'/></td>
+                    <td><input class='entrada'  size='12' type='text' value='$aluno_cpf'/></td>
+                    <td><input class='entrada' name='nome'  size='20' type='text' value='$nome'/></td>
+                    <td><input class='entrada'  size='9' type='text' value='$dataDeNascimentoBRFormat'/></td>
+                    <td><input class='entrada' name='email'  size='25' type='text' value='$email'/></td>
+                    <td><input class='entrada' name='tel1' maxlength='14' onkeydown='javascript: fMasc( this, mTel );'  size='12' type='text' value='$telefone1'/></td>
+                    <td><input class='entrada' name='tel2' maxlength='14' onkeydown='javascript: fMasc( this, mTel );'  size='12' type='text' value='$telefone2'/></td>
+               <!-- <td><input class='entrada'  size='8' type='text' value='$cep'/></td>-->
+                    <td><input class='entrada' name='rua'  size='15' type='text' value='$rua'/></td>
+                    <td><input class='entrada' name='bairro'  size='5' type='text' value='$bairo'/></td>
+                    <td><input class='entrada' name='cidade'  size='5' type='text' value='$cidade'/></td>
+                    <td><input class='entrada' name='numero'  size='4' type='text' value='$numeroResidencia'/></td>
+                    <td><input class='entrada' name='alunoID'  size='4' type='text' value='$alunoID'/></td>
+                    <td><input type='image' src='../../icones/editar.png' value='Editar'/> </td>
                     </form>
                 </tr>
             ";
@@ -165,19 +172,19 @@
                    $posicao++;
                     echo"
                         <tr>
-                            <td><input class='inputCampo' size='2' type='text' value='$posicao'/></td>
-                            <td><input class='inputCampo' size='12' type='text' value='".$rg['aluno_cpf']."'/></td>
-                            <td><input class='inputCampo' size='20' type='text' value='".$rg['nome']."'/></td>
-                            <td><input class='inputCampo' size='9' type='text' value='".$rg['dataDeNascimento']."'/></td>
-                            <td><input class='inputCampo' size='25' type='text' value='".$rg['email']."'/></td>
-                            <td><input class='inputCampo' size='12' type='text' value='".$rg['telefone1']."'/></td>
-                            <td><input class='inputCampo' size='12' type='text' value='".$rg['telefone2']."'/></td>
-                        <!--<td><input class='inputCampo' size='8' type='text' value='".$rg['cep']."'/></td>-->
-                            <td><input class='inputCampo' size='15' type='text' value='".$rg['rua']."'/></td>
-                            <td><input class='inputCampo' size='5' type='text' value='".$rg['bairro']."'/></td>
-                            <td><input class='inputCampo' size='5' type='text' value='".$rg['cidade']."'/></td>
-                            <td><input class='inputCampo' size='4' type='text' value='".$rg['numeroResidencia']."'/></td>
-                            <td colspan='2'><input name='numero' class='inputCampo' size='4' type='text' value='".$rg['alunoDuplicadoID']."'/></td>
+                            <td><input class='entrada' size='2' type='text' value='$posicao'/></td>
+                            <td><input class='entrada' size='12' type='text' value='".$rg['aluno_cpf']."'/></td>
+                            <td><input class='entrada' size='20' type='text' value='".$rg['nome']."'/></td>
+                            <td><input class='entrada' size='9' type='text' value='".$rg['dataDeNascimento']."'/></td>
+                            <td><input class='entrada' size='25' type='text' value='".$rg['email']."'/></td>
+                            <td><input class='entrada' size='12' type='text' value='".$rg['telefone1']."'/></td>
+                            <td><input class='entrada' size='12' type='text' value='".$rg['telefone2']."'/></td>
+                        <!--<td><input class='entrada' size='8' type='text' value='".$rg['cep']."'/></td>-->
+                            <td><input class='entrada' size='15' type='text' value='".$rg['rua']."'/></td>
+                            <td><input class='entrada' size='5' type='text' value='".$rg['bairro']."'/></td>
+                            <td><input class='entrada' size='5' type='text' value='".$rg['cidade']."'/></td>
+                            <td><input class='entrada' size='4' type='text' value='".$rg['numeroResidencia']."'/></td>
+                            <td colspan='2'><input name='numero' class='entrada' size='4' type='text' value='".$rg['alunoDuplicadoID']."'/></td>
                             
                         </tr>
                     ";

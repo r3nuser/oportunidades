@@ -14,9 +14,12 @@ function my_callback(content){
 		document.getElementById("ruaI").style.visibility="hidden";	
 		document.getElementById("bairroI").style.visibility="hidden";
 		document.getElementById("cidadeI").style.visibility="hidden";
+		desabilitar('cepI');
 	}else{
 		clear_data();
-		alert("CEP não encontrado !");
+		alert("CEP não encontrado!");
+		habilitar('cepI');
+ 
 	}
 }
 // SEARCHING CEP USING ViaCEP
@@ -40,7 +43,10 @@ function search_cep(value){
 		}else{
 			//INVALID CEP
 			clear_data();
+			
 		}
+	}else{
+		habilitar('cepI');
 	}
 }
 

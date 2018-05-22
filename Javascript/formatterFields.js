@@ -10,6 +10,11 @@ function fMascEx()
 {
 		obj.value=masc(obj.value)
 }
+
+function UpperCase(value){
+    upperCaseString=value.toUpperCase();
+    return upperCaseString;
+}
 function mTel(tel)
 {
 	

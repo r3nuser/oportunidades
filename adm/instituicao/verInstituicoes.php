@@ -1,11 +1,11 @@
 <?php
 
-include("../../oportunidades/conexao.php");
-include("../../oportunidades/returnID.php");
+include("../../conexao.php");
+include("../../returnID.php");
 $con = open_connection();
 
 
-    if(!empty($_POST['nome'])|| !empty($telefone)|| !empty($telefone2)|| !empty($CEP)|| !empty($rua)|| !empty($bairro)|| !empty($cidade)|| !empty($numeroResidencia)){
+    if(!empty($_POST['nome'])&& !empty($_POST['telefone'])&& !empty($_POST['telefone2'])&& !empty($_POST['CEP']) && !empty($_POST['rua'])&& !empty($_POST['bairro'])&& !empty($_POST['cidade'])&& !empty($_POST['numeroResidencia'])){
     
         $nome = $_POST['nome'];
         $telefone = $_POST['telefone'];
@@ -62,11 +62,15 @@ $con = open_connection();
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="../../oportunidades/css/style.css">
+        <link rel="stylesheet" href="../../css/style.css">
+        <script type="text/javascript" src="../../Javascript/formatterFields.js"></script>
         <title>Instituição Tabela</title>
         <style>
             body{
                 background-image:none;
+            }
+            input{
+                border:none;
             }
         </style>
     </head>
@@ -74,7 +78,7 @@ $con = open_connection();
         <center>
             <table>
                 <thead>
-                    <th>ID da Instituição</th>
+                    <th>ID</th>
                     <th>Instituição</th>
                     <th>Telefone1</th>
                     <th>Telefone2</th>
@@ -83,6 +87,7 @@ $con = open_connection();
                     <th>Bairo</th>
                     <th>Cidade</th>
                     <th>Número</th>
+                    <th>Atualizar</th>
 
                 </thead>
                 <tbody>
@@ -118,16 +123,20 @@ $con = open_connection();
                                         $cidade  = $arrayEndereco[$j+3];
                                         $numeroResidencia  = $arrayEndereco[$j+4];
                                         
-                                        echo" <tr>
-                                        <td>$instituicaoID</td>
-                                        <td>$nome</td>
-                                        <td>$telefone1</td>
-                                        <td>$telefone2</td>
-                                        <td>$cep</td>
-                                        <td>$rua</td>
-                                        <td>$bairo</td>
-                                        <td>$cidade</td>
-                                        <td>$numeroResidencia</td>
+                                        echo" 
+                                        <tr>
+                                            <form id='formulario' action='atualizarInstituicao.php' method='get'>
+                                                <td><input class='entrada' name='instituicaoID' size='1' type='text' value='$instituicaoID'/></td>
+                                                <td><input class='entrada' name='nome' size='20' type='text' value='$nome'/></td>
+                                                <td><input class='entrada' maxlength='14' onkeydown='javascript: fMasc( this, mTel)' name='telefone1' size='10' type='text' value='$telefone1'/></td>
+                                                <td><input class='entrada' maxlength='14' onkeydown='javascript: fMasc( this, mTel)' name='telefone2' size='10' type='text' value='$telefone2'/></td>
+                                                <td><input class='entrada' maxlength='10' onkeydown='javascript: fMasc( this, mCEP)' name='cep' size='6' type='text' value='$cep'/></td>
+                                                <td><input class='entrada' name='rua' size='10' type='text' value='$rua'/></td>
+                                                <td><input class='entrada' name='bairo' size='10' type='text' value='$bairo'/></td>
+                                                <td><input class='entrada' name='cidade' size='10' type='text' value='$cidade'/></td>
+                                                <td><input class='entrada' name='numeroResidencia' size='2' type='text' value='$numeroResidencia'/></td>
+                                                <td><input type='image' src='../../icones/editar.png' value='Editar'/> </td>
+                                            </form>
                                         </tr>";
                                     }
                                 }

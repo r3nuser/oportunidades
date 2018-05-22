@@ -1,4 +1,4 @@
-<?php
+ <?php
     include("../../conexao.php");
     include("../../returnID.php");
     
@@ -13,10 +13,10 @@
     if(!$rs = mysqli_query($con,$sql)){
                                     
         echo("Error description: " . mysqli_error($con)."<br>");
-        close_connction($con);
+        close_connection($con);
     }else{
     echo"<script>alert('Atualização bem sucedida!')</script>";
     echo "<script>location.href='buidTable.php?curso=$courseName'</script>";
-    close_connction($con);
+    close_connection($con);
     }
 ?>

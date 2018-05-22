@@ -90,7 +90,7 @@ function returnInstituicaoTelefones($instituicaoID,$con)
 // RETORNA UM ARRAY COM AS DATAS DE INICIO E TÉRMINO DOS CURSOS
 function returnArrayPeriodo($cursoID,$instituicaoID,$con)
 {
-   $sql = "SELECT `dataInicio`, `dataFim` FROM `periodo_curso` WHERE fk_cursoID ='$cursoID' AND fk_instituicaoID = '$instituicaoID'";
+   $sql = "SELECT `dataInicio`, `dataFim`,`turno` FROM `periodo_curso` WHERE fk_cursoID ='$cursoID' AND fk_instituicaoID = '$instituicaoID'";
    if(!$rs = mysqli_query($con,$sql)){
        
     echo("Error description: " . mysqli_error($con)."<br>");
@@ -101,6 +101,7 @@ function returnArrayPeriodo($cursoID,$instituicaoID,$con)
         
         $inicio= $rg['dataInicio'];
         $fim= $rg['dataFim'];
+        $turno = $rg['turno'];
 
         $cursoInicioUSformat = DateTime::createFromFormat('Y-m-d', $inicio);
         $cursoInicioBRFormat = $cursoInicioUSformat->format('d/m/Y');
@@ -109,7 +110,7 @@ function returnArrayPeriodo($cursoID,$instituicaoID,$con)
         $cursoFimBRFormat = $cursoFimUSformat->format('d/m/Y');
 }
     
-    return array($cursoInicioBRFormat,$cursoFimBRFormat);   
+    return array($cursoInicioBRFormat,$cursoFimBRFormat,$turno);   
 }
 }
 

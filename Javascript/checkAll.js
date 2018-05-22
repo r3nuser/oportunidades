@@ -1,8 +1,8 @@
 // revalidating everything, one by one, before sending
 function validarTudo() {
-	
-	
-	
+
+
+
 	if (document.getElementById("nome").value == "" || document.getElementById("nome").value.length < 7) {
 		document.getElementById("nome").value = "";
 		document.getElementById("nome").focus();
@@ -19,8 +19,7 @@ function validarTudo() {
 		alert("Existem campos que precisam de sua atenção");
 		return false;
 	}
-	if(ValidarCPF(Cadastro.cpf)==false)
-	{
+	if (ValidarCPF(Cadastro.cpf) == false) {
 		document.getElementById("cpf").focus();
 		alert("Existem campos que precisam de sua atenção");
 		return false;
@@ -43,11 +42,15 @@ function validarTudo() {
 		alert("Existem campos que precisam de sua atenção");
 		return false;
 	}
-	if(IsEmail(document.getElementById("email").value)==false)
-	{
+	if (IsEmail(document.getElementById("email").value) == false) {
 		document.getElementById("email").focus();
 		alert("Existem campos que precisam de sua atenção");
-		return false;	
+		return false;
+	}
+	if (document.getElementById("CEP").value == "") {
+		document.getElementById("CEP").focus();
+		alert("Existem campos que precisam de sua atenção");
+		return false;
 	}
 	if (document.getElementById("rua").value == "") {
 		document.getElementById("rua").focus();
@@ -101,14 +104,14 @@ function validarTudo() {
 	}
 	if (document.getElementById("discoveredTheCourse").value == "Outro") {
 		document.getElementById("discoveredTheCourseInput").disabled = false;
+
 		if (document.getElementById("discoveredTheCourseInput").value == "") {
 			alert("Existem campos que precisam de sua atenção");
 			document.getElementById("discoveredTheCourseInput").disabled = false;
 			document.getElementById("discoveredTheCourseInput").focus();
 			return false;
 		}
-	}
-	else {
+	} else {
 		return true;
 	}
 }

@@ -6,9 +6,7 @@ table{
     border-collapse: collapse;
     
 }
-.inputCampo{
-    border: none;
-}
+
 th,td{
     border: 3px outset;
 	border-collapse: collapse;
