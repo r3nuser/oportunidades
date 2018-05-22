@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 19/05/2018 às 17:22
+-- Tempo de geração: 22/05/2018 às 18:14
 -- Versão do servidor: 10.1.31-MariaDB
 -- Versão do PHP: 7.2.3
 
@@ -45,28 +45,10 @@ CREATE TABLE `aluno` (
 --
 
 INSERT INTO `aluno` (`alunoID`, `aluno_cpf`, `nome`, `dataDeNascimento`, `email`, `trabalhando`, `expec_sobre_curso`, `como_conheceu`, `FK_idCurso`) VALUES
-(5, '663.138.780-94', 'Renan M Gomes', '1999-05-30', 'renan_battlenet@hotmail.com', 'Sim', 'Conseguir um emprego', 'Divulgação na TV', 20),
-(6, '225.086.170-67', 'Ana Livia', '1998-05-14', 'renan_battlenet@hotmail.com', 'Sim', 'Conseguir um emprego', 'Divulgação na TV', 8),
-(7, '225.086.170-67', 'Ana Livia', '1998-05-14', 'willianoliveira608@gmail.com', 'Sim', 'Conseguir um emprego', 'Divulgação na TV', 20),
-(8, '225.086.170-67', 'Ana Livia', '1998-05-14', 'renan_battlenet@hotmail.com', 'Sim', 'Agregar conhecimento', 'Por meio de amigos', 17),
-(9, '100.842.817-58', 'Willian Ferreira', '1998-04-14', 'willia@bill.corp.com', 'Sim', 'Conseguir um emprego', 'Divulgação na TV', 6),
-(10, '100.842.817-58', 'Willian Ferreira', '1998-04-14', 'bill@corp.com', 'Sim', 'Conseguir um emprego', 'Divulgação na TV', 7),
-(11, '118.609.590-32', 'Pedro Afonso Da silva', '1998-04-14', 'bill@corp.com', 'Sim', 'Conseguir um emprego', 'Divulgação na TV', 16),
-(12, '827.631.290-05', 'aninha da silvinha', '2001-04-14', 'willia@bill.corp.com', 'Sim', 'Conseguir um emprego', 'Divulgação na TV', 16),
-(13, '514.717.670-51', 'Kiko Tesouro Coração Benzinho LOTERIA', '1998-04-14', 'bill@corp.com', 'Sim', 'Conseguir um emprego', 'Divulgação na TV', 16),
-(14, '100.842.817-58', 'Willian Ferreira L. De Oliveira', '1998-04-14', 'willianoliveira608@gmail.com', 'Sim', 'Conseguir um emprego', 'Divulgação na TV', 1),
-(15, '497.248.230-32', 'Bill Da silva', '2002-04-10', 'willianoliveira608@gmail.com', 'Sim', 'Conseguir um emprego', 'Divulgação na TV', 1),
-(16, '505.196.960-77', 'Antônio Gonzaga', '1998-04-01', 'Antonio@conzaga.com', 'não', 'conhecimento', 'internet', 1),
-(17, '660.060.440-99', 'Henrrique Gonzaga', '1998-04-01', 'Henrrique@conzaga.com', 'não', 'conhecimento', 'internet', 2),
-(18, '732.712.620-12', 'Gabriel Luiz conzaga', '1998-04-01', 'gabriel@conzaga.com', 'não', 'conhecimento', 'internet', 2),
-(19, '764.702.490-60', 'Pedro conzaga', '1998-04-01', 'pedro@conzaga.com', 'não', 'conhecimento', 'internet', 2),
-(20, '778.559.190-31', 'José conzaga', '1998-04-01', 'pedro@conzaga.com', 'não', 'conhecimento', 'internet', 3),
-(21, '844.408.410-74', 'João conzaga', '1998-04-01', 'pedro@conzaga.com', 'não', 'conhecimento', 'internet', 3),
-(22, '885.364.070-77', 'Luiz conzaga', '1998-04-01', 'Liz@conzaga.com', 'não', 'conhecimento', 'internet', 4),
-(23, '951.273.020-04', 'Renan Moreira Gomes', '1999-08-26', 'renan_battlenet@hotmail.com', 'Não', 'Conseguir um emprego', 'Internet', 4),
-(24, '100.842.817-58', 'Willian Ferreira', '1998-04-14', 'willia@bill.corp.com', 'Sim', 'Conseguir um emprego', 'Noticiários em Jornais', 10),
-(25, '514.717.670-51', 'Kiko', '1998-04-14', 'bill@corp.com', 'Sim', 'Gerara renda com um empreendimento próprio', 'Por meio de amigos', 20),
-(26, '650.748.690-64', 'Donna Noble', '1995-03-18', 'donna@donna.donna.com', 'Não', 'Conseguir um emprego', 'Divulgação na TV', 1);
+(27, '153.915.847-01', 'KAMILA PEREIRA DE FARIA', '1995-03-10', 'kamila.pereira1995@gmail.com', 'Sim', 'Conseguir um emprego', 'Divulgação na TV', 32),
+(28, '173.382.067-16', 'KAMILA RAMOS LIBERATO ', '1996-12-04', 'ramoskamila71@gmail.com', 'Sim', 'ficar rica', 'Por meio de amigos', 32),
+(29, '232.731.318-02', 'DIEGO ANDRADE DE SOUSA', '1990-03-03', 'diego.andrade1embali@gmail.com', 'Sim', 'Conseguir um emprego', 'Por meio de amigos', 33),
+(30, '100.063.687-94', 'DIOGO GAVA', '1984-11-14', 'diogogava14@hotmail.com', 'Sim', 'Conseguir um emprego', 'Por meio de amigos', 34);
 
 -- --------------------------------------------------------
 
@@ -93,20 +75,16 @@ INSERT INTO `curso` (`idCurso`, `nome`) VALUES
 (7, 'Excel Avançado'),
 (8, 'Gestão de Rotinas Administrativas'),
 (9, 'Gestão Financeiras de Empresa pequena e Médias Empresas'),
-(10, 'Informática para Concursos'),
-(11, 'Informática para Educadores'),
-(12, 'Informática Avançada'),
-(13, 'Inglês Básico'),
-(14, 'Introdução à Nova Legislação Trabalhista'),
-(15, 'Logística'),
-(16, 'Operador de Caixa'),
-(17, 'Rede de Computadores'),
-(18, 'Secretaria Escolar'),
-(19, 'Segurança na Internet'),
-(20, 'Ciências da computação'),
-(29, 'Teste'),
-(30, 'Teste2'),
-(31, 'Teste3');
+(10, 'Introdução à Nova Legislação Trabalhista'),
+(11, 'Logística'),
+(12, 'Operador de Caixa'),
+(13, 'Rede de Computadores'),
+(14, 'Secretaria Escolar'),
+(15, 'Segurança na Internet'),
+(32, 'Informática para concursos'),
+(33, 'Informática para Educadores'),
+(34, 'Informática Avançada'),
+(35, 'Inglês Básico');
 
 -- --------------------------------------------------------
 
@@ -125,29 +103,10 @@ CREATE TABLE `curso_aluno` (
 --
 
 INSERT INTO `curso_aluno` (`Aluno_Nome`, `Aluno_CPF`, `fk_cursoID`) VALUES
-('Renan M Gomes', '663.138.780-94', 3),
-('Ana Livia', '225.086.170-67', 8),
-('Ana Livia', '225.086.170-67', 20),
-('Ana Livia', '225.086.170-67', 17),
-('Willian Ferreira', '100.842.817-58', 6),
-('Willian Ferreira', '100.842.817-58', 7),
-('Pedro Afonso Da silva', '118.609.590-32', 16),
-('aninha da silvinha', '827.631.290-05', 16),
-('Kiko Tesouro Coração Benzinho LOTERIA', '514.717.670-51', 16),
-('Willian Ferreira L. De Oliveira', '100.842.817-58', 1),
-('Bill Ferreira', '497.248.230-32', 1),
-('Antonio conzaga', '505.196.960-77', 1),
-('Henrrique conzaga', '660.060.440-99', 2),
-('Gabriel Luiz conzaga', '732.712.620-12', 2),
-('Pedro conzaga', '764.702.490-60', 2),
-('Renan M Gomes', '663.138.780-94', 3),
-('José conzaga', '778.559.190-31', 3),
-('João conzaga', '844.408.410-74', 3),
-('Luiz conzaga', '885.364.070-77', 4),
-('Renan Moreira Gomes', '951.273.020-04', 4),
-('Willian Ferreira', '100.842.817-58', 10),
-('Kiko Tesouro Coração Benzinho LOTERIA 	', '514.717.670-51', 20),
-('Donna Noble', '650.748.690-64', 1);
+('KAMILA PEREIRA DE FARIA', '153.915.847-01', 32),
+('KAMILA RAMOS LIBERATO ', '173.382.067-16', 32),
+('DIEGO ANDRADE DE SOUSA', '232.731.318-02', 33),
+('DIOGO GAVA', '100.063.687-94', 34);
 
 -- --------------------------------------------------------
 
@@ -165,28 +124,21 @@ CREATE TABLE `curso_instituicao` (
 --
 
 INSERT INTO `curso_instituicao` (`fk_idCurso`, `fk_instituicao_id`) VALUES
-(1, 1),
-(2, 1),
-(3, 1),
-(4, 1),
-(5, 1),
-(6, 2),
-(7, 2),
-(8, 2),
-(9, 2),
-(10, 2),
-(11, 3),
-(12, 3),
-(13, 3),
-(14, 3),
-(15, 3),
-(16, 4),
-(17, 4),
-(18, 4),
-(19, 4),
-(20, 4),
-(3, 10),
-(20, 10);
+(32, 11),
+(33, 11),
+(34, 11),
+(32, 12),
+(33, 12),
+(34, 12),
+(35, 13),
+(32, 13),
+(33, 13),
+(34, 13),
+(35, 14),
+(34, 14),
+(33, 14),
+(32, 14),
+(35, 11);
 
 -- --------------------------------------------------------
 
@@ -218,14 +170,11 @@ CREATE TABLE `duplicados` (
 --
 
 INSERT INTO `duplicados` (`alunoDuplicadoID`, `aluno_cpf`, `nome`, `dataDeNascimento`, `email`, `trabalhando`, `expec_sobre_curso`, `como_conheceu`, `FK_idCurso`, `cep`, `rua`, `bairro`, `cidade`, `numeroResidencia`, `telefone1`, `telefone2`) VALUES
-(1, '100.842.817-58', 'pedrinho tester', '1990-05-05', 'dim@dim.dim', 'não', 'nenhuma', 'não sei', 2, '29.124-049', 'ruim', 'de pobre', 'alagada', '0', '(27)99999-9999', '(27)99999-9999'),
-(2, '225.086.170-67', 'Ana Livia', '1998-05-14', 'renan_battlenet@hotmail.com', 'Não', 'Agregar conhecimento', 'Noticiários em Jornais', 7, '29.127-049', 'Rua Minas Gerais', 'João Goulart', 'Vila Velha', '20', '(24)95864-5554', '(55)55555-5555'),
-(3, '514.717.670-51', 'Kiko Tesouro Coração Benzinho LOTERIA', '1998-04-14', 'bill@corp.com', 'Sim', 'Conseguir um emprego', 'Por meio de amigos', 8, '29.127-049', 'Rua Minas Gerais', 'João Goulart', 'Vila Velha', '7', '(24)95864-5554', '(55)55555-5555'),
-(4, '663.138.780-94', 'Renan M Gomes', '1999-05-30', 'renan_battlenet@hotmail.com', 'Sim', 'Conseguir um emprego', 'Divulgação na TV', 10, '29.127-045', 'Avenida Muriaé', 'João Goulart', 'Vila Velha', '11', '(24)95864-5554', '(55)55555-5555'),
-(5, '650.748.690-64', 'Donna Noble', '1995-03-18', 'donna@donna.donna.com', 'Não', 'Conseguir um emprego', 'Divulgação na TV', 1, '29.127-043', 'Rua Agamalie de Moraes', 'João Goulart', 'Vila Velha', '255', '(24)95864-5554', '(55)55555-5555'),
-(6, '650.748.690-64', 'Donna Noble', '1995-03-18', 'donna@donna.donna.com', 'Não', 'Conseguir um emprego', 'Divulgação na TV', 1, '29.127-043', 'Rua Agamalie de Moraes', 'João Goulart', 'Vila Velha', '255', '(24)95864-5554', '(55)55555-5555'),
-(7, '650.748.690-64', 'Donna Noble', '1995-03-18', 'donna@donna.donna.com', 'Não', 'Conseguir um emprego', 'Divulgação na TV', 1, '29.127-043', 'Rua Agamalie de Moraes', 'João Goulart', 'Vila Velha', '255', '(24)95864-5554', '(55)55555-5555'),
-(8, '650.748.690-64', 'Donna Noble', '1995-03-18', 'donna@donna.donna.com', 'Não', 'Conseguir um emprego', 'Divulgação na TV', 1, '29.127-043', 'Rua Agamalie de Moraes', 'João Goulart', 'Vila Velha', '255', '(24)95864-5554', '(55)55555-5555');
+(1, '153.915.847-01', 'KAMILA PEREIRA DE FARIA', '1995-03-10', 'kamila.pereira1995@gmail.com', 'Não', 'Conseguir um emprego', 'Divulgação na TV', 32, '29.141-219', 'Rua Vasco da Gama', 'Boa Sorte', 'Cariacica', '8', '(28)58631-2546', '(32)15896-4539'),
+(2, '153.915.847-01', 'KAMILA PEREIRA DE FARIA', '1995-03-10', 'kamila.pereira1995@gmail.com', 'Sim', 'Agregar conhecimento', 'Noticiários em Jornais', 33, '29.141-219', 'Rua Vasco da Gama', 'Boa Sorte', 'Cariacica', '16', '(28)58631-2546', '(32)15896-4539'),
+(3, '153.915.847-01', 'KAMILA PEREIRA DE FARIA', '1995-03-10', 'kamila.pereira1995@gmail.com', 'Sim', 'Agregar conhecimento', 'Noticiários em Jornais', 34, '29.141-219', 'Rua Vasco da Gama', 'Boa Sorte', 'Cariacica', '16', '(28)58631-2546', '(32)15896-4539'),
+(4, '153.915.847-01', 'KAMILA PEREIRA DE FARIA', '1995-03-10', 'kamila.pereira1995@gmail.com', 'Sim', 'Agregar conhecimento', 'Noticiários em Jornais', 35, '29.141-219', 'Rua Vasco da Gama', 'Boa Sorte', 'Cariacica', '16', '(28)58631-2546', '(32)15896-4539'),
+(5, '153.915.847-01', 'KAMILA PEREIRA DE FARIA', '1995-03-10', 'kamila.pereira1995@gmail.com', 'Sim', 'Agregar conhecimento', 'Noticiários em Jornais', 32, '29.141-219', 'Rua Vasco da Gama', 'Boa Sorte', 'Cariacica', '16', '(28)58631-2546', '(32)15896-4539');
 
 -- --------------------------------------------------------
 
@@ -248,38 +197,14 @@ CREATE TABLE `endereco` (
 --
 
 INSERT INTO `endereco` (`cep`, `rua`, `bairro`, `cidade`, `numeroResidencia`, `fk_alunoID`, `fk_instituicao_id`) VALUES
-('29.127-049', 'Rua Minas Gerais', 'João Goulart', 'Vila Velha', '8', 5, NULL),
-('29.127-043', 'Rua Agamalie de Moraes', 'João Goulart', 'Vila Velha', '12', 6, NULL),
-('29.127-043', 'Rua Minas Gerais', 'João Goulart', 'Vila Velha', '8', 7, NULL),
-('29.127-043', 'Rua Agamalie de Moraes', 'João Goulart', 'Vila Velha', '11', 8, NULL),
-('29.127-045', 'Avenida Muriaé', 'João Goulart', 'Vila Velha', '14', 9, NULL),
-('29.127-045', 'Avenida Muriaé', 'João Goulart', 'Vila Velha', '14', 10, NULL),
-('29.127-045', 'Avenida Muriaé', 'João Goulart', 'Vila Velha', '11', 11, NULL),
-('29.127-045', 'Avenida Muriaé', 'João Goulart', 'Vila Velha', '12', 12, NULL),
-('29.127-045', 'Avenida Muriaé', 'João Goulart', 'Vila Velha', '7', 13, NULL),
-('29.127-049', 'Rua Minas Gerais', 'João Goulart', 'Vila Velha', '8', 14, NULL),
-('29.127-043', 'Rua Agamalie de Moraes', 'João Goulart', 'Vila Velha', '12', 15, NULL),
-('29.127-043', 'Rua Agamalie de Moraes', 'João Goulart', 'Vila Velha', '16', 16, NULL),
-('29.127-043', 'Rua Agamalie de Moraes', 'João Goulart', 'Vila Velha', '11', 17, NULL),
-('29.127-045', 'Avenida Muriaé', 'João Goulart', 'Vila Velha', '14', 18, NULL),
-('29.127-045', 'Avenida Muriaé', 'João Goulart', 'Vila Velha', '14', 19, NULL),
-('29.127-045', 'Avenida Muriaé', 'João Goulart', 'Vila Velha', '11', 20, NULL),
-('29.127-045', 'Avenida Muriaé', 'João Goulart', 'Vila Velha', '12', 21, NULL),
-('29.127-045', 'Avenida Muriaé', 'João Goulart', 'Vila Velha', '7', 22, NULL),
-('29.127-045', 'Avenida Muriaé', 'João Goulart', 'Vila Velha', '7', 23, NULL),
-('29.127-049', 'Rua Minas Gerais', 'João Goulart', 'Vila Velha', '8', NULL, 5),
-('29.127-043', 'Rua Agamalie de Moraes', 'João Goulart', 'Vila Velha', '12', NULL, 6),
-('29.127-043', 'Rua Minas Gerais', 'João Goulart', 'Vila Velha', '8', NULL, 7),
-('29.127-043', 'Rua Agamalie de Moraes', 'João Goulart', 'Vila Velha', '11', NULL, 8),
-('29.127-045', 'Avenida Muriaé', 'João Goulart', 'Vila Velha', '14', NULL, 9),
-('29.127-045', 'Avenida Muriaé', 'João Goulart', 'Vila Velha', '14', NULL, 10),
-('29.127-049', 'Rua Minas Gerais', 'João Goulart', 'Vila Velha', '8', NULL, 1),
-('29.127-043', 'Rua Agamalie de Moraes', 'João Goulart', 'Vila Velha', '12', NULL, 2),
-('29.127-043', 'Rua Minas Gerais', 'João Goulart', 'Vila Velha', '8', NULL, 3),
-('29.127-043', 'Rua Agamalie de Moraes', 'João Goulart', 'Vila Velha', '11', NULL, 4),
-('29.127-045', 'Avenida Muriaé', 'João Goulart', 'Vila Velha', '19', 24, NULL),
-('29.127-045', 'Avenida Muriaé', 'João Goulart', 'Vila Velha', '7', 25, NULL),
-('29.127-043', 'Rua Agamalie de Moraes', 'João Goulart', 'Vila Velha', '255', 26, NULL);
+('29.127-045', 'Avenida Muriaé', 'João Goulart', 'Vila Velha', 's/n', NULL, 11),
+('29.127-045', 'Avenida Muriaé', 'João Goulart', 'Vila Velha', 's/n', NULL, 12),
+('29.127-045', 'Avenida Muriaé', 'João Goulart', 'Vila Velha', 's/n', NULL, 13),
+('29.127-045', 'Avenida Muriaé', 'João Goulart', 'Vila Velha', 's/n', NULL, 14),
+('29.141-219', 'Rua Vasco da Gama', 'Boa Sorte', 'Cariacica', '14', 27, NULL),
+('29.146-650', 'Rua Hugo Viola', 'São Geraldo', 'Cariacica', '16', 28, NULL),
+('29.148-635', 'Rua das Hortências', 'Vila Independência', 'Cariacica', '9', 29, NULL),
+('29.142-241', 'Rua Nova Bela Aurora', 'Formate', 'Cariacica', '560', 30, NULL);
 
 -- --------------------------------------------------------
 
@@ -297,16 +222,10 @@ CREATE TABLE `instituicao` (
 --
 
 INSERT INTO `instituicao` (`instituicao_id`, `nome`) VALUES
-(1, 'Otto Simon'),
-(2, 'Levi Love'),
-(3, 'Arden Santana'),
-(4, 'Byron Noel'),
-(5, 'Tarik Day'),
-(6, 'Bevis Michael'),
-(7, 'Chaney Glover'),
-(8, 'Slade Maldonado'),
-(9, 'Trevor Wilkinson'),
-(10, 'Jamal Hendricks');
+(11, 'Unidade Viana'),
+(12, 'Unidade Vila Velha'),
+(13, 'Unidade Cariacica'),
+(14, 'Unidade Serra');
 
 -- --------------------------------------------------------
 
@@ -318,36 +237,30 @@ CREATE TABLE `periodo_curso` (
   `fk_cursoID` int(11) NOT NULL,
   `fk_instituicaoID` int(11) NOT NULL,
   `dataInicio` date NOT NULL,
-  `dataFim` date NOT NULL
+  `dataFim` date NOT NULL,
+  `turno` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Fazendo dump de dados para tabela `periodo_curso`
 --
 
-INSERT INTO `periodo_curso` (`fk_cursoID`, `fk_instituicaoID`, `dataInicio`, `dataFim`) VALUES
-(1, 1, '2018-05-06', '2019-05-06'),
-(2, 1, '2018-05-01', '2019-05-01'),
-(3, 1, '2018-05-01', '2019-05-01'),
-(4, 1, '2018-05-01', '2019-05-01'),
-(5, 1, '2018-05-01', '2019-05-01'),
-(6, 2, '2018-05-03', '2019-05-02'),
-(7, 2, '2018-05-05', '2019-05-07'),
-(8, 2, '2018-05-04', '2019-05-06'),
-(9, 2, '2018-05-06', '2019-05-04'),
-(10, 2, '2018-05-05', '2019-05-03'),
-(11, 3, '2018-05-03', '2019-05-02'),
-(12, 3, '2018-05-05', '2019-05-07'),
-(13, 3, '2018-05-04', '2019-05-06'),
-(14, 3, '2018-05-06', '2019-05-04'),
-(15, 3, '2018-05-05', '2019-05-03'),
-(16, 4, '2018-05-03', '2019-05-02'),
-(17, 4, '2018-05-05', '2019-05-07'),
-(18, 4, '2018-05-04', '2019-05-06'),
-(19, 4, '2018-05-06', '2019-05-04'),
-(20, 4, '2018-05-05', '2019-05-03'),
-(3, 10, '1998-04-14', '2018-10-12'),
-(20, 10, '1998-04-14', '2018-10-12');
+INSERT INTO `periodo_curso` (`fk_cursoID`, `fk_instituicaoID`, `dataInicio`, `dataFim`, `turno`) VALUES
+(32, 11, '2018-05-20', '2019-05-20', 'vespertino'),
+(33, 11, '2018-05-20', '2019-05-20', 'noturno'),
+(34, 11, '2018-05-20', '2019-05-20', 'matutino'),
+(32, 12, '2018-05-20', '2019-05-20', 'vespertino'),
+(33, 12, '2018-05-20', '2019-05-20', 'matutino'),
+(34, 12, '2018-05-20', '2019-05-20', 'noturno'),
+(35, 13, '2018-05-20', '2019-05-20', 'matutino'),
+(32, 13, '2018-05-20', '2019-05-20', 'vespertino'),
+(33, 13, '2018-05-20', '2019-05-20', 'noturno'),
+(34, 13, '2018-05-20', '2019-05-20', 'matutino'),
+(35, 14, '2018-05-20', '2019-05-20', 'matutino'),
+(34, 14, '2018-05-20', '2019-05-20', 'vespertino'),
+(33, 14, '2018-05-20', '2019-05-20', 'matutino'),
+(32, 14, '2018-05-20', '2019-05-20', 'noturno'),
+(35, 11, '2018-05-20', '2019-05-20', 'Vespertino');
 
 -- --------------------------------------------------------
 
@@ -367,38 +280,14 @@ CREATE TABLE `telefone` (
 --
 
 INSERT INTO `telefone` (`telefone1`, `telefone2`, `fk_alunoID`, `fk_instituicao_id`) VALUES
-('(24)95864-5554', '(26)55456-4581', 5, NULL),
-('(24)95864-5554', '(26)55456-4581', 6, NULL),
-('(24)95864-5554', '(26)55456-4581', 7, NULL),
-('(24)95864-5554', '(26)55456-4581', 8, NULL),
-('(28)58631-2546', '(32)15896-4539', 9, NULL),
-('(28)58631-2546', '(32)15896-4539', 10, NULL),
-('(28)58631-2546', '(32)15896-4539', 11, NULL),
-('(22)22222-2222', '(22)22222-2222', 12, NULL),
-('(28)58631-2546', '(32)15896-4539', 13, NULL),
-('(24)95864-5554', '(26)55456-4581', 14, NULL),
-('(24)95864-5554', '(26)55456-4581', 15, NULL),
-('(24)95864-5554', '(26)55456-4581', 16, NULL),
-('(24)95864-5554', '(26)55456-4581', 17, NULL),
-('(28)58631-2546', '(32)15896-4539', 18, NULL),
-('(28)58631-2546', '(32)15896-4539', 19, NULL),
-('(28)58631-2546', '(32)15896-4539', 20, NULL),
-('(22)22222-2222', '(22)22222-2222', 21, NULL),
-('(28)58631-2546', '(32)15896-4539', 22, NULL),
-('(28)58631-2546', '(32)15896-4539', 23, NULL),
-('(17) 62741-8443', '(64) 66551-1941', NULL, 1),
-(' (15)3741-4909', '(74) 55232-6238', NULL, 2),
-('(88) 51404-7916', '(26) 25028-0968', NULL, 3),
-('(69) 84787-9020', ' (95)3508-3373', NULL, 4),
-('(53) 39229-3812', ' (27)4941-8994', NULL, 5),
-(' (35)2994-3279', ' (33)6464-6098', NULL, 6),
-(' (36)3349-6355', '(39) 32398-7178', NULL, 7),
-('(38) 12089-2165', '(73) 22977-1709', NULL, 8),
-(' (19)6689-6962', ' (94)1861-0378', NULL, 9),
-(' (58)6944-8862', '(86) 88932-4193', NULL, 10),
-('(28)58631-2546', '(32)15896-4539', 24, NULL),
-('(27)98888-8888', '(26)55456-4581', 25, NULL),
-('(24)95864-5554', '(55)55555-5555', 26, NULL);
+('(28)58631-2546', '(25)63698-5457', NULL, 11),
+('(28)58631-2546', '(25)63698-5457', NULL, 12),
+('(28)58631-2546', '(25)63698-5457', NULL, 13),
+('(28)58631-2546', '(25)63698-5457', NULL, 14),
+('(27)99926-3153', '(27)99926-3153', 27, NULL),
+('(99)8179-812', '(99)8179-812', 28, NULL),
+('(27)99693-2436', '(27)99693-2436', 29, NULL),
+('(28)58631-2546', '(32)15896-4539', 30, NULL);
 
 --
 -- Índices de tabelas apagadas
@@ -471,25 +360,25 @@ ALTER TABLE `telefone`
 -- AUTO_INCREMENT de tabela `aluno`
 --
 ALTER TABLE `aluno`
-  MODIFY `alunoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `alunoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de tabela `curso`
 --
 ALTER TABLE `curso`
-  MODIFY `idCurso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `idCurso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT de tabela `duplicados`
 --
 ALTER TABLE `duplicados`
-  MODIFY `alunoDuplicadoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `alunoDuplicadoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `instituicao`
 --
 ALTER TABLE `instituicao`
-  MODIFY `instituicao_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `instituicao_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Restrições para dumps de tabelas
