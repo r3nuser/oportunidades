@@ -22,6 +22,9 @@
     body{
         background-image: none;
     }
+    input{
+        border:none;
+    }
     </style>
     </head>
     <body>
@@ -44,7 +47,8 @@
             <th>Cidade</th>
             <th>Número</th>
             <th>ID</th>
-            <th>Atualizar</th>    
+            <th>Atualizar</th>
+            <th>Fim da Fila</th>
             <?php
             //nome do arquivo que será gerado
             if(isset($cursoName))
@@ -115,7 +119,7 @@
                     <form action='makeup.php' method='get'>
                     <td><input class='entrada'  size='2' type='text' value='$posicao'/></td>
                     <td><input class='entrada'  size='12' type='text' value='$aluno_cpf'/></td>
-                    <td><input class='entrada' name='nome'  size='20' type='text' value='$nome'/></td>
+                    <td><input class='entrada' name='nome'  size='20' onkeydown='javascript: fMasc( this, UpperCase );' type='text' value='$nome'/></td>
                     <td><input class='entrada'  size='9' type='text' value='$dataDeNascimentoBRFormat'/></td>
                     <td><input class='entrada' name='email'  size='25' type='text' value='$email'/></td>
                     <td><input class='entrada' name='tel1' maxlength='14' onkeydown='javascript: fMasc( this, mTel );'  size='12' type='text' value='$telefone1'/></td>
@@ -126,7 +130,8 @@
                     <td><input class='entrada' name='cidade'  size='5' type='text' value='$cidade'/></td>
                     <td><input class='entrada' name='numero'  size='4' type='text' value='$numeroResidencia'/></td>
                     <td><input class='entrada' name='alunoID'  size='4' type='text' value='$alunoID'/></td>
-                    <td><input type='image' src='../../icones/editar.png' value='Editar'/> </td>
+                    <td><input type='image' name='botao' value='editar' onclick='return confirm(\"Are you sure?\")' src='../../icones/editar.png'/> </td>
+                    <td><input type='image' name='botao' value='excluir' onclick='return confirm(\"Are you sure?\")' src='../../icones/excluir.png' '/> </td>
                     </form>
                 </tr>
             ";
@@ -170,12 +175,15 @@
     
                 while($rg = mysqli_fetch_array($rs)){
                    $posicao++;
+                   
+                    $dataDeNascimentoUSFormat = DateTime::createFromFormat('Y-m-d',$rg['dataDeNascimento']);
+                    $dataDeNascimentoBRFormat = $dataDeNascimentoUSFormat->format('d/m/Y');
                     echo"
                         <tr>
                             <td><input class='entrada' size='2' type='text' value='$posicao'/></td>
                             <td><input class='entrada' size='12' type='text' value='".$rg['aluno_cpf']."'/></td>
                             <td><input class='entrada' size='20' type='text' value='".$rg['nome']."'/></td>
-                            <td><input class='entrada' size='9' type='text' value='".$rg['dataDeNascimento']."'/></td>
+                            <td><input class='entrada' size='9' type='text' value='".$dataDeNascimentoBRFormat."'/></td>
                             <td><input class='entrada' size='25' type='text' value='".$rg['email']."'/></td>
                             <td><input class='entrada' size='12' type='text' value='".$rg['telefone1']."'/></td>
                             <td><input class='entrada' size='12' type='text' value='".$rg['telefone2']."'/></td>

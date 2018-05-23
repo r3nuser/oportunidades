@@ -1,5 +1,15 @@
 <?php
 
+function get_post_action($name)
+{
+    $params = func_get_args();
+
+    foreach ($params as $name) {
+        return $name;
+        
+    }
+}
+
 // RETORNA O ID DO CURSO
 function returnIDCourse($cursoNome,$con)
 {
