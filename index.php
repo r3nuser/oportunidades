@@ -20,16 +20,18 @@
 				
 				<script type='text/javascript' src='Javascript/checkAll.js'></script>
 
+			
+
 			</head>
 			
-			<body>
+			<body id='top'>
 				<div class='container-principal'>
 				
 					<form name='Cadastro' action='exibir.php' method='POST'>
 						
 						<!--Aviso a respeito da obrigatoriedade dos campos-->
 						
-							<p class='obrigatorio'>todos os campos com asterisco (\"*\") são de preenchimento obrigatório</p></br>
+							<p class='obrigatorio' id='obrigatorio'>Todos os campos com asterisco (\"*\") são de preenchimento obrigatório</p></br>
 
 								<div class='container-interno-Dados-Pessoais'>
 									<p class='separador'>Dados Pessoais</p>
@@ -227,7 +229,26 @@
 					</div>
 				</form>
 			</body>
+			<footer>
+				<div class='footerDivLeft'>
+				<span>Criado por: </span><br>
+				<span>Renan M. Gomes </span>|<span> Willian Ferreira</span>
+				
+				
+				</div>
+				<div class='footerDivCenter'>
+					<span>Secretaria de Ciência Tecnologia Inovação e Educação Profissional (SECTI)</span>
+					<br>	
+					<span>Av. Fernando Ferrari 1080 - Mata da Praia CEP: 29.066-380 -  Vitória - ES </span>
 					
+				</div>
+				<div class='footerDivRight'>
+				<a href=\"#top\"><img title='Votar ao topo da página' class='top' src='icones/backtop.png'></a>
+				<a href=\"http://oportunidades.es.gov.br/presencial/\"><img title='Página Inicial' class='top' src='icones/logo.png'> </a>
+				<a href=\"https://web.facebook.com/oportunidadesgovernoes/\"><img title='Facebook' class='top' src='icones/facebook-pink.png'> </a>
+				</div>
+			</footer>	
+
 		</html>
  	"; 
 ?>

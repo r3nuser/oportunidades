@@ -1,3 +1,32 @@
+footer{
+    background-color: rgb(173,216,230);
+	display: flex;
+	margin-top: 3%;
+	padding: 1%;
+	color: #696969;
+}
+.footerDivLeft{
+	margin-left: 2%;
+	margin-right: 5%;
+	text-align: left;
+	border: none #000000;
+}
+.footerDivCenter{
+	text-align: left;
+	margin-left: 10%;
+	margin-right: 10%
+}
+.footerDivRight{
+	margin-left: 5%;
+	margin-right: 2%
+}
+.top{
+	width: 30px;
+}
+
+
+
+
 .entrada {
 
 	height: 35px;
@@ -159,5 +188,7 @@ body {
 	background-image: url("../icones/Banner.png");
 	background-size: 100%;
 	background-repeat: no-repeat;
+	overflow-x: hidden;
+	margin: 0%;
 	
 }
