@@ -244,7 +244,7 @@
 				</div>
 				<div class='footerDivRight'>
 				<a href=\"#top\"><img title='Votar ao topo da página' class='top' src='icones/backtop.png'></a>
-				<a href=\"http://oportunidades.es.gov.br/presencial/\"><img title='Página Inicial' class='top' src='icones/logo.png'> </a>
+				<a href=\"http://oportunidades.es.gov.br/presencial/\"><img title='Página Inicial' class='top' src='icones/logo.png'></a>
 				<a href=\"https://web.facebook.com/oportunidadesgovernoes/\"><img title='Facebook' class='top' src='icones/facebook-pink.png'> </a>
 				</div>
 			</footer>	

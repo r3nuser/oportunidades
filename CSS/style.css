@@ -2,7 +2,9 @@ footer{
     background-color: rgb(173,216,230);
 	display: flex;
 	margin-top: 3%;
-	padding: 1%;
+	padding-top: 1%;
+	padding-left: 10%;
+	padding-right: 10%;
 	color: #696969;
 }
 .footerDivLeft{
