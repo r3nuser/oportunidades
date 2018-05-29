@@ -33,11 +33,11 @@
 
 	/* variaveis de controle */
 	
-	$enderecoOK=false; 
+	$enderecoOK=false;
 	$AlunoOK=false;
 	$telefoneOK=false;
 	
-	/******/
+	/***Verifica se o aluno já foi cadastrado no banco, caso sim ele será registrado em uma tabela à parte***/
 
 	if(isRegistered($CPF,$nome,$data,$email,$conexao))
 		{
