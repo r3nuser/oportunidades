@@ -1,80 +1,102 @@
-body{
+/*** o caminho na frente do nome refere-se à pagina aonde as propriedades estão sendo aplicadas*** */
+/* Retira a margem, background e o overflow horizontal do body  */
+body{/* adm/index.php */
     margin: 0;
     background-image: none;
     overflow-x: hidden;
 }
-.link{
+
+.link{/* adm/index.php */
+    /*remove a decoração do elemento a*/
     text-decoration: none;
 }
-.navbar {
+
+.navbar {/* adm/index.php */
+   
+    /**** Barra de menu ****
+        posição fixa no topo da pagina,
+        com o comprimento de 100% e margem no fundo de 1% 
+    */
     overflow: hidden;
     background-color: rgb(255,20,147);
     position: fixed;
     top: 0;
     width: 100%;
     margin-bottom: 1%;
-  }
+}
   
-  .navbar a {
+.navbar a {/* adm/index.php */
+    
+    /* elementos "a" (links) */
     float: left;
     display: block;
     color: #f2f2f2;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
-    
-  }
+    font-size: 17px;  
+}
   
-  .navbar a:hover {
+.navbar a:hover {/* adm/index.php */
+      /* Quando o mouse estiver pos cima do elemento  */
     background: skyblue;
     color: black;
-  }
+}
   
-  .main {
+.main {/* adm/index.php */
+   /* usado no menu */
     padding-top: 15px;
     margin-top: 30px;
     
    /* Used in this example to enable scrolling */
-  }
-  div.main div {display: none}
-div.main div:target {display: block}
+}
+
+/* toda a div da classe "main" está com o display em "none"
+a menos que eu clique em algum dos links no menu, isso atribui o display block ao item*/
+
+div.main div {/* adm/index.php */
+    display: none
+}
+
+div.main div:target {/* adm/index.php */
+    display: block
+}
 
 
 
 /* ***************** */
+
 .caixa-cadCurso{
     display: block;
     border: solid;
     width: 80%;
     height:80%;
 }
-.cadCurso-Field{
+.cadCurso-Field{/* adm/index.php */
     width:55%;
     margin-bottom:2%;
     text-align:center;
 }
 
-iframe{
+iframe{/* adm/index.php */
     width:75%;
     height:600px;
     border:none;
 }
-.cad-insti{
+.cad-insti{/* adm/index.php */
     text-align: left;
     width: 55%;
 }
-.exportar-iframe{
+.exportar-iframe{/* adm/index.php */
     width: 100%;
     height:500px;
     margin-left: 0%;
     margin-right: 0%;
     border: none;
     overflow-x: auto;
-    
-    
-    
 }
+
+/* adm/index.php */
 #item1{
     padding-top: 5%
 }

@@ -13,7 +13,7 @@
 		<script type="text/javascript" src="Javascript/checkCourse.js"></script>
 		<script type="text/javascript" src="Javascript/checkAll.js"></script>
 	</head>
-	<body id="top">
+	<body class="classMain" id="top">
 		<div class="container-principal">
 			<form name="Cadastro" action="exibir.php" method="POST">			
 				<!--Aviso a respeito da obrigatoriedade dos campos-->

@@ -1,4 +1,5 @@
-footer{
+/*** o caminho na frente do nome refere-se à pagina aonde as propriedades estão sendo aplicadas*** */
+footer{/* oportunidades/index.php */
     background-color: rgb(173,216,230);
 	display: flex;
 	margin-top: 3%;
@@ -7,27 +8,24 @@ footer{
 	padding-right: 10%;
 	color: #696969;
 }
-.footerDivLeft{
+.footerDivLeft{ /* oportunidades/index.php */
 	margin-left: 2%;
 	margin-right: 5%;
 	text-align: left;
 	border: none #000000;
 }
-.footerDivCenter{
+.footerDivCenter{ /* oportunidades/index.php */
 	text-align: left;
 	margin-left: 10%;
 	margin-right: 10%
 }
-.footerDivRight{
+.footerDivRight{ /* oportunidades/index.php */
 	margin-left: 5%;
 	margin-right: 2%
 }
 .top{
 	width: 30px;
 }
-
-
-
 
 .entrada {
 
@@ -39,27 +37,27 @@ footer{
 	border-bottom-color: #ADD8E6;
 }
 
-.obrigatorio {
+.obrigatorio {/* oportunidades/index.php */
 	color: red;
 }
 
-.formulario {
+.formulario {/*varios*/
 	font-size: 17;
 }
 
 
 
-.ocultos {
+.ocultos {/* oportunidades/index.php */
 	color: red;
 	visibility: hidden;
 }
 
-.separador {
+.separador {/* oportunidades/index.php */
 	background-color: SkyBlue;
 	font-size: 25;
 	text-align: center;
 }
-.separador-page-exibir {
+.separador-page-exibir {/* oportunidades/exibir.php */
 	background-color: SkyBlue;
 	font-size: 25;
 	
@@ -80,7 +78,7 @@ footer{
 	padding-bottom: 2%;
 	
 }
-.caixaExportar {
+.caixaExportar {/* adm/index.php */
 	margin-top: 17%;
 	text-align: left;
 	margin-left: 5%;
@@ -98,7 +96,7 @@ footer{
 	
 }
 
-.caixaImprimir{
+.caixaImprimir{/* oportunidades/exibir.php */
 	margin-top: 15.5%;
 	text-align: left;
 	margin-left: 5%;
@@ -156,7 +154,7 @@ footer{
 	color: Black;
 	cursor: pointer;
 }
-.bntEX {
+.bntEX {/* adm/index.php */
 	margin-right: 1%;
 	margin-left: 1%;
 	width: 150px;
@@ -167,7 +165,7 @@ footer{
 	color: Black;
 	cursor: pointer;
 }
-.bntEnviar {
+.bntEnviar{/* adm/index.php */
 	margin-right: 30%;
 	margin-left: 40%;
 	width: 100px;
@@ -190,7 +188,10 @@ body {
 	background-image: url("../icones/Banner.png");
 	background-size: 100%;
 	background-repeat: no-repeat;
-	overflow-x: hidden;
+	overflow-x: auto;
 	margin: 0%;
 	
+}
+.classMain{/* oportunidades/index.php */
+	overflow-x: hidden;
 }
