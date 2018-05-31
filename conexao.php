@@ -2,7 +2,7 @@
 
 function open_connection(){
 	try {
-		$con = new mysqli("localhost","root","root","oportunidadesbeta");
+		$con = new mysqli("localhost","root","root","oportunidades");
 		mysqli_query($con,"SET NAMES 'utf8'");
 		return $con;
 	} catch (Exception $e){
