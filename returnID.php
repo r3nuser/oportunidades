@@ -23,10 +23,8 @@ function returnIDCourse($cursoNome,$con)
         echo("Error description: " . mysqli_error($con)."<br>");
         
     }else{
-
         while($rg = mysqli_fetch_array($rs)){
-        
-            $id= $rg['idCurso'];
+        $id= $rg['idCurso'];
     }
         
         return $id;   

@@ -4,21 +4,39 @@ include('returnID.php');
 echo"<h2>Teste de funções<h2>";
 $con = open_connection();
 
-$cpf='514.717.670-51';
-$nome = 'Kiko Tesouro Coração Benzinho LOTERIA';
-$dataDeNascimento = '1998-04-14';
-$email = 'bill@corp.com';
+$CPF='118.609.590-32';
+$nome = 'BILL FERREIRA';
+$dataDeNascimento = '1995-03-10';
+$email = 'willianoliveira608@gmail.com';
+
+$sql = "SELECT `alunoID` FROM `aluno` WHERE aluno_cpf='$CPF'AND nome='$nome' AND dataDeNascimento='$dataDeNascimento' AND email='$email'";
+    
+if(!$rs = mysqli_query($con,$sql)){
+
+    echo("Error description: " . mysqli_error($con)."<br>");
+    
+}else{
+
+while($rg = mysqli_fetch_array($rs)){
+    
+    $id= $rg['alunoID'];
+    
+}
+    echo $id;
+        //echo"<script>alert('cpf ".$cpf." já cadastrado! ')</script>";          
+}
 
 
 
-
-if (isRegistered($cpf,$nome,$dataDeNascimento,$email,$con))
-    echo "encontrou";
-else
-    echo "não encontrou";
-
-    echo '<h3>Testar retorno da chave estrangeira pelo id do aluno</h3>';
-    echo returnNameCourse(returnFKCourseByAlunoID("10",$con),$con);
-
+$sql = "SELECT MAX('alunoID')  FROM aluno WHERE aluno_cpf='$CPF'AND nome='$nome' AND dataDeNascimento='$dataDeNascimento' AND email='$email'";
+			if(!$rs = mysqli_query($con,$sql)){
+				echo("Error description: " . mysqli_error($con)."<br>");
+			}else{
+				while($rg = mysqli_fetch_array($rs)){
+                   
+                    $alunoID=$rg['alunoID'];
+                }
+            }
+            echo $alunoID;
 
 ?>
