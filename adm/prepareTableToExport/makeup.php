@@ -66,8 +66,8 @@
                     $numeroResidencia  = $arrayEndereco[$j+4];
 
 
-                    $sql = "INSERT INTO `duplicados`( `alunoDuplicadoID`, `aluno_cpf`, `nome`, `dataDeNascimento`, `email`, `trabalhando`, `expec_sobre_curso`, `como_conheceu`, `FK_idCurso`, `cep`, `rua`, `bairro`, `cidade`, `numeroResidencia`, `telefone1`, `telefone2` ) VALUES";
-                    $sql  .="(NULL,'$aluno_cpf','$nome','$dataDeNascimentoUSFormat','$email','$trabalho','$expectativa','$discovered','$curso','$cep','$rua','$bairo','$cidade','$numeroResidencia','$telefone1','$telefone2')";
+                    $sql = "INSERT INTO `duplicados`( `alunoDuplicadoID`,`IDtabelaPrincipal`, `aluno_cpf`, `nome`, `dataDeNascimento`, `email`, `trabalhando`, `expec_sobre_curso`, `como_conheceu`, `FK_idCurso`, `cep`, `rua`, `bairro`, `cidade`, `numeroResidencia`, `telefone1`, `telefone2` ) VALUES";
+                    $sql  .="(NULL,'$alunoID','$aluno_cpf','$nome','$dataDeNascimentoUSFormat','$email','$trabalho','$expectativa','$discovered','$curso','$cep','$rua','$bairo','$cidade','$numeroResidencia','$telefone1','$telefone2')";
                   
                     if(!$rs = mysqli_query($con,$sql)){
         
