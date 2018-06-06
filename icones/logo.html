@@ -1,0 +1,86 @@
+<html>
+	<head>
+		<style>
+			body{
+				background-color: rgb(240,240,240);
+			}
+			.thick-green-border{
+				border-style: solid;
+				border-width: 10px;
+				border-radius: 50%;
+				border-color: white;	
+				transition-duration: 500ms;		
+			}
+			.thick-green-border:hover{
+				border-color: rgb(0,140,220);			
+			}
+			.small-img{
+				width: 120px;	
+				margin: 20px;		
+			}
+			.gadget{
+				width: 300px;
+				display: block;
+				font-size: 16px;		
+			}
+		
+			.low-bar{
+				margin-top: -10px;
+				margin-left: 80px;
+				margin-right: 80px;	
+				margin-bottom: 2px;
+				padding: 0px;
+				border-bottom: solid 2px rgb(0,140,220);
+			}
+		</style>
+	</head>
+	<body>
+		<script>
+				
+				var quantidade = 12;		
+				var flag = true;
+				var counter = 0;
+				for(var i = 0; i <= quantidade, flag ; i++){
+				
+				var flex = document.createElement('div');
+					flex.style = 'display: flex;';
+					flex.className=(i+'ab');
+					for( var j = 0; j < 4; j++){
+							counter++;
+						var gadget = document.createElement('div');
+						gadget.className = 'gadget';
+						gadget.align = 'center';
+						var a = document.createElement('a');
+						a.href = "https://www.google.com";
+						var img = document.createElement('img');
+						img.src = 'logo.png';
+						
+						img.className= 'thick-green-border small-img';
+						
+						var header = document.createElement('h3');
+						var hr = document.createElement('hr');
+						hr.className= 'low-bar';
+						var p = document.createElement('p');
+						
+						header.innerHTML = 'POLO XXX - XXX'
+						p.innerHTML = 'Início Inscrições :  00/00/0000 – 00/00/0000<br>	Resultado Inscrições : 00/00/0000'	
+					
+						a.appendChild(img);
+						gadget.appendChild(a);
+						gadget.appendChild(header);
+						gadget.appendChild(hr);
+						gadget.appendChild(p);
+						flex.appendChild(gadget);
+						flag = counter<quantidade?true:false;
+						if( !flag ) j = 50;						
+					}
+					document.body.appendChild(flex);
+
+				}
+			
+
+		</script>
+		
+		
+	</body>
+</html>
