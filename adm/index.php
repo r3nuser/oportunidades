@@ -19,7 +19,7 @@
         <link rel="stylesheet" href="style-menu.css">
         <link rel="stylesheet" href="../css/index-div.css">
         <!-- Adicionando o icone do titulo -->
-        <link REL="SHORTCUT ICON" HREF="../icones/favicon.ico">
+        <link rel="SHORTCUT ICON" href="../icones/favicon.ico">
         <!-- Lincando os arquivos com de formatação e busca de CEP -->
         <script type="text/javascript" src="../Javascript/formatterFields.js"></script>
 		<script type="text/javascript" src="../Javascript/CEP.js"></script>
@@ -48,7 +48,7 @@
             function SubmitInstituicao(caminho){
                 if(caminho==1){
                     // seta o action do formulário "insti" "verinstituicoes.php" 
-                    document.getElementById('insti').action = "instituicao/verinstituicoes.php";
+                    document.getElementById('insti').action = "instituicao/verInstituicoes.php";
                     document.getElementById('insti').submit();
                 }
                 if(caminho==2){
@@ -154,7 +154,7 @@
                     </form><!-- fim do formulário -->
                 </fieldset><!-- fim do fieldset -->
                     <!-- iframe verinstituicoes.php na pagina, do ponto de vista do usuário correponde àpenas uma tabela com os dados da instituição  -->
-                    <iframe name="instituicao" src="instituicao/verinstituicoes.php"></iframe>
+                    <iframe name="instituicao" src="instituicao/verInstituicoes.php"></iframe>
                 </center>
             </div><!-- fim da divi item2 -->
             <div id="item3"><!-- inicio div item3 -->
