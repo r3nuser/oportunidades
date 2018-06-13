@@ -23,27 +23,11 @@
         <!-- Lincando os arquivos com de formatação e busca de CEP -->
         <script type="text/javascript" src="../Javascript/formatterFields.js"></script>
 		<script type="text/javascript" src="../Javascript/CEP.js"></script>
+        <script type="text/javascript" src="../Javascript/submit.js"></script>
         <title>Oportunidades - Admin</title>
        <!-- Script inline que muda o action dos formulários -->
         <script>
-            function Submit(caminho){
-                // seta no action o caminho para o arquivo verCursos.php 
-                if(caminho==1){
-                    document.forms[0].action = "cursos/verCursos.php";
-                    document.forms[0].submit();
-                }
-                // seta no action o caminho para o arquivo deletarCurso.php caso o usuário confime essa escolha
-                if(caminho==2){
-                var option = confirm("Essa ação apagará o curso selecionado do banco de dados e não poderá ser desfeita. Deseja continuar?");
-                    if(option==true){
-                        document.forms[0].action = "cursos/deletarCurso.php";
-                        document.forms[0].submit();
-                    }else{
-                        // caso o usuário desita de fazer a deleção, a pagina é recarregada
-                        location.href="http://localhost/oportunidades/adm/#item1";
-                    }
-                }
-            }
+            
             // segunda função para mudar o action
             function SubmitInstituicao(caminho){
                 if(caminho==1){
@@ -80,6 +64,7 @@
                     }
                 }
             }
+            
         </script>
     </head>
     <body>
@@ -99,14 +84,13 @@
                     <fieldset class="cadCurso-Field"><!-- Inicio do fieldset -->
                         <legend>Cadastrar Novo Curso</legend>
                         
-                        <form action="" target="curso" method="GET"><!-- Formulário sem um action definido -->
+                        <form action="cursos/verCursos.php" target="curso" method="GET">
                             <label class="formulario" for="cursoNome">Nome do Curso:<font color="red">*</font></label>
-                            <input class="entrada" type="text" name="cursoNome" required/>
-                            <br>
-                            <br>
+                            <input class="entrada" onkeypress="handleEnter(event)" type="text" value="" name="cursoNome" required/>
+                            
                                 <!-- Botões submit: On click a função Submit é disparada para mudar o action do formulário -->
-                               <input class="bntCaddastrar" type="button" onclick="Submit('1');" value="Cadastrar"> 
-                               <input class="bntDeletar" type="button" onclick="Submit('2');" value="Deletar"> 
+                               <input class="bntEX" type="submit" onclick="return confirmCadastro()" value="Cadastrar"> 
+                               <!-- <input class="bntDeletar" type="button" onclick="Submit('2');" value="Deletar"> -->
                         </form><!-- fim do formulário -->
                     </fieldset><!-- fim do fieldset -->
                     <!-- iframe verinstituicoes.php na pagina, do ponto de vista do usuário correponde àpenas uma tabela com os dados do curso  -->

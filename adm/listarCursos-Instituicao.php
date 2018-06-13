@@ -122,7 +122,7 @@ $con = open_connection();
                     <td><input name='inicio' required maxlength='10' size='8' class='entrada' type='text' onkeydown='javascript: fMasc( this, mData );' value='$periodo[0]'></td>
                     <td><input name='fim' required maxlength='10' size='8' class='entrada' type='text' onkeydown='javascript: fMasc( this, mData );' value='$periodo[1]'></td>
                     <td><input name='turno' required maxlength='10' size='6' class='entrada' type='text' value='$periodo[2]'></td>
-                    <td><input type='image' src='../icones/editar.png' value='Editar'/> </td>
+                    <td><zzz type='image' src='../icones/editar.png' value='Editar'/> </td>
                 </form>
             </tr>";
             }

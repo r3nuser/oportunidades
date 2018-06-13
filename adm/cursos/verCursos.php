@@ -30,6 +30,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="../../css/style.css">
+        <script src="../../Javascript/submit.js"></script>
         <title>Aluno Tabela</title>
         <style>
             body{
@@ -37,6 +38,11 @@
             }
             input{
                 border:none;
+            }
+            button{
+                border: none;
+                background-color: #ffffff;
+                cursor: pointer;
             }
         </style>
     
@@ -48,6 +54,7 @@
                     <th>ID</th>
                     <th>Nome do Curso</th>
                     <th>Atualizar</th>
+                    <th>Deletar</th>
                 </thead>
                 <tbody>
                     <?php
@@ -63,8 +70,8 @@
                                     <form id='formulario' action='atualizarCurso.php' method='get'>
                                         <td><input class='entrada' name='id' size='1' type='text' value='$id'</td>
                                         <td><input class='entrada' name='nome' size='30' type='text' value='$nome'</td>
-                                        <td><input type='image' src='../../icones/editar.png' value='Editar'/> </td>
-
+                                        <td><button type='submit' name='botao' onclick='return confirmUpdate();' value='Editar'/><img src='../../icones/editar.png'/></button> </td>
+                                        <td><button type='submit' name='botao' onclick='return confirmDelete();' value='Deletar'/><img src='../../icones/deletar.png'/></button> </td>
                                     </form>
                                 </tr>   
                             ";

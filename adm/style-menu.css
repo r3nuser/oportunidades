@@ -80,7 +80,7 @@ div.main div:target {/* adm/index.php */
 
 iframe{/* adm/index.php */
     width:75%;
-    height:600px;
+    height:1600px;
     border:none;
 }
 .cad-insti{/* adm/index.php */
@@ -98,7 +98,7 @@ iframe{/* adm/index.php */
 
 /* adm/index.php */
 #item1{
-    padding-top: 5%
+    padding-top: 1%
 }
 #item2{
     padding-top: 5%
