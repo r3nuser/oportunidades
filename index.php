@@ -2,7 +2,8 @@
 	<head>
 		<title>Formulário de Mátricula</title>
 		<link REL="SHORTCUT ICON" HREF="icones/favicon.ico">
-		<link REL="STYLESHEET" HREF="CSS/STYLE.CSS" TYPE="TEXT/CSS"/>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+		<link REL="STYLESHEET" HREF="CSS/style.css" TYPE="TEXT/CSS"/>
 		<link REL="STYLESHEET" HREF="CSS/index-div.css" TYPE="TEXT/CSS"/>
 		<meta charset="UTF-8">
 		<script type="text/javascript" src="Javascript/formatterFields.js"></script>
@@ -43,7 +44,7 @@
 						<span class="ocultos" id="cursoI"><b>escolha um dos cursos abaixo</b></span>
 						<br>
 						<br>
-						<input  id="APN" type="radio"onclick="escolheCurso()" name="escolha" value="" checked/>selecione um dos campos abaixo</br>
+						<input  id="APN" type="radio" onclick="escolheCurso()" name="escolha" value="" checked/>selecione um dos campos abaixo</br>
 						<?php
 							include("conexao.php");
 							$con = open_connection();
@@ -63,11 +64,11 @@
 						<!--Campo Telefone1-->
 						<label class="formulario">Telefone/Celular 01:<font color="red">*</font></label>
 						<input class="entrada"  type="text"  name="telefone"  id="telefone"  size="14"  maxlength="14"  onkeydown="javascript: fMasc( this, mTel );"  onblur="verify(this.value,'telefone','tel')"/>
-						<span class="ocultos" id="tel"><b>Infome um telefone</b></span>
+						<span class="ocultos" id="tel"><b>Informe um telefone</b></span>
 						<!--Campo Telefone2-->
 						<label class="formulario">Telefone/Celular 02:<font color="red">*</font></label>
 						<input class="entrada"  type="text"  name="celular"  id="celular"  size="14"  maxlength="14"  onkeydown="javascript: fMasc( this, mTel );"  onblur="verify(this.value,'celular','cel')"/>
-						<span class="ocultos" id="cel"><b>Infome um telefone</b></span></br>
+						<span class="ocultos" id="cel"><b>Informe um telefone</b></span></br>
 						<!--Campo E-mail-->
 						<label class="formulario">E-mail:<font color="red">*</font></label>
 						<input class="entrada" 	 type="mail" name="email"  id="email"  value=""  size="25"  onblur="return IsEmail(this.value)"/>
