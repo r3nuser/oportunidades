@@ -64,6 +64,7 @@ $con = open_connection();
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="../../css/style.css">
         <script type="text/javascript" src="../../Javascript/formatterFields.js"></script>
+        <script src="../../Javascript/submit.js"></script>
         <title>Instituição Tabela</title>
         <style>
             body{
@@ -71,6 +72,11 @@ $con = open_connection();
             }
             input{
                 border:none;
+            }
+            button{
+                border: none;
+                background-color: #ffffff;
+                cursor: pointer;
             }
         </style>
     </head>
@@ -88,6 +94,7 @@ $con = open_connection();
                     <th>Cidade</th>
                     <th>Número</th>
                     <th>Atualizar</th>
+                    <th>Deletar</th>
 
                 </thead>
                 <tbody>
@@ -135,7 +142,8 @@ $con = open_connection();
                                                 <td><input class='entrada' name='bairo' size='10' type='text' value='$bairo'/></td>
                                                 <td><input class='entrada' name='cidade' size='10' type='text' value='$cidade'/></td>
                                                 <td><input class='entrada' name='numeroResidencia' size='2' type='text' value='$numeroResidencia'/></td>
-                                                <td><input type='image' src='../../icones/editar.png' value='Editar'/> </td>
+                                                <td><button type='submit' name='botao' onclick='return confirmUpdate();' value='Editar'/><img src='../../icones/editar.png'/></button> </td>
+                                                <td><button type='submit' name='botao' onclick='return confirmDelete();' value='Deletar'/><img src='../../icones/deletar.png'/></button> </td>
                                             </form>
                                         </tr>";
                                     }

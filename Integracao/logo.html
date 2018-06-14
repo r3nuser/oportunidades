@@ -1,0 +1,108 @@
+<html>
+
+<head>
+	<style>
+		body {
+			background-color: rgb(240, 240, 240);
+		}
+
+		.thick-green-border {
+			border-style: solid;
+			border-width: 10px;
+			border-radius: 50%;
+			border-color: white;
+			transition-duration: 500ms;
+		}
+
+		.thick-green-border:hover {
+			border-color: rgb(0, 140, 220);
+		}
+
+		.small-img {
+			width: 120px;
+			margin: 20px;
+		}
+
+		.gadget {
+			width: 300px;
+			display: block;
+			font-size: 16px;
+		}
+
+		.low-bar {
+			margin-top: -10px;
+			margin-left: 80px;
+			margin-right: 80px;
+			margin-bottom: 2px;
+			padding: 0px;
+			border-bottom: solid 2px rgb(0, 140, 220);
+		}
+		.divcounter{
+			display: flex;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="gadget-div">
+		
+	</div>
+		
+	<script>
+		addPolo("CEET", "Informática", "26/08/1999", "26/08/2100", "26/08/2100","http://www.google.com");
+		
+
+		function addPolo(polo, curso, inicio, fim, resultado,href) {
+			var gadget = document.createElement('div');
+			gadget.className = 'gadget';
+			gadget.align = 'center';
+			var a = document.createElement('a');
+			a.href = href;
+			var img = document.createElement('img');
+			img.src = 'logo.png';
+			img.className = 'thick-green-border small-img';
+			var header = document.createElement('h3');
+			var hr = document.createElement('hr');
+			hr.className = 'low-bar';
+			var p = document.createElement('p');
+			header.innerHTML = 'POLO ' + polo + ' - ' + curso;
+			p.innerHTML = 'Início Inscrições :' + inicio + ' – ' + fim + '<br>	Resultado Inscrições : ' + resultado;
+			a.appendChild(img);
+			gadget.appendChild(a);
+			gadget.appendChild(header);
+			gadget.appendChild(hr);
+			gadget.appendChild(p);
+			addGadget(gadget);
+		}
+		function addGadget(gadget){
+
+			var div = document.getElementById("gadget-div");
+			var divinto;
+			var length = document.querySelectorAll('#gadget-div .divcounter').length;
+			
+			if(length == 0){
+				divinto = document.createElement('div');
+				divinto.id = 'divinto'+(length+1);
+				divinto.className = 'divcounter';
+			}else{
+				var lengthinto = document.querySelectorAll('#divinto'+length+' .gadget').length;
+				if(lengthinto<4){
+					divinto = document.getElementById('divinto'+length);
+				}else{
+					divinto = document.createElement('div');
+					divinto.id = 'divinto'+(length+1);
+					divinto.className = 'divcounter';
+				}
+			}
+			
+			divinto.appendChild(gadget);
+			div.appendChild(divinto);
+
+		}
+
+	</script>
+	
+
+</body>
+
+</html>

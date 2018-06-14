@@ -1,3 +1,9 @@
+function confirmCadastro() {
+    if(confirm("Deseja realizar um  novo cadastro?"))
+        return true;
+    else
+        return false;  
+}
 function confirmUpdate(){
     
     if(confirm("Deseja alterar os dados cadastrados?"))
@@ -11,12 +17,13 @@ function confirmDelete() {
     else
         return false;  
 }
-function confirmCadastro() {
-    if(confirm("Deseja realizar um  novo cadastro?"))
+function confirmReclass() {
+    if(confirm("Deseja reclasssificar o candidato?"))
         return true;
     else
         return false;  
 }
+
 // detect enter keypress
 function handleEnter(e){
     var keycode = (e.keyCode ? e.keyCode : e.which);

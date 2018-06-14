@@ -18,6 +18,8 @@
         <link REL="STYLESHEET" HREF="style-table.CSS" TYPE="TEXT/CSS"/>
         <link rel="stylesheet" href="../../css/style.css">
         <script type="text/javascript" src="../../Javascript/formatterFields.js"></script>
+        <script src="../../Javascript/submit.js"></script>
+
         <style>
             body{
                 background-image: none;
@@ -25,6 +27,11 @@
             input{
                 border:none;
             }
+            button{
+                border: none;
+                background-color: #ffffff;
+                cursor: pointer;
+        }
         </style>
     </head>
     <body>
@@ -126,8 +133,9 @@
                                             <td><input class='entrada' name='cidade'  size='5' type='text' value='$cidade'/></td>
                                             <td><input class='entrada' name='numero'  size='4' type='text' value='$numeroResidencia'/></td>
                                             <td><input class='entrada' name='alunoID'  size='4' type='text' value='$alunoID'/></td>
-                                            <td><input type='image' name='botao' value='editar' onclick='return confirm(\"Are you sure?\")' src='../../icones/editar.png'/> </td>
-                                            <td><input type='image' name='botao' value='excluir' onclick='return confirm(\"Are you sure?\")' src='../../icones/novaexcluir.png' '/> </td>
+                                            <td><button type='submit' name='botao' onclick='return confirmUpdate();' value='editar'/><img src='../../icones/editar.png'/></button> </td>
+                                            <td><button type='submit' name='botao' onclick='return confirmReclass();' value='excluir'/><img src='../../icones/novaexcluir.png'/></button> </td>
+                                            
                                         </form>
                                     </tr>
                                 ";
@@ -202,7 +210,8 @@
                                             <td><input class='entrada' size='4' type='text' value='".$rg['numeroResidencia']."'/></td>
                                             <td><input name='alunoDuplicadoID' class='entrada' size='4' type='text' value='".$rg['alunoDuplicadoID']."'/></td>
                                             <td><input name='IDtabelaPrincipal' class='entrada' size='4' type='text' value='".$rg['IDtabelaPrincipal']."'/></td>
-                                            <td><input type='image' name='botao' value='reclassificar' onclick='return confirm(\"Are you sure?\")' src='../../icones/reclassificar.png' '/> </td>
+                                            <td><button type='submit' name='botao' onclick='return confirmReclass();' value='reclassificar'/><img src='../../icones/reclassificar.png'/></button> </td>
+                                            
                                         </form>
                                     </tr>
                                 ";

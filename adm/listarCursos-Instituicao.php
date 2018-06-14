@@ -59,15 +59,17 @@ $con = open_connection();
         $instituicaoNome = $_POST['local2'];
         $instituicaoID = returnIDInstituicao($instituicaoNome,$con);
         $_SESSION['instituicaoID'] = $instituicaoID;
+        $_SESSION['instituicaoNome'] = $instituicaoNome;
         
     }else{
         if(!empty($_SESSION['instituicaoID']))
-        $instituicaoID = $_SESSION['instituicaoID'];
+            $instituicaoID = $_SESSION['instituicaoID'];
+        if(!empty($_SESSION['instituicaoNome']))
+            $instituicaoNome = $_SESSION['instituicaoNome'];
+        
     }
 
 
-
-    
 
 ?>
 <html>
@@ -75,6 +77,7 @@ $con = open_connection();
     <!-- <link REL="STYLESHEET" HREF="prepareTableToExport/style-table.CSS" TYPE="TEXT/CSS"/> -->
     <script type="text/javascript" src="../Javascript/formatterFields.js"></script>
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../Javascript/submit.js"></script>
     <style>
     body{
         background-image: none;
@@ -82,6 +85,11 @@ $con = open_connection();
     }
     input{
         border: none;
+    }
+    button{
+        border: none;
+        background-color: #ffffff;
+        cursor: pointer;
     }
     </style>
     </head>
@@ -99,6 +107,7 @@ $con = open_connection();
             <th>Término</th>
             <th>Turno</th>
             <th>Atualizar</th>
+            <th>Remover</th>
         </thead>
         <tbody>
         <?php
@@ -122,7 +131,8 @@ $con = open_connection();
                     <td><input name='inicio' required maxlength='10' size='8' class='entrada' type='text' onkeydown='javascript: fMasc( this, mData );' value='$periodo[0]'></td>
                     <td><input name='fim' required maxlength='10' size='8' class='entrada' type='text' onkeydown='javascript: fMasc( this, mData );' value='$periodo[1]'></td>
                     <td><input name='turno' required maxlength='10' size='6' class='entrada' type='text' value='$periodo[2]'></td>
-                    <td><zzz type='image' src='../icones/editar.png' value='Editar'/> </td>
+                    <td><button type='submit' name='botao' onclick='return confirmUpdate();' value='Editar'/><img src='../icones/editar.png'/></button> </td>
+                    <td><button type='submit' name='botao' onclick='return confirmDelete();' value='Deletar'/><img src='../icones/deletar.png'/></button> </td>
                 </form>
             </tr>";
             }

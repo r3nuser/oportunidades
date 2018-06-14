@@ -377,5 +377,24 @@ function isRegistered($cpf,$nome,$dataDeNascimento,$email,$con){
             }
     }
 }
+function isInstituicaoCourseLinked($con,$id){
+    
+    $sql = "SELECT `fk_instituicao_id` FROM `curso_instituicao` WHERE `fk_instituicao_id`='$id'";
+    if(!$rs = mysqli_query($con,$sql)){
+
+        echo("Error description: " . mysqli_error($con)."<br>");
+        
+    }else{
+
+        while($rg = mysqli_fetch_array($rs)){
+        
+            $flag= $rg['fk_instituicao_id'];
+        }
+        if(!empty($flag))
+        return true;
+        else return false;
+
+    }
+}
 
 ?>

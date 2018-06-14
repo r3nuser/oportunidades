@@ -14,21 +14,21 @@
         echo "Descrição do Erro: ". mysqli_error($con);
     else{
         while ($rg=mysqli_fetch_array($rs)) {
-            echo "<br>".$aluno_cpf=$rg['aluno_cpf'];
-            echo "<br>".$nome=$rg['nome'];
-            echo "<br>".$dataDeNascimento=$rg['dataDeNascimento'];
-            echo "<br>".$email=$rg['email'];
-            echo "<br>".$trabalhando=$rg['trabalhando'];
-            echo "<br>".$expec_sobre_curso=$rg['expec_sobre_curso'];
-            echo "<br>".$como_conheceu=$rg['como_conheceu'];
-            echo "<br>".$FK_idCurso=$rg['FK_idCurso'];
-            echo "<br>".$cep=$rg['cep'];
-            echo "<br>".$rua=$rg['rua'];
-            echo "<br>".$bairro=$rg['bairro'];
-            echo "<br>".$cidade=$rg['cidade'];
-            echo "<br>".$numeroResidencia=$rg['numeroResidencia'];
-            echo "<br>".$telefone1=$rg['telefone1'];
-            echo "<br>".$telefone2=$rg['telefone2'];
+            $aluno_cpf=$rg['aluno_cpf'];
+            $nome=$rg['nome'];
+            $dataDeNascimento=$rg['dataDeNascimento'];
+            $email=$rg['email'];
+            $trabalhando=$rg['trabalhando'];
+            $expec_sobre_curso=$rg['expec_sobre_curso'];
+            $como_conheceu=$rg['como_conheceu'];
+            $FK_idCurso=$rg['FK_idCurso'];
+            $cep=$rg['cep'];
+            $rua=$rg['rua'];
+            $bairro=$rg['bairro'];
+            $cidade=$rg['cidade'];
+            $numeroResidencia=$rg['numeroResidencia'];
+            $telefone1=$rg['telefone1'];
+            $telefone2=$rg['telefone2'];
         }
     }
     $courseName = returnNameCourse($FK_idCurso,$con);

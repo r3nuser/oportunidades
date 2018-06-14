@@ -3,12 +3,15 @@
     include("../../returnID.php");
     
         $con = open_connection();
-        $nome =  $_POST['nome'];
+        $nome =  $_GET['nome'];
+
         if($nome!=""){
 
-            $id = returnIDInstituicao($_POST['nome'],$con);
-            if (isset($id)){
+            $id = returnIDInstituicao($_GET['nome'],$con);
 
+            if (isset($id)){
+                if(!isInstituicaoCourseLinked($con,$id)){
+                
                 $sql = "DELETE FROM `endereco` WHERE fk_instituicao_id = $id";
 
                 if(!$rs = mysqli_query($con,$sql)){
@@ -38,8 +41,14 @@
                         }
                     }
                 }
-            }else{
-                echo"<script>alert('Digite uma instituição válida!')</script>";
+            }// isInstituicaoCourseLinked end
+            else {
+                echo"<script>alert('Existem cursos ocorrendo na instituição $nome')</script>";
+                echo "<script>location.href='verInstituicoes.php'</script>";
+                close_connection($con);
+            }
+        }else{
+                echo"<script>alert('Digite uma instituição válida!$nome')</script>";
                 echo "<script>location.href='verInstituicoes.php'</script>";
                 close_connection($con);
             }

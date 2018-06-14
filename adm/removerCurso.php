@@ -3,10 +3,11 @@
     include('../returnID.php');
     
     $con=open_connection();
-
-    echo $instituicaoID = returnIDInstituicao($_POST['local'],$con);
+    // = returnIDInstituicao($_GET['local'],$con);
+    // = returnIDCourse($_GET['curso'],$con);
+    $instituicaoID = $_GET['instituicaoID'];
     
-     echo $courseID = returnIDCourse($_POST['curso'],$con);
+    $courseID = $_GET['courseID'];
 
      $sql = "DELETE FROM `periodo_curso` WHERE fk_cursoID='$courseID' AND fk_instituicaoID='$instituicaoID'";
     

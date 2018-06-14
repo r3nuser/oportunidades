@@ -79,7 +79,7 @@ div.main div:target {/* adm/index.php */
 }
 
 iframe{/* adm/index.php */
-    width:75%;
+    width:100%;
     height:1600px;
     border:none;
 }

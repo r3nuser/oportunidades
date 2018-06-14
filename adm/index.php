@@ -28,42 +28,6 @@
        <!-- Script inline que muda o action dos formulários -->
         <script>
             
-            // segunda função para mudar o action
-            function SubmitInstituicao(caminho){
-                if(caminho==1){
-                    // seta o action do formulário "insti" "verinstituicoes.php" 
-                    document.getElementById('insti').action = "instituicao/verInstituicoes.php";
-                    document.getElementById('insti').submit();
-                }
-                if(caminho==2){
-                    // caso o usuário confirme a exclusão, o action do form "insti" será setado com o caminho "deletarInstituicao.php"
-                var option = confirm("Essa ação apagará a instituição selecionada do banco de dados e não poderá ser desfeita. Deseja continuar?");
-                    if(option==true){
-                        document.getElementById('insti').action = "instituicao/deletarInstituicao.php";
-                        document.getElementById('insti').submit();
-                    }else{
-                        // caso o usuário desita de fazer a deleção, a pagina é recarregada
-                        location.href="http://localhost/oportunidades/adm/#item2";
-                    }
-                }
-                if(caminho==3){
-                    // seta o action do formulário "cad" "listarCursos-Instituicao.php" 
-                    document.getElementById('cad').action = "listarCursos-Instituicao.php";
-                    document.getElementById('cad').submit();
-                }
-                if(caminho==4){
-                    
-                    // caso o usuário confirme a exclusão, o action do form "cad" será setado com o caminho "deletarInstituicao.php"
-                    var option = confirm("Essa ação removerá o curso  da instituição selecionada. Deseja continuar?");
-                    if(option==true){
-                    document.getElementById('cad').action = "removerCurso.php";
-                    document.getElementById('cad').submit();
-                    }else{
-                        // caso o usuário desita de fazer a deleção, a pagina é recarregada
-                         location.href="http://localhost/oportunidades/adm/#item3";
-                    }
-                }
-            }
             
         </script>
     </head>
@@ -102,7 +66,7 @@
                 <center>
                     <fieldset class="cad-insti">
                     <legend>Cadastrar Instituição</legend>
-                    <form id="insti"name="instituicaoForm" target="instituicao" action="" method="POST"><!-- inicio do formulário "insti" -->
+                    <form id="insti"name="instituicaoForm" target="instituicao" action="instituicao/verInstituicoes.php" method="POST"><!-- inicio do formulário "insti" -->
                         <!--Campo Nome-->
                         <label class="formulario">Nome da Instituição: <font color="red">*</font></label>
                         <input required class="entrada" type="text" name="nome" id="nome"size="30"/>
@@ -130,11 +94,10 @@
                         <!--Campo Número-->
                         <label class="formulario">Número (S/N caso não haja):<font color="red">*</font></label>
                         <input required class="entrada"  type="text"  name="numeroResidencia"  value=""  id="numeroResidencia"/>
-                         <br> 
-                         <br>              
+                                     
                          <!-- Botões submit: On click a função SubmitInstituicao é disparada para mudar o action do formulário -->
-                        <input class="bntCaddastrar" type="button" onclick="SubmitInstituicao('1');" value="Cadastrar"> 
-                        <input class="bntDeletar" type="button" onclick="SubmitInstituicao('2');" value="Deletar"> 
+                        <input class="bntEX" type="submit" onclick="return confirmCadastro()" value="Cadastrar"> 
+                        
                     </form><!-- fim do formulário -->
                 </fieldset><!-- fim do fieldset -->
                     <!-- iframe verinstituicoes.php na pagina, do ponto de vista do usuário correponde àpenas uma tabela com os dados da instituição  -->
@@ -145,7 +108,7 @@
                 <center>
                     <fieldset  class="cad-insti"><!-- inicio do fieldset -->
                         <legend>Cadastrar curso na istituição</legend>
-                        <form name="curso-instituicao" id="cad" action="" target="listar" method="post"><!-- inicio do form -->
+                        <form name="curso-instituicao" id="cad" action="listarCursos-Instituicao.php" target="listar" method="post"><!-- inicio do form -->
                             <label for="local">Instituição onde o curso ocorrerá:<font color="red">*</font></label>
                             <!-- retorna do banco o nome das instituições -->
                             <select name="local" class="entrada" id="local">
@@ -202,8 +165,8 @@
                             <!-- Botões submit: On click a função SubmitInstituicao é disparada para mudar o action do formulário 
                             não houve necessidade de criar uma função especifica para esse formulário, como o do item 3 possúi pois estes estão identificados por
                             um id e sendo "pegos" apartir dele-->
-                            <input class="bntCaddastrar" type="button" onclick="SubmitInstituicao('3');" value="Cadastrar"> 
-                            <input class="bntDeletar" type="button" onclick="SubmitInstituicao('4');" value="Remover"> 
+                            <input class="bntEnviar" type="submit" onclick="return confirmCadastro()" value="Cadastrar"> 
+                            
                         </form><!-- fim do form -->
                     </fieldset><!-- fim do fielset -->
                     <br>
@@ -213,7 +176,7 @@
                         <!-- Retorna do banco as instituições cadastradas  -->
                         <label class="formulario">Selecione o local do curso:</label>
                         <select name="local2" class="entrada" id="local">
-                            <?php  
+                            <?php       
                                 $sql="SELECT * FROM instituicao";
                                 
                                 $resultado = mysqli_query($con,$sql) or die("Erro ao retornar dados");
